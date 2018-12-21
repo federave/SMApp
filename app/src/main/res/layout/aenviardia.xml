@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    android:paddingHorizontal="50dp"
+    android:visibility="visible" >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Día a Programa en la Oficina"
+        style="@style/texto"
+        android:textSize="30dp"
+        android:textColor="@color/colorAmarillo"
+        android:layout_marginBottom="40dp"
+        />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/aEnviarDiaLinearLayoutContraseña"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Debe ingresar contraseña de oficina"
+            style="@style/texto"
+            android:textSize="27dp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:paddingHorizontal="80dp"
+            android:orientation="vertical"
+            >
+
+
+            <EditText
+                android:id="@+id/aEnviarDiaEditTextContraseña"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="contraseña aqui"
+                android:inputType="textPassword"
+                android:text=""
+                android:gravity="center_horizontal"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:id="@+id/aEnviarDiaLinearLayoutEnviar"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="100dp"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            >
+
+        <Button
+            android:id="@+id/aEnviarDiaButtonEnviar"
+            android:text="Enviar"
+            style="@style/button"
+            android:layout_marginBottom="60dp"
+            />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultados del Envío:"
+            style="@style/texto"
+            android:textSize="28dp"
+            android:layout_marginBottom="40dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repartos enviados: 1 de 100"
+            style="@style/texto"
+            android:textSize="25dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/aEnviarDiaTextViewRepartosEnviados"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gastos enviados: 1 de 10"
+            style="@style/texto"
+            android:textSize="25dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/aEnviarDiaTextViewGastosEnviados"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cargas enviadas: 1 de 100"
+            style="@style/texto"
+            android:textSize="25dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/aEnviarDiaTextViewCargasEnviadas"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descargas enviadas: 1 de 100"
+            style="@style/texto"
+            android:textSize="25dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/aEnviarDiaTextViewDescargasEnviadas"
+            />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="100dp"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        >
+
+
+
+
+        <Button
+            android:id="@+id/aEnviarDiaButtonRetornar"
+            android:text="Retornar"
+            style="@style/buttonRetornar"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="5dp"
+    android:id="@+id/lRepartosContenedor"
+    android:layout_marginBottom="10dp"
+    >
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:id="@+id/lRepartosTipo"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/lRepartosTipo"
+        android:orientation="vertical"
+        android:id="@+id/lRepartosDatos"
+        android:layout_marginRight="15dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/lRepartosNombre"
+            android:text="Carlos Romero"
+            android:layout_marginBottom="5dp"
+            style="@style/texto"
+            android:textSize="19dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/lRepartosDireccion"
+            android:text="487 entre 15 y 16 numero 456"
+            style="@style/texto"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/lRepartosLlamado"
+        android:orientation="horizontal"
+        android:layout_marginRight="5dp"
+        >
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="60dp"
+        android:id="@+id/lRepartosPagoAlquiler"
+        android:layout_marginLeft="5dp"
+        />
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="60dp"
+        android:id="@+id/lRepartosEntrega"
+        android:layout_marginLeft="5dp"
+        />
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="60dp"
+        android:id="@+id/lRepartosVacios"
+        android:layout_marginLeft="5dp"
+        />
+
+
+    </LinearLayout>
+
+
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:id="@+id/lRepartosLlamado"
+        android:layout_toLeftOf="@+id/lRepartosInactividad"
+        />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:id="@+id/lRepartosInactividad"
+        android:layout_toLeftOf="@+id/lRepartosVisita"
+        android:layout_marginLeft="15dp"
+        />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:id="@+id/lRepartosVisita"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="15dp"
+        />
+
+
+
+
+
+
+</RelativeLayout>

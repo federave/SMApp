@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+
+
+
+    <style name="buttonStyle">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background"></item>
+        <item name="android:textSize">30px</item>
+    </style>
+
+
+    <style name="texto">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColorHint">#FFFFFF</item>
+    </style>
+
+
+    <style name="textoDatosCliente" parent="texto" >
+        <item name="android:textSize">25dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="textoDatosClienteTitulo" parent="texto" >
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">40dp</item>
+        <item name="android:textColor">@color/colorAmarillo</item>
+    </style>
+
+    <style name="textoDatosCargamento" parent="texto" >
+        <item name="android:textSize">23dp</item>
+    </style>
+
+
+
+    <style name="linearLayoutCabecera">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style name="textViewCabecera">
+        <item name="android:textColor">@color/colorCabecera</item>
+        <item name="android:textSize">45dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="relativeLayoutCabecera">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:layout_marginTop">30dp</item>
+    </style>
+
+
+    <style name="imageViewLeftCabecera">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/goback</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+    </style>
+
+    <!--
+
+<style name="textViewCabeceraRelativeLayout">
+    <item name="android:textColor">@color/colorCabecera</item>
+    <item name="android:textSize">45dp</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_toRightOf">@+id/imageViewLeftCabecera</item>
+    <item name="android:layout_marginLeft">110dp</item>
+</style>
+    -->
+
+
+
+<style name="imageViewRightCabecera">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:background">@drawable/goup</item>
+    <item name="android:layout_alignParentRight">true</item>
+    <item name="android:layout_marginTop">5dp</item>
+    <item name="android:layout_marginRight">20dp</item>
+
+
+</style>
+
+<style name="button">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">80dp</item>
+    <item name="android:textColor">#FFFFFF</item>
+    <item name="android:background">@drawable/boton</item>
+    <item name="android:textSize">24dp</item>
+</style>
+
+<style name="buttonRetornar" parent="button" >
+    <item name="android:background">@drawable/botonsalir</item>
+</style>
+
+<style name="buttonEnviarDia" parent="button" >
+    <item name="android:background">@drawable/botonenviardia</item>
+</style>
+
+
+
+
+<style name="MyDatePicker" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="android:textColorPrimary">@color/colorAccent</item>
+</style>
+
+<style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <item name="colorControlNormal">@android:color/white</item>
+    <item name="colorControlActivated">@color/colorAccent</item>
+    <item name="textColorAlertDialogListItem">@android:color/white</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:textSize">22dp</item>
+    <item name="android:textColorPrimary">@android:color/white</item>
+    <item name="android:windowBackground">@drawable/fondodatepicker</item>
+</style>
+
+
+
+</resources>

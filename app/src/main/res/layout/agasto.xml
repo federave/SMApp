@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="50dp"
+            android:layout_marginTop="40dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datos del Gasto"
+                style="@style/texto"
+                android:textSize="30dp"
+                android:layout_marginBottom="40dp"
+                />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Combustible"
+                style="@style/texto"
+                android:textSize="28dp"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/aGastoCheckBoxCombustible"
+
+                />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Combustible con Tarjeta"
+                style="@style/texto"
+                android:textSize="28dp"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/aGastoCheckBoxCombustibleConTarjeta"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descripcion"
+                    style="@style/texto"
+                    android:textSize="28dp"
+                    android:layout_marginBottom="40dp"
+                    />
+
+                <EditText
+                    android:id="@+id/aGastoEditTextDescripcion"
+                    style="@style/Widget.AppCompat.EditText"
+                    android:layout_width="500dp"
+                    android:layout_height="100dp"
+                    android:singleLine="false"
+                    android:lines="3"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="24dp"
+                    android:inputType="textMultiLine"
+                    android:scrollHorizontally="false"
+                    android:gravity="top|left"
+                    android:hint="Descripcion"
+                    />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="0dp"
+            android:layout_marginTop="70dp"
+            >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/texto"
+                    android:textSize="25dp"
+                    android:text="Dinero gastado: "/>
+
+                <EditText
+                    android:id="@+id/aGastoEditTextDinero"
+                    style="@style/Widget.AppCompat.EditText"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="25dp"
+                    android:inputType="numberDecimal"
+                    android:layout_marginLeft="30dp"
+                    />
+
+        </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="120dp"
+                android:layout_marginTop="70dp"
+                >
+                <Button
+                    android:id="@+id/aGastoButtonGuardar"
+                    style="@style/button"
+                    android:text="Guardar"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aGastoButtonBorrar"
+                    style="@style/button"
+                    android:text="Borrar"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aGastoButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:text="Retornar"
+                    android:layout_marginBottom="50dp"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

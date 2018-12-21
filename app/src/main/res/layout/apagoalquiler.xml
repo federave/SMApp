@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="20dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pagos Alquileres"
+                    style="@style/texto"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="60dp"
+                    android:layout_marginLeft="20dp"
+
+                    />
+
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/aPagoAlquilerLinearLayoutAlquileres6Bidones"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/fondoborde"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alquileres 6 Bidones"
+                    style="@style/textoDatosCargamento"
+                    android:layout_marginBottom="30dp"
+                    android:textSize="26dp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alquiler 6 Bidones Pagados: "
+                    style="@style/textoDatosCargamento"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/aPagoAlquilerTextViewAlquileres6BidonesPagados"
+                    />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquiler 6 Bidones Pago Completo"
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres6BidonesPagoCompleto"
+                        />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/aPagoAlquilerLinearLayoutAlquileres6BidonesPagos"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dinero: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres6BidonesDinero"
+                        android:layout_marginBottom="20dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+
+                        <TextView
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Alquileres a pagar: "
+                            style="@style/textoDatosCargamento"
+                            />
+                        <EditText
+                            android:id="@+id/aPagoAlquilerEditTextAlquiler6Bidones"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Max: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aPagoAlquilerTextViewAlquileres6BidonesMaximo"
+                            android:layout_marginLeft="20dp"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/aPagoAlquilerLinearLayoutAlquileres8Bidones"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/fondoborde"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquileres 8 Bidones"
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="30dp"
+                        android:textSize="26dp"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquiler 8 Bidones Pagados: "
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres8BidonesPagados"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquiler 8 Bidones Pago Completo"
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres8BidonesPagoCompleto"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/aPagoAlquilerLinearLayoutAlquileres8BidonesPagos"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dinero: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aPagoAlquilerTextViewAlquileres8BidonesDinero"
+                            android:layout_marginBottom="20dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Alquileres a pagar: "
+                                style="@style/textoDatosCargamento"
+                                />
+                            <EditText
+                                android:id="@+id/aPagoAlquilerEditTextAlquiler8Bidones"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Max: "
+                                style="@style/textoDatosCargamento"
+                                android:id="@+id/aPagoAlquilerTextViewAlquileres8BidonesMaximo"
+                                android:layout_marginLeft="20dp"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/aPagoAlquilerLinearLayoutAlquileres10Bidones"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/fondoborde"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquileres 10 Bidones"
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="30dp"
+                        android:textSize="26dp"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquiler 10 Bidones Pagados: "
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres10BidonesPagados"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquiler 10 Bidones Pago Completo"
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres10BidonesPagoCompleto"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/aPagoAlquilerLinearLayoutAlquileres10BidonesPagos"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dinero: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aPagoAlquilerTextViewAlquileres10BidonesDinero"
+                            android:layout_marginBottom="20dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Alquileres a pagar: "
+                                style="@style/textoDatosCargamento"
+                                />
+                            <EditText
+                                android:id="@+id/aPagoAlquilerEditTextAlquiler10Bidones"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Max: "
+                                style="@style/textoDatosCargamento"
+                                android:id="@+id/aPagoAlquilerTextViewAlquileres10BidonesMaximo"
+                                android:layout_marginLeft="20dp"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/aPagoAlquilerLinearLayoutAlquileres12Bidones"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/fondoborde"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquileres 12 Bidones"
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="30dp"
+                        android:textSize="26dp"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquiler 12 Bidones Pagados: "
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres12BidonesPagados"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alquiler 12 Bidones Pago Completo"
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginBottom="20dp"
+                        android:id="@+id/aPagoAlquilerTextViewAlquileres12BidonesPagoCompleto"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/aPagoAlquilerLinearLayoutAlquileres12BidonesPagos"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dinero: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aPagoAlquilerTextViewAlquileres12BidonesDinero"
+                            android:layout_marginBottom="20dp"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            >
+
+
+                            <TextView
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Alquileres a pagar: "
+                                style="@style/textoDatosCargamento"
+                                />
+                            <EditText
+                                android:id="@+id/aPagoAlquilerEditTextAlquiler12Bidones"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Max: "
+                                style="@style/textoDatosCargamento"
+                                android:id="@+id/aPagoAlquilerTextViewAlquileres12BidonesMaximo"
+                                android:layout_marginLeft="20dp"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="160dp"
+                android:layout_marginTop="50dp"
+                >
+                <Button
+                    android:id="@+id/aPagoAlquilerButtonGuardar"
+                    style="@style/button"
+                    android:text="Guardar"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aPagoAlquilerButtonBorrarDatos"
+                    style="@style/button"
+                    android:text="Borrar Datos"
+                    android:layout_marginBottom="50dp"
+                    />
+
+
+                <Button
+                    android:id="@+id/aPagoAlquilerButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:text="Retornar"
+                    android:layout_marginBottom="50dp"
+                    />
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

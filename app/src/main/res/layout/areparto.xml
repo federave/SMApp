@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="140dp"
+
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Cliente"
+            style="@style/texto"
+            android:textSize="28dp"
+            android:layout_marginBottom="50dp"
+            android:id="@+id/aRepartoTextViewNombreCliente"
+            />
+
+
+        <Button
+            android:id="@+id/aRepartoButtonVentaProductos"
+            android:text="Venta Productos"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+
+        <Button
+            android:id="@+id/aRepartoButtonDeudaProductos"
+            android:text="Deuda Productos"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+
+        <Button
+            android:id="@+id/aRepartoButtonAlquiler"
+            android:text="Alquiler"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+
+        <Button
+            android:id="@+id/aRepartoButtonVacios"
+            android:text="Vacios"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+
+        <Button
+            android:id="@+id/aRepartoButtonDatosCliente"
+            android:text="Datos Cliente"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+        <Button
+            android:id="@+id/aRepartoButtonObservacion"
+            android:text="Observación"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+        <Button
+            android:id="@+id/aRepartoButtonVisita"
+            android:text="Visita"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+
+        <Button
+            android:id="@+id/aRepartoButtonRetornar"
+            style="@style/buttonRetornar"
+            android:text="Retornar"
+            android:layout_marginBottom="50dp"
+            />
+
+    </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

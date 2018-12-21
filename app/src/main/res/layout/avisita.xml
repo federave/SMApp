@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    android:paddingHorizontal="40dp">
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+
+        <TextView
+            style="@style/textViewCabecera"
+            android:text="Saint Michel" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
+
+            <TextView
+                style="@style/texto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seleccione Visita"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+
+            <Spinner
+                android:id="@+id/aVisitaSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:textAlignment="center" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="80dp">
+
+                <Button
+                    android:id="@+id/aVisitaButtonGuardar"
+                    style="@style/button"
+                    android:layout_marginBottom="40dp"
+                    android:text="Guardar" />
+
+                <Button
+                    android:id="@+id/aVisitaButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:layout_marginBottom="30dp"
+                    android:text="Retornar" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

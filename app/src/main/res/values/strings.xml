@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Repartos Saint Michel</string>
+    <string name="buttonSeleccionarDia">Seleccionar Dia</string>
+    <string name="buttonConfigurar">Configurar</string>
+    <string name="textPrueba">probando</string>
+
+</resources>

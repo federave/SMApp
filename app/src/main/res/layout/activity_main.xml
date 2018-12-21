@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="80dp"
+    tools:context="com.federavesm.smapp.MainActivity"
+    android:background="@drawable/fondo"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="90dp"
+        android:orientation="vertical"
+        android:id="@+id/aConfiguracionLinearLayoutMenu"
+        android:paddingHorizontal="80dp"
+        >
+
+        <Button
+            android:id="@+id/buttonSeleccionarDia"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            android:text="Seleccionar Dia"
+            />
+
+        <Button
+            android:id="@+id/buttonCambiarUsuario"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            android:text="Cambiar Usuario"
+            />
+
+        <Button
+            android:id="@+id/buttonConfigurar"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            android:text="Configurar"
+            />
+
+        <Button
+            android:layout_marginBottom="50dp"
+            android:id="@+id/aButtonSalir"
+            android:text="Salir"
+            style="@style/buttonRetornar"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

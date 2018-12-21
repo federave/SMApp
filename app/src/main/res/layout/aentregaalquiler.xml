@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/fondoborde"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Entrega de Bidones"
+                    style="@style/texto"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/aEntregaAlquilerTextViewEntregaBidones"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Entrega de bidones de 20L completa"
+                    style="@style/textoDatosCargamento"
+                    android:id="@+id/aEntregaAlquilerTextViewEntrega20LCompleta"
+                    android:visibility="gone"
+                    android:layout_marginBottom="30dp"
+
+                    />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp"
+                    android:paddingHorizontal="50dp"
+                    android:id="@+id/aAlquilerLinearLayoutEntregaBidones20L"
+                    >
+
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 20L: "
+                        style="@style/textoDatosCargamento"
+                        />
+                    <EditText
+                        android:id="@+id/aAlquilerEditTextBidones20L"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="24dp"
+                        android:inputType="number"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Max: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aAlquilerTextViewBidones20LMaximo"
+                        android:layout_marginLeft="20dp"
+                        />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Entrega de bidones de 12L completa"
+                    style="@style/textoDatosCargamento"
+                    android:id="@+id/aEntregaAlquilerTextViewEntrega12LCompleta"
+                    android:visibility="gone"
+                    android:layout_marginBottom="30dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:paddingHorizontal="50dp"
+                    android:id="@+id/aAlquilerLinearLayoutEntregaBidones12L"
+                    >
+
+
+
+
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 12L: "
+                        style="@style/textoDatosCargamento"
+                        />
+                    <EditText
+                        android:id="@+id/aAlquilerEditTextBidones12L"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="24dp"
+                        android:inputType="number"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Max: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aAlquilerTextViewBidones12LMaximo"
+                        android:layout_marginLeft="20dp"
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/aExcedenteAlquilerLinearLayoutExcedente"
+            android:layout_marginTop="60dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Excedente de Bidones"
+                style="@style/textoDatosCargamento"
+                android:textSize="30dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="20dp"
+
+                />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/fondoborde"
+            android:layout_marginBottom="40dp"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dinero Venta: "
+                    style="@style/textoDatosCargamento"
+                    android:textSize="26dp"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/aExcedenteTextViewDineroVenta"
+                    />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/fondoborde"
+                android:id="@+id/aExcedenteLinearLayoutBidones20L"
+                android:layout_marginBottom="40dp"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Excedente Bidones de 20L"
+                    style="@style/texto"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:paddingHorizontal="50dp"
+                    >
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 20L: "
+                        style="@style/textoDatosCargamento"
+                        />
+                    <EditText
+                        android:id="@+id/aExcedenteEditTextBidones20L"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="24dp"
+                        android:inputType="number"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Venta "
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginLeft="20dp"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:paddingHorizontal="50dp"
+                    >
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 20L: "
+                        style="@style/textoDatosCargamento"
+                        />
+                    <EditText
+                        android:id="@+id/aExcedenteEditTextBidones20LACobrar"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="24dp"
+                        android:inputType="number"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A Cobrar "
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginLeft="20dp"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/fondoborde"
+                android:id="@+id/aExcedenteLinearLayoutBidones12L"
+                android:layout_marginBottom="40dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Excedente Bidones de 12L"
+                    style="@style/texto"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:paddingHorizontal="50dp"
+                    >
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 12L: "
+                        style="@style/textoDatosCargamento"
+                        />
+                    <EditText
+                        android:id="@+id/aExcedenteEditTextBidones12L"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="24dp"
+                        android:inputType="number"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Venta "
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginLeft="20dp"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="40dp"
+                    android:paddingHorizontal="50dp"
+                    >
+                    <TextView
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 12L: "
+                        style="@style/textoDatosCargamento"
+                        />
+                    <EditText
+                        android:id="@+id/aExcedenteEditTextBidones12LACobrar"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="24dp"
+                        android:inputType="number"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A Cobrar "
+                        style="@style/textoDatosCargamento"
+                        android:layout_marginLeft="20dp"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="160dp"
+                android:layout_marginTop="50dp"
+                >
+
+                <Button
+                    android:id="@+id/aExcedenteButtonGuardar"
+                    style="@style/button"
+                    android:text="Guardar"
+                    android:layout_marginBottom="50dp"
+                    />
+
+                <Button
+                    android:id="@+id/aExcedenteButtonBorrarDatos"
+                    style="@style/button"
+                    android:text="Borrar Datos"
+                    android:layout_marginBottom="50dp"
+                    />
+
+                <Button
+                    android:id="@+id/aExcedenteButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:text="Retornar"
+                    android:layout_marginBottom="50dp"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

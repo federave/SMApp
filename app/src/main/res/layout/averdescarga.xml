@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="100dp"
+
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Datos de la Descarga"
+                style="@style/texto"
+                android:textSize="30dp"
+                android:layout_marginBottom="30dp"
+                android:textAlignment="center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hora: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewHora"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bidones 20L: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewBidones20L"
+                android:layout_marginBottom="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bidones 20L Vacios: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewBidones20LVacios"
+                android:layout_marginBottom="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bidones 12L: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewBidones12L"
+                android:layout_marginBottom="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bidones 12L Vacios: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewBidones12LVacios"
+                android:layout_marginBottom="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bidones 10L: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewBidones10L"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bidones 8L: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewBidones8L"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bidones 5L: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewBidones5L"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pack Botellas 2L: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewPackBotellas2L"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pack Botellas 500mL: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerDescargaTextViewPackBotellas500mL"
+                android:layout_marginBottom="20dp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="50dp"
+                android:layout_marginTop="20dp"
+                >
+
+                <Button
+                    android:id="@+id/aVerDescargaButtonEliminarDescarga"
+                    android:text="Eliminar"
+                    style="@style/button"
+                    android:layout_marginBottom="50dp"
+                    />
+
+                <Button
+                    android:id="@+id/aVerDescargaButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:text="Retornar"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

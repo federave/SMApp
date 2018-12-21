@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="50dp"
+
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Datos del Cliente"
+                style="@style/texto"
+                android:textSize="28dp"
+                android:layout_marginBottom="50dp"
+                android:textColor="@color/colorAmarillo"
+
+                />
+
+
+            <TextView
+                android:text="Id: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteIdCliente"
+                />
+
+            <TextView
+                android:text="Nombre: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteNombre"
+                />
+
+            <TextView
+                android:text="Apellido: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteApellido"
+                />
+
+            <TextView
+                android:text="Telefono: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteTelefono"
+                />
+
+            <TextView
+                android:text="Tipo de Cliente: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteTipo"
+                />
+
+            <TextView
+                android:text="Dirección: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteDireccion"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:id="@+id/aDatosClienteLinearLayoutPrecioEspecialProductos"
+
+                >
+
+                <TextView
+                    android:text="Precio Especial"
+                    style="@style/textoDatosClienteTitulo"
+                    />
+
+                <TextView
+                    android:text="Bidon 20L: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClientePrecioEspecialBidon20L"
+                    />
+
+                <TextView
+                    android:text="Bidon 12L: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClientePrecioEspecialBidon12L"
+                    />
+
+                <TextView
+                    android:text="Bidon 10L: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClientePrecioEspecialBidon10L"
+                    />
+
+                <TextView
+                    android:text="Bidon 8L: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClientePrecioEspecialBidon8L"
+                    />
+
+                <TextView
+                    android:text="Bidon 5L: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClientePrecioEspecialBidon5L"
+                    />
+
+                <TextView
+                    android:text="Pack Botellas 2L: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClientePrecioEspecialPackBotellas2L"
+                    />
+
+                <TextView
+                    android:text="Pack Botellas 500 mL: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClientePrecioEspecialPackBotellas500mL"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:id="@+id/aDatosClienteLinearLayoutAlquiler"
+
+                >
+
+                <TextView
+                    android:text="Datos Alquiler"
+                    style="@style/textoDatosClienteTitulo"
+                    />
+
+                <TextView
+                    android:text="Alquileres 6 Bidones: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres6Bidones"
+                    />
+
+                <TextView
+                    android:text="Alquileres 8 Bidones: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres8Bidones"
+                    />
+
+                <TextView
+                    android:text="Alquileres 10 Bidones: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres10Bidones"
+                    />
+
+                <TextView
+                    android:text="Alquileres 12 Bidones: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres12Bidones"
+                    />
+
+                <TextView
+                    android:text="Alquileres 6 Bidones Pagados: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres6BidonesPagados"
+                    />
+
+                <TextView
+                    android:text="Alquileres 8 Bidones Pagados: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres8BidonesPagados"
+                    />
+
+                <TextView
+                    android:text="Alquileres 10 Bidones Pagados: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres10BidonesPagados"
+                    />
+
+                <TextView
+                    android:text="Alquileres 12 Bidones Pagados: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteAlquileres12BidonesPagados"
+                    />
+
+                <TextView
+                    android:text="Bidones 20L entregados: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteBidones20LEntregados"
+                    />
+
+                <TextView
+                    android:text="Bidones 12L entregados: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosClienteBidones12LEntregados"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/aDatosClienteLinearLayoutPrecioEspecialAlquiler"
+
+                    >
+
+                    <TextView
+                        android:text="Precio Especial Alquileres"
+                        style="@style/textoDatosClienteTitulo"
+                        android:textSize="28dp"
+                        />
+
+                    <TextView
+                        android:text="Alquiler 6 Bidones: "
+                        style="@style/textoDatosCliente"
+                        android:id="@+id/aDatosClientePrecioEspecialAlquiler6Bidones"
+                        />
+                    <TextView
+                        android:text="Alquiler 8 Bidones: "
+                        style="@style/textoDatosCliente"
+                        android:id="@+id/aDatosClientePrecioEspecialAlquiler8Bidones"
+                        />
+                    <TextView
+                        android:text="Alquiler 10 Bidones: "
+                        style="@style/textoDatosCliente"
+                        android:id="@+id/aDatosClientePrecioEspecialAlquiler10Bidones"
+                        />
+                    <TextView
+                        android:text="Alquiler 12 Bidones: "
+                        style="@style/textoDatosCliente"
+                        android:id="@+id/aDatosClientePrecioEspecialAlquiler12Bidones"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/textoDatosClienteTitulo"
+                android:text="Inactividad"
+                android:layout_marginTop="40dp"
+                />
+
+            <TextView
+                android:text="Estado: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteInactividad"
+                />
+            <TextView
+                android:text="Ultimo Consumo: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteUltimoConsumo"
+                />
+
+
+            <TextView
+                style="@style/textoDatosClienteTitulo"
+                android:text="Bidones / Dispenser FC"
+                android:layout_marginTop="40dp"
+                />
+
+            <TextView
+                android:text="Bidones 20L "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteBidones20L"
+                />
+
+            <TextView
+                android:text="Bidones 12L "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteBidones12L"
+                />
+
+            <TextView
+                android:text="Dispenser FC: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosClienteDispenserFC"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp"
+                android:paddingHorizontal="90dp"
+                android:layout_marginBottom="50dp"
+
+                >
+
+                <Button
+                    android:id="@+id/aDatosClienteButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:text="Retornar"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    android:paddingHorizontal="50dp"
+    android:visibility="visible" >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:paddingHorizontal="80dp"
+        android:layout_marginTop="100dp"
+        >
+
+        <EditText
+            android:id="@+id/aLoginEditTextNombre"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nombre aqui"
+            android:text="admin"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="80dp"
+        android:layout_marginBottom="20dp"
+        >
+
+
+        <EditText
+            android:id="@+id/aLoginEditTextContraseña"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="contraseña aqui"
+            android:inputType="textPassword"
+            android:text="1351"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="100dp"
+        android:paddingVertical="10dp"
+        >
+
+
+        <Button
+            android:id="@+id/aLoginButtonIngresar"
+            android:layout_marginTop="25dp"
+            android:text="Ingresar"
+            style="@style/button"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+
+

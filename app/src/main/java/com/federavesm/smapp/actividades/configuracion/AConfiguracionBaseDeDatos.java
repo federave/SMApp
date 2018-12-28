@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import com.federavesm.smapp.actividades.CodigosActividades;
 import com.federavesm.smapp.actividades.Dialogo;
 import com.federavesm.smapp.modelo.BaseDeDatos;
 import com.federavesm.smapp.modelo.Comunicador;
+import com.federavesm.smapp.modelo.Fecha;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoCliente.TipoClientes;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoInactivo.TipoInactivos;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.fueraDeRecorrido.TiposFueraDeRecorrido;
@@ -70,6 +72,10 @@ public class AConfiguracionBaseDeDatos extends Activity
         buttonRetornar.setOnClickListener(new ListenerClickButtonRetornar());
 
 
+
+
+
+
     }
 
 
@@ -79,6 +85,11 @@ public class AConfiguracionBaseDeDatos extends Activity
     private Button buttonActualizarBaseDeDatos;
     private Button buttonVaciarBD;
     private TextView textViewInfoBD;
+
+
+
+
+
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -111,7 +111,7 @@ public class AdaptadorRepartos extends BaseAdapter
             {this.visita.setImageResource(reparto.getTipoVisita().getRecursoImagen());}
 
             if(reparto.getCliente().getDatos().getTipoCliente().getRecursoImagen()!=-1){this.tipoCliente.setImageResource(reparto.getCliente().getDatos().getTipoCliente().getRecursoImagen());}
-            if(reparto.getCliente().getInactividad().getTipoInactivo().getRecursoImagen()!=-1){this.inactividad.setImageResource(reparto.getCliente().getInactividad().getTipoInactivo().getRecursoImagen());}
+            if(reparto.getCliente().getEstadoInactividad().getTipoInactivo().getRecursoImagen()!=-1){this.inactividad.setImageResource(reparto.getCliente().getEstadoInactividad().getTipoInactivo().getRecursoImagen());}
 
             if(reparto.getFueraDeRecorrido().getTipoFueraDeRecorrido().getRecursoImagen()!=-1)
             {

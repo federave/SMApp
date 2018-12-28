@@ -139,7 +139,7 @@ public class AAlquiler extends Activity
     if(this.cliente.getDatosAlquiler().getAlquileres().getAlquileresBidones20L())
         {
         textViewBidones20LEntregados.setVisibility(View.VISIBLE);
-        textViewBidones20LEntregados.setText("Bidones 20L Entregados: " + this.cliente.getDatosAlquiler().getRetornablesEntregados().getBidones20L());
+        textViewBidones20LEntregados.setText("Bidones 20L Entregados: " + this.cliente.getDatosAlquiler().getEstadoAlquiler().getRetornablesEntregados().getBidones20L());
         }
     else
         {
@@ -150,7 +150,7 @@ public class AAlquiler extends Activity
     if(this.cliente.getDatosAlquiler().getAlquileres().getAlquileresBidones12L())
         {
         textViewBidones12LEntregados.setVisibility(View.VISIBLE);
-        textViewBidones12LEntregados.setText("Bidones 12L Entregados: " + this.cliente.getDatosAlquiler().getRetornablesEntregados().getBidones12L());
+        textViewBidones12LEntregados.setText("Bidones 12L Entregados: " + this.cliente.getDatosAlquiler().getEstadoAlquiler().getRetornablesEntregados().getBidones12L());
         }
     else
         {

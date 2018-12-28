@@ -549,17 +549,17 @@ public class DiaRepartidorXML
 
                 case "DispenserFC":
                 {
-                    this.cliente.getBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
+                    this.cliente.getEstadoBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
                     break;
                 }
                 case "Bidones20L":
                 {
-                    this.cliente.getBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
+                    this.cliente.getEstadoBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
                     break;
                 }
                 case "Bidones12L":
                 {
-                    this.cliente.getBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
+                    this.cliente.getEstadoBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
                     break;
                 }
 
@@ -578,12 +578,12 @@ public class DiaRepartidorXML
 
                 case "IdInactividad":
                 {
-                this.cliente.getInactividad().getTipoInactivo().setId(getInt(cadena.toString()));
+                this.cliente.getEstadoInactividad().getTipoInactivo().setId(getInt(cadena.toString()));
                 break;
                 }
                 case "UltimoConsumo":
                 {
-                this.cliente.getInactividad().setUltimoConsumo(cadena.toString());
+                this.cliente.getEstadoInactividad().setUltimoConsumo(cadena.toString());
                 break;
                 }
             default:{break;}
@@ -623,7 +623,7 @@ public class DiaRepartidorXML
                 this.datosAlquiler.getAlquileres().setAlquileres12Bidones(getInt(cadena.toString()));
                 break;
                 }
-
+/*
                 case "Alquileres6BidonesPagados":
                 {
                 this.datosAlquiler.getAlquileresPagados().setAlquileres6Bidones(getInt(cadena.toString()));
@@ -654,7 +654,7 @@ public class DiaRepartidorXML
                 this.datosAlquiler.getRetornablesEntregados().setBidones12L(getInt(cadena.toString()));
                 break;
                 }
-
+*/
                 case "Alquiler6Bidones_PrecioEspecial":
                 {
                 this.precioEspecialAlquiler.setAlquiler6Bidones(getFloat(cadena.toString()));

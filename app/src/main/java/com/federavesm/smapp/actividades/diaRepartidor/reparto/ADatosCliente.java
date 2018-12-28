@@ -1,6 +1,5 @@
 package com.federavesm.smapp.actividades.diaRepartidor.reparto;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -11,8 +10,6 @@ import android.widget.TextView;
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.ActivityGenerica;
 import com.federavesm.smapp.modelo.Comunicador;
-import com.federavesm.smapp.modelo.Convertidor;
-import com.federavesm.smapp.modelo.diaRepartidor.DiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.Cliente;
 
 /**
@@ -211,7 +208,7 @@ public class ADatosCliente extends ActivityGenerica
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileres6Bidones()>0)
             {
             textViewAlquileres6Bidones.setText("Alquileres 6 Bidones: " + cliente.getDatosAlquiler().getAlquileres().getAlquileres6Bidones());
-            textViewAlquileres6BidonesPagados.setText("Alquileres 6 Bidones Pagados: " + cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres6Bidones());
+            textViewAlquileres6BidonesPagados.setText("Alquileres 6 Bidones Pagados: " + cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres6Bidones());
             }
         else
             {
@@ -222,7 +219,7 @@ public class ADatosCliente extends ActivityGenerica
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileres8Bidones()>0)
             {
             textViewAlquileres8Bidones.setText("Alquileres 8 Bidones: " + cliente.getDatosAlquiler().getAlquileres().getAlquileres8Bidones());
-            textViewAlquileres8BidonesPagados.setText("Alquileres 8 Bidones Pagados: " + cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres8Bidones());
+            textViewAlquileres8BidonesPagados.setText("Alquileres 8 Bidones Pagados: " + cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres8Bidones());
             }
         else
             {
@@ -233,7 +230,7 @@ public class ADatosCliente extends ActivityGenerica
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileres10Bidones()>0)
             {
             textViewAlquileres10Bidones.setText("Alquileres 10 Bidones: " + cliente.getDatosAlquiler().getAlquileres().getAlquileres10Bidones());
-            textViewAlquileres10BidonesPagados.setText("Alquileres 10 Bidones Pagados: " + cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres10Bidones());
+            textViewAlquileres10BidonesPagados.setText("Alquileres 10 Bidones Pagados: " + cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres10Bidones());
             }
         else
             {
@@ -245,7 +242,7 @@ public class ADatosCliente extends ActivityGenerica
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileres12Bidones()>0)
             {
             textViewAlquileres12Bidones.setText("Alquileres 12 Bidones: " + cliente.getDatosAlquiler().getAlquileres().getAlquileres12Bidones());
-            textViewAlquileres12BidonesPagados.setText("Alquileres 12 Bidones Pagados: " + cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres12Bidones());
+            textViewAlquileres12BidonesPagados.setText("Alquileres 12 Bidones Pagados: " + cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres12Bidones());
             }
         else
             {
@@ -255,7 +252,7 @@ public class ADatosCliente extends ActivityGenerica
 
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileresBidones20L())
             {
-            textViewBidones20LEntregados.setText("Bidones 20L Entregados: " + cliente.getDatosAlquiler().getRetornablesEntregados().getBidones20L());
+            textViewBidones20LEntregados.setText("Bidones 20L Entregados: " + cliente.getDatosAlquiler().getEstadoAlquiler().getRetornablesEntregados().getBidones20L());
             }
         else
             {
@@ -264,7 +261,7 @@ public class ADatosCliente extends ActivityGenerica
 
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileresBidones12L())
             {
-            textViewBidones12LEntregados.setText("Bidones 12L Entregados: " + cliente.getDatosAlquiler().getRetornablesEntregados().getBidones12L());
+            textViewBidones12LEntregados.setText("Bidones 12L Entregados: " + cliente.getDatosAlquiler().getEstadoAlquiler().getRetornablesEntregados().getBidones12L());
             }
         else
             {
@@ -293,8 +290,8 @@ public class ADatosCliente extends ActivityGenerica
 
     private void cargarInactividad()
     {
-    textViewInactividad.setText("Estado: "+cliente.getInactividad().getTipoInactivo().getTipoInactivo());
-    textViewUltimoConsumo.setText("Ultimo Consumo: "+cliente.getInactividad().getUltimoConsumo());
+    textViewInactividad.setText("Estado: "+cliente.getEstadoInactividad().getTipoInactivo().getTipoInactivo());
+    textViewUltimoConsumo.setText("Ultimo Consumo: "+cliente.getEstadoInactividad().getUltimoConsumo());
     }
 
 
@@ -302,9 +299,9 @@ public class ADatosCliente extends ActivityGenerica
 
     private void cargarBidonesDispenserFC()
     {
-    textViewBidones20L.setText("Bidones 20L: "+cliente.getBidonesDispenserFC().getBidones20L());
-    textViewBidones12L.setText("Bidones 12L: "+cliente.getBidonesDispenserFC().getBidones12L());
-    textViewDispenserFC.setText("Dispenser FC: "+cliente.getBidonesDispenserFC().getDispenserFC());
+    textViewBidones20L.setText("Bidones 20L: "+cliente.getEstadoBidonesDispenserFC().getBidones20L());
+    textViewBidones12L.setText("Bidones 12L: "+cliente.getEstadoBidonesDispenserFC().getBidones12L());
+    textViewDispenserFC.setText("Dispenser FC: "+cliente.getEstadoBidonesDispenserFC().getDispenserFC());
     }
 
 

@@ -16,12 +16,24 @@ import com.federavesm.smapp.modelo.diaRepartidor.reparto.fueraDeRecorrido.FueraD
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.alquiler.Alquiler;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.deudaProductos.DeudaProductos;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.fueraDeRecorrido.TipoFueraDeRecorrido;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.otros.Observacion;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.otros.Vacios;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.tipoVisita.TipoVisita;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.vendedor.Vendedor;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.ventaProductos.VentaProductos;
 import com.federavesm.smapp.modelo.servidor.datosXML.XML;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+
+import java.io.StringReader;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 /**
  * Created by Federico on 4/2/2018.
@@ -187,6 +199,7 @@ public  class Reparto extends GenericoReparto {
             this.idDiaRepartidor = cursor.getInt(1);
             this.cliente.setId(cursor.getInt(2));
             this.cliente.setIdDiaRepartidor(this.idDiaRepartidor);
+            this.cliente.setFecha(Comunicador.getDiaRepartidor().getFecha());
 
             this.vendedor.setId(cursor.getInt(3));
             this.ventaProductos.setId(cursor.getInt(4));
@@ -232,7 +245,7 @@ public  class Reparto extends GenericoReparto {
         {
         boolean aux=true;
 
-        aux&=this.cliente.guardar();
+
 
         if(this.ventaProductos.have())
             {
@@ -243,7 +256,6 @@ public  class Reparto extends GenericoReparto {
             {
             aux&=this.fueraDeRecorrido.guardar();
             }
-
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -503,6 +515,339 @@ public  class Reparto extends GenericoReparto {
     public String getEvaluar() {
         return "";
     }
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    /////////////ADICIONAR
+
+
+
+    public void adicionar(String xml)
+    {
+        try
+        {
+            factory = SAXParserFactory.newInstance();
+            parser = factory.newSAXParser();
+            this.reader = parser.getXMLReader();
+            this.reader.setContentHandler(new DatosRepartoXML());
+            this.reader.parse(new InputSource(new StringReader(xml)));
+
+        }
+        catch (Exception e)
+        {
+            String x = e.toString();
+
+        }
+
+
+    }
+
+    private Context activity;
+
+    private SAXParserFactory factory;
+    private SAXParser parser;
+    private XMLReader reader;
+
+
+
+
+    class DatosRepartoXML extends DefaultHandler
+    {
+
+        public DatosRepartoXML()
+        {
+
+        }
+
+
+        @Override
+        public void startDocument()throws SAXException
+        {
+
+
+        }
+
+
+
+
+
+        private StringBuilder cadena = new StringBuilder();
+
+        @Override
+        public void startElement(String uri, String localName, String qName,Attributes attributes) throws SAXException
+        {
+            cadena.setLength(0);
+
+
+            startVendedor(localName);
+            startVentaProductos(localName);
+
+        }
+
+        private void startVentaProductos(String localName)
+        {
+            switch (localName)
+            {
+                case "VentaProductos":
+                {
+                    break;
+                }
+                default:{break;}
+            }
+        }
+
+        private void startVendedor(String localName)
+        {
+            switch (localName)
+            {
+                case "Vendedor":
+                {
+                    break;
+                }
+                default:{break;}
+            }
+        }
+
+        @Override
+        public void characters(char ch[], int start, int length)throws SAXException
+        {
+            cadena.append(ch,start,length);
+        }
+
+        @Override
+        public void endElement(String uri, String localName, String qName)throws SAXException
+        {
+
+
+            endVendedor(localName);
+            endVentaProductos(localName);
+            endFueraDeRecorrido(localName);
+
+
+        }
+
+
+
+
+
+
+        private void endVentaProductos(String localName)
+        {
+
+            switch (localName)
+            {
+
+
+                ////////////////////////VENTA PRODUCTOS///////////////////////////////
+
+
+                case "Bidones20L_VP":
+                {
+                    ventaProductos.getRetornables().setBidones20L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones12L_VP":
+                {
+                    ventaProductos.getRetornables().setBidones12L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones10L_VP":
+                {
+                    ventaProductos.getDescartables().setBidones10L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones8L_VP":
+                {
+                    ventaProductos.getDescartables().setBidones8L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones5L_VP":
+                {
+                    ventaProductos.getDescartables().setBidones5L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "PackBotellas2L_VP":
+                {
+                    ventaProductos.getDescartables().setPackBotellas2L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "PackBotellas500mL_VP":
+                {
+                    ventaProductos.getDescartables().setPackBotellas500mL(getInt(cadena.toString()));
+                    break;
+                }
+
+
+                case "Bidones20LBonificados_VP":
+                {
+                    ventaProductos.getRetornablesBonificados().setBidones20L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones12LBonificados_VP":
+                {
+                    ventaProductos.getRetornablesBonificados().setBidones12L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones10LBonificados_VP":
+                {
+                    ventaProductos.getDescartablesBonificados().setBidones10L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones8LBonificados_VP":
+                {
+                    ventaProductos.getDescartablesBonificados().setBidones8L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones5LBonificados_VP":
+                {
+                    ventaProductos.getDescartablesBonificados().setBidones5L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "PackBotellas2LBonificados_VP":
+                {
+                    ventaProductos.getDescartablesBonificados().setPackBotellas2L(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "PackBotellas500mLBonificados_VP":
+                {
+                    ventaProductos.getDescartablesBonificados().setPackBotellas500mL(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "VentaProductos":
+                {
+                    break;
+                }
+
+                default:{break;}
+            }
+
+        }
+
+
+
+
+
+
+        private void endFueraDeRecorrido(String localName)
+        {
+
+            switch (localName)
+            {
+
+                case "IdTipoFueraDeRecorrido":
+                {
+                    TipoFueraDeRecorrido tipoFueraDeRecorrido = new TipoFueraDeRecorrido(activity,getInt(cadena.toString()));
+                    fueraDeRecorrido.setTipoFueraDeRecorrido(tipoFueraDeRecorrido);
+                    break;
+                }
+
+                case "Mensaje":
+                {
+                    fueraDeRecorrido.setMensaje(cadena.toString());
+                    break;
+                }
+
+                case "FueraDeRecorrido":
+                {
+                    break;
+                }
+
+                default:{break;}
+            }
+
+        }
+
+
+
+
+        private void endVendedor(String localName)
+        {
+
+            switch (localName)
+            {
+                case "IdVendedor":
+                {
+                    vendedor = new Vendedor(activity,getInt(cadena.toString()));
+                    break;
+                }
+                case "Vendedor":
+                {
+                    break;
+                }
+                default:{break;}
+            }
+
+        }
+
+
+
+
+        private int getInt(String cadena)
+        {
+            try
+            {
+                return Integer.valueOf(cadena.toString());
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+        }
+
+        private float getFloat(String cadena)
+        {
+            try
+            {
+                return Float.valueOf(cadena.toString());
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -38,6 +38,7 @@ public class TipoInactivo extends GenericoVista {
         }
     catch (Exception e)
         {
+            String e2=e.toString();
         }
     }
 

@@ -171,7 +171,7 @@ public class APagoAlquiler extends Activity
     {
     if(cliente.getDatosAlquiler().getAlquileres().getAlquileres6Bidones() > 0)
         {
-        this.textViewAlquileres6BidonesPagados.setText("Alquileres 6 Bidones Pagados: " + this.cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres6Bidones());
+        this.textViewAlquileres6BidonesPagados.setText("Alquileres 6 Bidones Pagados: " + this.cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres6Bidones());
         if(this.cliente.getDatosAlquiler().getAlquileresAPagar().getAlquileres6Bidones() == 0)
             {
             this.linearLayoutAlquileres6BidonesPago.setVisibility(View.GONE);
@@ -212,7 +212,7 @@ public class APagoAlquiler extends Activity
     {
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileres8Bidones() > 0)
         {
-            this.textViewAlquileres8BidonesPagados.setText("Alquileres 8 Bidones Pagados: " + this.cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres8Bidones());
+            this.textViewAlquileres8BidonesPagados.setText("Alquileres 8 Bidones Pagados: " + this.cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres8Bidones());
             if(this.cliente.getDatosAlquiler().getAlquileresAPagar().getAlquileres8Bidones() == 0)
             {
                 this.linearLayoutAlquileres8BidonesPago.setVisibility(View.GONE);
@@ -251,7 +251,7 @@ public class APagoAlquiler extends Activity
     {
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileres10Bidones() > 0)
         {
-            this.textViewAlquileres10BidonesPagados.setText("Alquileres 10 Bidones Pagados: " + this.cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres10Bidones());
+            this.textViewAlquileres10BidonesPagados.setText("Alquileres 10 Bidones Pagados: " + this.cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres10Bidones());
             if(this.cliente.getDatosAlquiler().getAlquileresAPagar().getAlquileres10Bidones() == 0)
             {
                 this.linearLayoutAlquileres10BidonesPago.setVisibility(View.GONE);
@@ -291,7 +291,7 @@ public class APagoAlquiler extends Activity
     {
         if(cliente.getDatosAlquiler().getAlquileres().getAlquileres12Bidones() > 0)
         {
-            this.textViewAlquileres12BidonesPagados.setText("Alquileres 12 Bidones Pagados: " + this.cliente.getDatosAlquiler().getAlquileresPagados().getAlquileres12Bidones());
+            this.textViewAlquileres12BidonesPagados.setText("Alquileres 12 Bidones Pagados: " + this.cliente.getDatosAlquiler().getEstadoAlquiler().getAlquileresPagados().getAlquileres12Bidones());
             if(this.cliente.getDatosAlquiler().getAlquileresAPagar().getAlquileres12Bidones() == 0)
             {
                 this.linearLayoutAlquileres12BidonesPago.setVisibility(View.GONE);

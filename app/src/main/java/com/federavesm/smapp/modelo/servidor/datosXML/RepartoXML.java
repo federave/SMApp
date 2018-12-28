@@ -3,7 +3,6 @@ package com.federavesm.smapp.modelo.servidor.datosXML;
 import android.content.Context;
 
 import com.federavesm.smapp.modelo.Comunicador;
-import com.federavesm.smapp.modelo.Convertidor;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.Cliente;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.DatosAlquiler;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoInactivo.TipoInactivo;
@@ -11,7 +10,6 @@ import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioAlquileres;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioEspecialAlquiler;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioEspecialProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioProductos;
-import com.federavesm.smapp.modelo.diaRepartidor.precios.Precios;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.fueraDeRecorrido.TipoFueraDeRecorrido;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.vendedor.Vendedor;
@@ -24,8 +22,6 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -419,17 +415,17 @@ public class RepartoXML
 
                 case "DispenserFC":
                 {
-                    this.cliente.getBidonesDispenserFC().setDispenserFC(getInt(cadena.toString()));
+                    this.cliente.getEstadoBidonesDispenserFC().setDispenserFC(getInt(cadena.toString()));
                     break;
                 }
                 case "Bidones20L":
                 {
-                    this.cliente.getBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
+                    this.cliente.getEstadoBidonesDispenserFC().setBidones20L(getInt(cadena.toString()));
                     break;
                 }
                 case "Bidones12L":
                 {
-                    this.cliente.getBidonesDispenserFC().setBidones12L(getInt(cadena.toString()));
+                    this.cliente.getEstadoBidonesDispenserFC().setBidones12L(getInt(cadena.toString()));
                     break;
                 }
 
@@ -450,12 +446,12 @@ public class RepartoXML
                 {
                 int id = getInt(cadena.toString());
                 TipoInactivo tipoInactivo = new TipoInactivo(this.activity,id);
-                this.cliente.getInactividad().setTipoInactivo(tipoInactivo);
+                this.cliente.getEstadoInactividad().setTipoInactivo(tipoInactivo);
                 break;
                 }
                 case "UltimoConsumo":
                 {
-                this.cliente.getInactividad().setUltimoConsumo(cadena.toString().replace("*","\n"));
+                this.cliente.getEstadoInactividad().setUltimoConsumo(cadena.toString().replace("*","\n"));
                 break;
                 }
                 default:{break;}
@@ -496,6 +492,8 @@ public class RepartoXML
                     break;
                 }
 
+                /*
+
                 case "Alquileres6BidonesPagados":
                 {
                     this.datosAlquiler.getAlquileresPagados().setAlquileres6Bidones(getInt(cadena.toString()));
@@ -526,6 +524,10 @@ public class RepartoXML
                     this.datosAlquiler.getRetornablesEntregados().setBidones12L(getInt(cadena.toString()));
                     break;
                 }
+
+
+                */
+
 
                 case "Alquiler6Bidones_PrecioEspecial":
                 {

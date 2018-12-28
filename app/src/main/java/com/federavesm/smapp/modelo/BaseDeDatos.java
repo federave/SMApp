@@ -219,9 +219,6 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
 
 
-
-
-
         db.execSQL("CREATE TABLE DatosClientes" +
                 "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -232,20 +229,29 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 "telefono TEXT," +
                 "idTipoCliente TEXT," +
                 "idPrecioEspecial INTEGER," +
-                "idDatosAlquiler INTEGER," +
-                "idInactividad INTEGER," +
+                "idDatosAlquiler INTEGER" +
+                ")");
+
+
+        db.execSQL("CREATE TABLE EstadoBidonesDispenserFC" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "idCliente INTEGER," +
                 "dispenserFC INTEGER," +
                 "bidones20L INTEGER," +
-                "bidones12L INTEGER" +
+                "bidones12L INTEGER," +
+                "fecha TEXT" +
                 ")");
 
 
 
-        db.execSQL("CREATE TABLE Inactividad" +
+        db.execSQL("CREATE TABLE EstadoInactividad" +
                 "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "idCliente INTEGER," +
                 "idInactividad INTEGER," +
-                "ultimoConsumo TEXT" +
+                "ultimoConsumo TEXT," +
+                "fecha TEXT" +
                 ")");
 
 
@@ -284,15 +290,23 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "idPrecioEspecial INTEGER," +
                 "alquileres6Bidones INTEGER," +
-                "alquileres6BidonesPagados INTEGER," +
                 "alquileres8Bidones INTEGER," +
-                "alquileres8BidonesPagados INTEGER," +
                 "alquileres10Bidones INTEGER," +
+                "alquileres12Bidones INTEGER" +
+                ")");
+
+
+        db.execSQL("CREATE TABLE EstadoAlquiler" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "idAlquiler INTEGER," +
+                "alquileres6BidonesPagados INTEGER," +
+                "alquileres8BidonesPagados INTEGER," +
                 "alquileres10BidonesPagados INTEGER," +
-                "alquileres12Bidones INTEGER," +
                 "alquileres12BidonesPagados INTEGER," +
                 "bidones20LEntregados INTEGER," +
-                "bidones12LEntregados INTEGER" +
+                "bidones12LEntregados INTEGER," +
+                "fecha TEXT" +
                 ")");
 
 
@@ -444,6 +458,28 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
 
 
+
+
+    public boolean clienteExiste(int idcliente,int iddireccion)
+    {
+    SQLiteDatabase db = getReadableDatabase();
+    Cursor cursor = db.rawQuery("SELECT * FROM DatosClientes AS DC INNER JOIN DireccionCliente AS D " +
+    "ON DC.idDatosDireccion=D.id WHERE DC.idCliente="+"'"+idcliente+"'" + "AND D.idDireccion="+"'"+iddireccion+"'",null);
+    boolean aux = false;
+    if(cursor.moveToFirst())
+        {
+        aux=true;
+        }
+    return aux;
+    }
+
+
+
+
+
+
+
+
     public String getTablas()
     {
         SQLiteDatabase db = getReadableDatabase();
@@ -467,6 +503,9 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
 
 
+
+
+
     private boolean eliminarTablasDinamica()
     {
 
@@ -483,10 +522,12 @@ public class BaseDeDatos extends SQLiteOpenHelper
             db.execSQL("DROP TABLE PrecioDiaRepartidor");
             db.execSQL("DROP TABLE Repartos");
             db.execSQL("DROP TABLE DatosClientes");
-            db.execSQL("DROP TABLE Inactividad");
+            db.execSQL("DROP TABLE EstadoBidonesDispenserFC");
+            db.execSQL("DROP TABLE EstadoInactividad");
             db.execSQL("DROP TABLE DireccionCliente");
             db.execSQL("DROP TABLE PrecioEspecialProductos");
             db.execSQL("DROP TABLE DatosAlquiler");
+            db.execSQL("DROP TABLE EstadoAlquiler");
             db.execSQL("DROP TABLE PrecioEspecialAlquiler");
             db.execSQL("DROP TABLE Observaciones");
             db.execSQL("DROP TABLE VentaProductos");
@@ -631,21 +672,34 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "telefono TEXT," +
                     "idTipoCliente TEXT," +
                     "idPrecioEspecial INTEGER," +
-                    "idDatosAlquiler INTEGER," +
-                    "idInactividad INTEGER," +
-                    "dispenserFC INTEGER," +
-                    "bidones20L INTEGER," +
-                    "bidones12L INTEGER" +
+                    "idDatosAlquiler INTEGER" +
                     ")");
 
 
 
-            db.execSQL("CREATE TABLE Inactividad" +
+
+            db.execSQL("CREATE TABLE EstadoBidonesDispenserFC" +
                     "(" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "idInactividad INTEGER," +
-                    "ultimoConsumo TEXT" +
+                    "idCliente INTEGER," +
+                    "dispenserFC INTEGER," +
+                    "bidones20L INTEGER," +
+                    "bidones12L INTEGER," +
+                    "fecha TEXT" +
                     ")");
+
+
+
+            db.execSQL("CREATE TABLE EstadoInactividad" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "idCliente INTEGER," +
+                    "idInactividad INTEGER," +
+                    "ultimoConsumo TEXT," +
+                    "fecha TEXT" +
+                    ")");
+
+
 
 
 
@@ -678,20 +732,29 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
 
 
+
             db.execSQL("CREATE TABLE DatosAlquiler" +
                     "(" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "idPrecioEspecial INTEGER," +
                     "alquileres6Bidones INTEGER," +
-                    "alquileres6BidonesPagados INTEGER," +
                     "alquileres8Bidones INTEGER," +
-                    "alquileres8BidonesPagados INTEGER," +
                     "alquileres10Bidones INTEGER," +
+                    "alquileres12Bidones INTEGER" +
+                    ")");
+
+
+            db.execSQL("CREATE TABLE EstadoAlquiler" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "idAlquiler INTEGER," +
+                    "alquileres6BidonesPagados INTEGER," +
+                    "alquileres8BidonesPagados INTEGER," +
                     "alquileres10BidonesPagados INTEGER," +
-                    "alquileres12Bidones INTEGER," +
                     "alquileres12BidonesPagados INTEGER," +
                     "bidones20LEntregados INTEGER," +
-                    "bidones12LEntregados INTEGER" +
+                    "bidones12LEntregados INTEGER," +
+                    "fecha TEXT" +
                     ")");
 
 

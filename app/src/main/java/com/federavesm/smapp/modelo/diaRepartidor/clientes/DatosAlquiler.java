@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.Generico;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioAlquileres;
@@ -27,6 +28,7 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
     {
     super(context);
     this.context = context;
+    this.estadoAlquiler = new EstadoAlquiler(context);
     }
 
 
@@ -34,9 +36,18 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
 
     protected int idDiaRepartidor;
     private Alquileres alquileres = new Alquileres();
-    private Alquileres alquileresPagados = new Alquileres();
-    private Retornables retornablesEntregados = new Retornables();
     private PrecioAlquileres precioAlquileres;
+
+    private EstadoAlquiler estadoAlquiler;
+
+
+    public EstadoAlquiler getEstadoAlquiler() {
+        return estadoAlquiler;
+    }
+
+    public void setEstadoAlquiler(EstadoAlquiler estadoAlquiler) {
+        this.estadoAlquiler = estadoAlquiler;
+    }
 
     @Override
     public boolean modificar() {
@@ -52,8 +63,7 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
         this.id = datosAlquiler.getId();
         this.idDiaRepartidor = datosAlquiler.getIdDiaRepartidor();
         this.alquileres.copiar(datosAlquiler.getAlquileres());
-        this.alquileresPagados.copiar(datosAlquiler.getAlquileresPagados());
-        this.retornablesEntregados.copiar(datosAlquiler.getRetornablesEntregados());
+        this.estadoAlquiler.copiar(datosAlquiler.getEstadoAlquiler());
         this.precioAlquileres.copiar(datosAlquiler.getPrecioAlquileres());
         }
     catch (Exception e)
@@ -79,8 +89,8 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
     public Retornables getRetornablesAEntregar()
     {
     Retornables retornables = new Retornables();
-    retornables.setBidones20L(this.alquileres.getAlquileres6Bidones()* 6 + this.alquileres.getAlquileres8Bidones()*8 - this.retornablesEntregados.getBidones20L());
-    retornables.setBidones12L(this.alquileres.getAlquileres10Bidones()* 10 + this.alquileres.getAlquileres12Bidones()*12 - this.retornablesEntregados.getBidones12L());
+    retornables.setBidones20L(this.alquileres.getAlquileres6Bidones()* 6 + this.alquileres.getAlquileres8Bidones()*8 - this.estadoAlquiler.getRetornablesEntregados().getBidones20L());
+    retornables.setBidones12L(this.alquileres.getAlquileres10Bidones()* 10 + this.alquileres.getAlquileres12Bidones()*12 - this.estadoAlquiler.getRetornablesEntregados().getBidones12L());
     return retornables;
     }
 
@@ -88,16 +98,12 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
     public Alquileres getAlquileresAPagar()
     {
     Alquileres alquileres = new Alquileres();
-    alquileres.setAlquileres6Bidones(this.alquileres.getAlquileres6Bidones() - this.alquileresPagados.getAlquileres6Bidones());
-    alquileres.setAlquileres8Bidones(this.alquileres.getAlquileres8Bidones() - this.alquileresPagados.getAlquileres8Bidones());
-    alquileres.setAlquileres10Bidones(this.alquileres.getAlquileres10Bidones() - this.alquileresPagados.getAlquileres10Bidones());
-    alquileres.setAlquileres12Bidones(this.alquileres.getAlquileres12Bidones() - this.alquileresPagados.getAlquileres12Bidones());
+    alquileres.setAlquileres6Bidones(this.alquileres.getAlquileres6Bidones() - this.estadoAlquiler.getAlquileresPagados().getAlquileres6Bidones());
+    alquileres.setAlquileres8Bidones(this.alquileres.getAlquileres8Bidones() - this.estadoAlquiler.getAlquileresPagados().getAlquileres8Bidones());
+    alquileres.setAlquileres10Bidones(this.alquileres.getAlquileres10Bidones() - this.estadoAlquiler.getAlquileresPagados().getAlquileres10Bidones());
+    alquileres.setAlquileres12Bidones(this.alquileres.getAlquileres12Bidones() - this.estadoAlquiler.getAlquileresPagados().getAlquileres12Bidones());
     return alquileres;
     }
-
-
-
-
 
 
 
@@ -123,17 +129,15 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
                 }
             this.precioAlquileres.setId(cursor.getInt(1));
             this.precioAlquileres.setIdDiaRepartidor(this.idDiaRepartidor);
-            this.alquileres.setAlquileres6Bidones(cursor.getInt(2));
-            this.alquileres.setAlquileres8Bidones(cursor.getInt(4));
-            this.alquileres.setAlquileres10Bidones(cursor.getInt(6));
-            this.alquileres.setAlquileres12Bidones(cursor.getInt(8));
-            this.alquileresPagados.setAlquileres6Bidones(cursor.getInt(3));
-            this.alquileresPagados.setAlquileres8Bidones(cursor.getInt(5));
-            this.alquileresPagados.setAlquileres10Bidones(cursor.getInt(7));
-            this.alquileresPagados.setAlquileres12Bidones(cursor.getInt(9));
-            this.retornablesEntregados.setBidones20L(cursor.getInt(10));
-            this.retornablesEntregados.setBidones12L(cursor.getInt(11));
 
+            this.alquileres.setAlquileres6Bidones(cursor.getInt(2));
+            this.alquileres.setAlquileres8Bidones(cursor.getInt(3));
+            this.alquileres.setAlquileres10Bidones(cursor.getInt(4));
+            this.alquileres.setAlquileres12Bidones(cursor.getInt(5));
+
+            this.estadoAlquiler.setIdAlquiler(this.id);
+
+            aux &= this.estadoAlquiler.cargar();
             aux &= this.precioAlquileres.cargar();
             }
         db.close();
@@ -144,6 +148,70 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
         return false;
         }
     }
+
+
+
+
+
+
+
+
+    public boolean cargarAuxiliar()
+    {
+    if(this.id>0){
+    try
+        {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM DatosAlquiler WHERE id="+"'"+this.id+"'",null);
+            boolean aux = false;
+            if(cursor.moveToFirst())
+            {
+                aux = true;
+
+                //En este punto precioAlquileres tiene el precioNormaldelDia
+
+                if(cursor.getInt(1)!=-1)
+                {
+                this.precioAlquileres = new PrecioEspecialAlquiler(this.context);
+                this.precioAlquileres.setId(cursor.getInt(1));
+                aux &= this.precioAlquileres.cargar();
+                }
+
+                this.alquileres.setAlquileres6Bidones(cursor.getInt(2));
+                this.alquileres.setAlquileres8Bidones(cursor.getInt(3));
+                this.alquileres.setAlquileres10Bidones(cursor.getInt(4));
+                this.alquileres.setAlquileres12Bidones(cursor.getInt(5));
+                this.estadoAlquiler.setIdAlquiler(this.id);
+
+
+            }
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+    else
+        {
+            return true;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -165,21 +233,22 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
         datosAlquiler.put("alquileres8Bidones",this.alquileres.getAlquileres8Bidones());
         datosAlquiler.put("alquileres10Bidones",this.alquileres.getAlquileres10Bidones());
         datosAlquiler.put("alquileres12Bidones",this.alquileres.getAlquileres12Bidones());
-        datosAlquiler.put("alquileres6BidonesPagados",this.alquileresPagados.getAlquileres6Bidones());
-        datosAlquiler.put("alquileres8BidonesPagados",this.alquileresPagados.getAlquileres8Bidones());
-        datosAlquiler.put("alquileres10BidonesPagados",this.alquileresPagados.getAlquileres10Bidones());
-        datosAlquiler.put("alquileres12BidonesPagados",this.alquileresPagados.getAlquileres12Bidones());
-        datosAlquiler.put("bidones20LEntregados",this.retornablesEntregados.getBidones20L());
-        datosAlquiler.put("bidones12LEntregados",this.retornablesEntregados.getBidones12L());
+
 
         if(db.insert("DatosAlquiler",null,datosAlquiler) > 0)
             {
             this.id = getLastId("DatosAlquiler");
+            this.estadoAlquiler.setIdAlquiler(this.id);
+            aux &= this.estadoAlquiler.guardar(); // La fecha se asigno previamente
+
             }
         else
             {
             aux = false;
             }
+
+
+
         db.close();
         return aux;
         }
@@ -240,25 +309,6 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
     public void setAlquileres(Alquileres alquileres) {
         this.alquileres = alquileres;
     }
-
-    public Alquileres getAlquileresPagados() {
-        return alquileresPagados;
-    }
-
-    public void setAlquileresPagados(Alquileres alquileresPagados) {
-        this.alquileresPagados = alquileresPagados;
-    }
-
-    public Retornables getRetornablesEntregados() {
-        return retornablesEntregados;
-    }
-
-    public void setRetornablesEntregados(Retornables retornablesEntregados) {
-        this.retornablesEntregados = retornablesEntregados;
-    }
-
-
-
 
 
     public int getIdDiaRepartidor(){return idDiaRepartidor;}

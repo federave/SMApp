@@ -23,6 +23,8 @@
 
         <activity android:name=".actividades.login.ALogin" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
+        <activity android:name=".actividades.clientes.AClientes" android:configChanges="keyboardHidden|orientation|screenSize"/>
+
         <activity android:name=".actividades.diaRepartidor.ASeleccionarDiaRepartidor" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.ADiaRepartidor" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.configuracion.AConfiguracion" android:configChanges="keyboardHidden|orientation|screenSize"/>

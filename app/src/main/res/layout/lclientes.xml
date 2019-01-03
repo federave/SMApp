@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="5dp"
+    android:id="@+id/lClientesContenedor"
+    android:layout_marginBottom="10dp"
+    >
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:id="@+id/lClientesTipo"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/lClientesTipo"
+        android:orientation="vertical"
+        android:id="@+id/lClientesDatos"
+        android:layout_marginRight="15dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/lClientesNombre"
+            android:text="Carlos Romero"
+            android:layout_marginBottom="5dp"
+            style="@style/texto"
+            android:textSize="19dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/lClientesDireccion"
+            android:text="487 entre 15 y 16 numero 456"
+            style="@style/texto"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

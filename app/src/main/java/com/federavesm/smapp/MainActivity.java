@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.federavesm.smapp.actividades.*;
+import com.federavesm.smapp.actividades.clientes.AClientes;
 import com.federavesm.smapp.actividades.configuracion.AConfiguracion;
 import com.federavesm.smapp.actividades.diaRepartidor.ADiaRepartidor;
 import com.federavesm.smapp.actividades.diaRepartidor.ASeleccionarDiaRepartidor;
@@ -45,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
         buttonSalir = (Button)findViewById(R.id.aButtonSalir);
         buttonSalir.setOnClickListener(new ListenerClickButtonSalir());
 
@@ -59,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
         buttonSeleccionarDia = (Button)findViewById(R.id.buttonSeleccionarDia);
         buttonSeleccionarDia.setOnClickListener(new ListenerClickButtonSeleccionarDia());
+
+        buttonClientes = (Button)findViewById(R.id.buttonClientes);
+        buttonClientes.setOnClickListener(new ListenerClickButtonClientes());
+
 
         Comunicador.setRepartidores(new Repartidores(this));
 
@@ -81,6 +83,30 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonSeleccionarDia;
     private Button buttonConfigurar;
+
+
+
+    /////////////////////////////////////////////////////////////////////
+    /////////////////// CLIENTES
+
+    private Button buttonClientes;
+
+    class ListenerClickButtonClientes implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            clientes();
+        }
+    }
+
+    private void clientes()
+    {
+
+        Intent intentClientes = new Intent(this, AClientes.class);
+        startActivityForResult(intentClientes,CodigosMA.Clientes);
+    }
+
+
 
 
     /////////////////////////////////////////////////////////////////////
@@ -213,6 +239,10 @@ public class MainActivity extends AppCompatActivity {
         {}
 
     }
+    else if(CodigosMA.Clientes == requestCode)
+    {
+
+    }
     else
         {
 
@@ -228,8 +258,8 @@ public class MainActivity extends AppCompatActivity {
     public static int Configuracion = 1;
     public static int Login = 2;
     public static int SeleccionarDiaRepartidor = 3;
-    public static int DiaRepartidor = 3;
-
+    public static int DiaRepartidor = 4;
+    public static int Clientes = 5;
     }
 
 

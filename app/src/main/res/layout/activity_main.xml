@@ -42,6 +42,13 @@
             />
 
         <Button
+            android:id="@+id/buttonClientes"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            android:text="Clientes"
+            />
+
+        <Button
             android:id="@+id/buttonConfigurar"
             style="@style/button"
             android:layout_marginBottom="50dp"

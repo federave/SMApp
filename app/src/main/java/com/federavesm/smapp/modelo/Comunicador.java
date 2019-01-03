@@ -64,6 +64,26 @@ public class Comunicador {
     public static void setRepartidores(Repartidores repartidores) {
         Comunicador.repartidores = repartidores;
     }
+
+
+
+
+
+    //////////////////////////CLIENTES ////////////////////////
+
+
+    private static Cliente clienteSeleccionado;
+
+    public static Cliente getClienteSeleccionado() {
+        return clienteSeleccionado;
+    }
+
+    public static void setClienteSeleccionado(Cliente clienteSeleccionado) {
+        Comunicador.clienteSeleccionado = clienteSeleccionado;
+    }
+
+
+
     //////////////////////////DIA REPARTIDOR ////////////////////////
 
     private static DiaRepartidor diaRepartidor;

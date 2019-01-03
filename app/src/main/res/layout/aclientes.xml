@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera"
+        android:layout_weight="1">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/aClientes"
+        android:orientation="vertical"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:layout_weight="10"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="70dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="30dp"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#00000F"
+                android:gravity="center"
+                android:hint="Buscar Cliente"
+                android:id="@+id/aClientesEditTextBuscar"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="18"
+            android:paddingVertical="20dp"
+
+            >
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/aClientesListViewRepartos"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight=".1"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="50dp"
+            android:layout_marginBottom="20dp"
+            >
+            <Button
+                android:id="@+id/aClientesButtonRetornar"
+                style="@style/buttonRetornar"
+                android:text="Retornar"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

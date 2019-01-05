@@ -106,6 +106,8 @@ public class ADiaRepartidor extends ActivityGenerica
         buttonRecibirClientesFueraDeRecorrido.setOnClickListener(new ADiaRepartidor.ListenerClickButtonRecibirClientesFueraDeRecorrido());
 
 
+        buttonAgregarCliente = (Button)findViewById(R.id.aDiaRepartoButtonAgregarCliente);
+        buttonAgregarCliente.setOnClickListener(new ADiaRepartidor.ListenerClickButtonAgregarCliente());
 
 
 
@@ -135,6 +137,7 @@ public class ADiaRepartidor extends ActivityGenerica
     public static int Gastos = 6;
     public static int DatosDelDia = 7;
     public static int EnviarDia = 7;
+    public static int AgregarCliente = 8;
 
     }
 
@@ -286,6 +289,30 @@ public class ADiaRepartidor extends ActivityGenerica
     Intent intentEnviarDia = new Intent(this,AEnviarDia.class);
     startActivityForResult(intentEnviarDia, CodigosDR.EnviarDia);
     }
+
+
+
+    ////// AGREGAR CLIENTE
+
+    private Button buttonAgregarCliente;
+
+    class ListenerClickButtonAgregarCliente implements View.OnClickListener
+    {
+    public void onClick(View e)
+        {
+            agregarCliente();
+        }
+    }
+
+    private void agregarCliente()
+    {
+    Intent intentAgregarCliente = new Intent(this,AAgregarCliente.class);
+    startActivityForResult(intentAgregarCliente, CodigosDR.AgregarCliente);
+    }
+
+
+
+
 
 
 

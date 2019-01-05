@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.Fecha;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Alquileres;
@@ -70,7 +72,7 @@ public class EstadoAlquiler extends GenericoDiaRepartidor {
     try
         {
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM EstadoAlquiler WHERE idAlquiler="+"'"+this.idAlquiler+"'" + " AND fecha="+this.fecha.toString(),null);
+        Cursor cursor = db.rawQuery("SELECT * FROM EstadoAlquiler WHERE idAlquiler="+"'"+this.idAlquiler+"'" + " AND fecha="+"'"+this.fecha.toString()+"'",null);
         boolean aux = false;
         if(cursor.moveToFirst())
             {
@@ -94,6 +96,35 @@ public class EstadoAlquiler extends GenericoDiaRepartidor {
         }
     }
 
+    public boolean cargar(Fecha fecha)
+    {
+        this.fecha=fecha;
+        try
+        {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM EstadoAlquiler WHERE idAlquiler="+"'"+this.idAlquiler+"'" + " AND fecha<="+"'"+this.fecha.toString()+"'"+" ORDER BY fecha DESC",null);
+            boolean aux = false;
+            if(cursor.moveToFirst())
+            {
+                aux = true;
+
+                this.id = cursor.getInt(0);
+                this.alquileresPagados.setAlquileres6Bidones(cursor.getInt(2));
+                this.alquileresPagados.setAlquileres8Bidones(cursor.getInt(3));
+                this.alquileresPagados.setAlquileres10Bidones(cursor.getInt(4));
+                this.alquileresPagados.setAlquileres12Bidones(cursor.getInt(5));
+                this.retornablesEntregados.setBidones20L(cursor.getInt(6));
+                this.retornablesEntregados.setBidones12L(cursor.getInt(7));
+
+            }
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
 
 
     @Override
@@ -205,6 +236,109 @@ public class EstadoAlquiler extends GenericoDiaRepartidor {
 
 
 
+
+    public boolean restarRetornablesEntregados(Retornables retornables)
+    {
+    try
+        {
+
+        boolean aux = false;
+
+        int bidones20LOld;
+        int bidones12LOld;
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM EstadoAlquiler WHERE id="+"'"+this.id+"'" ,null);
+        if(cursor.moveToFirst())
+            {
+            aux = true;
+
+
+            bidones20LOld = cursor.getInt(6);
+            bidones12LOld = cursor.getInt(7);
+            db.close();
+
+            int bidones20LNew = bidones20LOld - retornables.getBidones20L();
+            int bidones12LNew = bidones12LOld - retornables.getBidones12L();
+
+            SQLiteDatabase dbW = getWritableDatabase();
+            ContentValues estadoAlquiler = new ContentValues();
+            estadoAlquiler.put("bidones20LEntregados",bidones20LNew);
+            estadoAlquiler.put("bidones12LEntregados",bidones12LNew);
+            String whereClause = "id=?";
+            String whereArgs[] = {String.valueOf(this.id)};
+            if (!(dbW.update("EstadoAlquiler", estadoAlquiler, whereClause, whereArgs) > 0))
+                {
+                aux = false;
+                }
+
+            }
+
+        return aux;
+        }
+    catch (Exception e)
+        {
+        return false;
+        }
+
+    }
+
+
+
+
+    public boolean sumarRetornablesEntregados(Retornables retornables)
+    {
+        try
+        {
+
+            boolean aux = false;
+
+            int bidones20LOld;
+            int bidones12LOld;
+
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM EstadoAlquiler WHERE id="+"'"+this.id+"'" ,null);
+            if(cursor.moveToFirst())
+            {
+                aux = true;
+
+
+                bidones20LOld = cursor.getInt(6);
+                bidones12LOld = cursor.getInt(7);
+                db.close();
+
+                int bidones20LNew = bidones20LOld + retornables.getBidones20L();
+                int bidones12LNew = bidones12LOld + retornables.getBidones12L();
+
+                SQLiteDatabase dbW = getWritableDatabase();
+                ContentValues estadoAlquiler = new ContentValues();
+                estadoAlquiler.put("bidones20LEntregados",bidones20LNew);
+                estadoAlquiler.put("bidones12LEntregados",bidones12LNew);
+                String whereClause = "id=?";
+                String whereArgs[] = {String.valueOf(this.id)};
+                if (!(dbW.update("EstadoAlquiler", estadoAlquiler, whereClause, whereArgs) > 0))
+                {
+                    aux = false;
+                }
+                dbW.close();
+
+            }
+
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+
+
+    public void restarRetornablesEntregadosDinamico(Retornables retornables)
+    {
+    this.retornablesEntregados.setBidones20L(this.retornablesEntregados.getBidones20L()-retornables.getBidones20L());
+    this.retornablesEntregados.setBidones12L(this.retornablesEntregados.getBidones12L()-retornables.getBidones12L());
+    }
 
 
 

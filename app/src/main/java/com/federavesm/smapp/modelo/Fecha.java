@@ -1,5 +1,7 @@
 package com.federavesm.smapp.modelo;
 
+import java.util.Calendar;
+
 /**
  * Created by Federico on 2/1/2018.
  */
@@ -8,7 +10,13 @@ package com.federavesm.smapp.modelo;
 public class Fecha {
 
 
-    public Fecha(){}
+    public Fecha()
+    {
+        Calendar date = Calendar.getInstance();
+        this.year = date.get(date.YEAR);
+        this.mes = 1+date.get(date.MONTH);
+        this.dia = date.get(date.DAY_OF_MONTH);
+    }
 
     public Fecha(int year,int mes,int dia)
     {
@@ -44,6 +52,8 @@ public class Fecha {
     public void setDia(int dia) {
         this.dia = dia;
     }
+
+
 
 
     @Override

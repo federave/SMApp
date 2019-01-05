@@ -72,19 +72,28 @@ public class Comunicador {
     //////////////////////////CLIENTES ////////////////////////
 
 
-    private static Cliente clienteSeleccionado;
+    private static Cliente clienteBusqueda;
+    private static boolean clienteSeleccionado = false;
 
-    public static Cliente getClienteSeleccionado() {
+    public static Cliente getClienteBusqueda() {
+        return clienteBusqueda;
+    }
+
+    public static void setClienteBusqueda(Cliente clienteBusqueda) {
+        Comunicador.clienteBusqueda = clienteBusqueda;
+    }
+
+
+
+    public static boolean getClienteSeleccionado() {
         return clienteSeleccionado;
     }
 
-    public static void setClienteSeleccionado(Cliente clienteSeleccionado) {
+    public static void setClienteSeleccionado(boolean clienteSeleccionado) {
         Comunicador.clienteSeleccionado = clienteSeleccionado;
     }
 
-
-
-    //////////////////////////DIA REPARTIDOR ////////////////////////
+//////////////////////////DIA REPARTIDOR ////////////////////////
 
     private static DiaRepartidor diaRepartidor;
 

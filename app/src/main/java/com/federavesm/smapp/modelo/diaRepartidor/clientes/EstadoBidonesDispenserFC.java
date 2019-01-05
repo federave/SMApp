@@ -128,6 +128,34 @@ import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidor;
         }
     }
 
+    public boolean cargar(Fecha fecha)
+    {
+        this.fecha=fecha;
+        try
+        {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM EstadoBidonesDispenserFC WHERE idCliente="+"'"+this.idCliente+"'" + " AND fecha<="+"'"+this.fecha.toString()+"'"+" ORDER BY fecha DESC",null);
+            boolean aux = false;
+            if(cursor.moveToFirst())
+            {
+                aux = true;
+                this.id = cursor.getInt(0);
+                this.dispenserFC = cursor.getInt(2);
+                this.bidones20L = cursor.getInt(3);
+                this.bidones12L = cursor.getInt(4);
+            }
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+
+
+
 
 
 

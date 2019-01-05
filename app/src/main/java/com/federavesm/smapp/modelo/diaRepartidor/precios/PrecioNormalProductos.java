@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.federavesm.smapp.modelo.Fecha;
+
 /**
  * Created by Federico on 8/2/2018.
  */
@@ -69,33 +71,49 @@ public class PrecioNormalProductos extends PrecioProductos {
     @Override
     public boolean cargar()
     {
-
-    try
+    if(this.idDiaRepartidor>0){
+        try
         {
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM PrecioDiaRepartidor WHERE idDiaRepartidor="+"'"+this.idDiaRepartidor+"'",null);
-        boolean aux=false;
-        if(cursor.moveToFirst())
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM PrecioDiaRepartidor WHERE idDiaRepartidor="+"'"+this.idDiaRepartidor+"'",null);
+            boolean aux=false;
+            if(cursor.moveToFirst())
             {
-            aux = true;
-            this.id = cursor.getInt(0);
-            this.precioRetornables.setBidon20L(cursor.getFloat(2));
-            this.precioRetornables.setBidon12L(cursor.getFloat(3));
-            this.precioDescartables.setBidon10L(cursor.getFloat(4));
-            this.precioDescartables.setBidon8L(cursor.getFloat(5));
-            this.precioDescartables.setBidon5L(cursor.getFloat(6));
-            this.precioDescartables.setPackBotellas2L(cursor.getFloat(7));
-            this.precioDescartables.setPackBotellas500mL(cursor.getFloat(8));
+                aux = true;
+                this.id = cursor.getInt(0);
+                this.precioRetornables.setBidon20L(cursor.getFloat(2));
+                this.precioRetornables.setBidon12L(cursor.getFloat(3));
+                this.precioDescartables.setBidon10L(cursor.getFloat(4));
+                this.precioDescartables.setBidon8L(cursor.getFloat(5));
+                this.precioDescartables.setBidon5L(cursor.getFloat(6));
+                this.precioDescartables.setPackBotellas2L(cursor.getFloat(7));
+                this.precioDescartables.setPackBotellas500mL(cursor.getFloat(8));
             }
-        db.close();
-        return aux;
+            db.close();
+            return aux;
         }
-    catch (Exception e)
+        catch (Exception e)
         {
-        String x=e.toString();
-        return false;
+            String x=e.toString();
+            return false;
         }
     }
+   else
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public boolean modificar() {

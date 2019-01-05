@@ -1,7 +1,10 @@
 package com.federavesm.smapp.modelo.diaRepartidor.precios;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
+import com.federavesm.smapp.modelo.Fecha;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorEvaluar;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoReparto;
 
@@ -71,6 +74,50 @@ public abstract class PrecioAlquileres extends GenericoReparto {
 
         }
     }
+
+
+    protected Fecha fecha;
+
+    public boolean cargar(Fecha fecha)
+    {
+    this.fecha=fecha;
+        try
+        {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM PrecioDiaRepartidor AS PDR INNER JOIN DiaRepartidor AS DR ON PDR.idDiaRepartidor = DR.id " +
+                    "WHERE DR.fecha <="+"'"+this.fecha.toString()+"'"+" ORDER BY DR.fecha DESC",null);
+
+
+            boolean aux=false;
+            if(cursor.moveToFirst())
+            {
+                aux=true;
+                this.id = cursor.getInt(0);
+                this.idDiaRepartidor = cursor.getInt(1);
+                this.alquiler6Bidones = cursor.getFloat(9);
+                this.alquiler8Bidones = cursor.getFloat(10);
+                this.alquiler10Bidones = cursor.getFloat(11);
+                this.alquiler12Bidones = cursor.getFloat(12);
+            }
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return  false;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

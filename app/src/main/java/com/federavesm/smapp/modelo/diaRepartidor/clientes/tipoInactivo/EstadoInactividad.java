@@ -120,7 +120,30 @@ public class EstadoInactividad extends GenericoDiaRepartidor {
         }
     }
 
-
+    public boolean cargar(Fecha fecha)
+    {
+        this.fecha=fecha;
+        try
+        {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM EstadoInactividad WHERE idCliente="+"'"+this.idCliente+"'" + " AND fecha<="+"'"+this.fecha.toString()+"'"+" ORDER BY fecha DESC",null);
+            boolean aux = false;
+            if(cursor.moveToFirst())
+            {
+                aux = true;
+                this.id = cursor.getInt(0);
+                this.tipoInactivo.setId(cursor.getInt(2));
+                this.tipoInactivo.cargar();
+                this.ultimoConsumo = cursor.getString(3);
+            }
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
 
     @Override
     public boolean eliminar()

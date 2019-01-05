@@ -478,10 +478,13 @@ public class AEntregaAlquiler extends Activity
                 {
                 if(this.alquilerNew.evaluar())
                     {
+                    Comunicador.getReparto().getCliente().getDatosAlquiler().getEstadoAlquiler().restarRetornablesEntregados(this.alquilerOld.getRetornables());
                     this.alquilerOld.copiar(this.alquilerNew);
                     this.alquilerOld.getExcedenteAlquiler().modificar();
                     this.alquilerOld.modificar();
                     this.alquilerOld.actualizar();
+                    Comunicador.getReparto().getCliente().getDatosAlquiler().getEstadoAlquiler().sumarRetornablesEntregados(this.alquilerOld.getRetornables());
+
                     Dialogo.setListenerEventoAceptarInterfaz(new ListenerEventoAceptar());
                     Dialogo.aceptar("Atencion!","Entrega de Bidones guardada",this);
                     }
@@ -492,10 +495,13 @@ public class AEntregaAlquiler extends Activity
                 }
             else
                 {
+                Comunicador.getReparto().getCliente().getDatosAlquiler().getEstadoAlquiler().restarRetornablesEntregados(this.alquilerOld.getRetornables());
                 this.alquilerOld.copiar(this.alquilerNew);
                 this.alquilerOld.getExcedenteAlquiler().eliminar();
                 this.alquilerOld.modificar();
                 this.alquilerOld.actualizar();
+                Comunicador.getReparto().getCliente().getDatosAlquiler().getEstadoAlquiler().sumarRetornablesEntregados(this.alquilerOld.getRetornables());
+
                 Dialogo.setListenerEventoAceptarInterfaz(new ListenerEventoAceptar());
                 Dialogo.aceptar("Atencion!","Entrega de Bidones guardada",this);
                 }
@@ -553,10 +559,13 @@ public class AEntregaAlquiler extends Activity
 
     private void guardarEntrega()
     {
+    Comunicador.getReparto().getCliente().getDatosAlquiler().getEstadoAlquiler().restarRetornablesEntregados(this.alquilerOld.getRetornables());
     this.alquilerOld.copiar(this.alquilerNew);
     this.alquilerOld.getExcedenteAlquiler().modificar();
     this.alquilerOld.modificar();
     this.alquilerOld.actualizar();
+    Comunicador.getReparto().getCliente().getDatosAlquiler().getEstadoAlquiler().sumarRetornablesEntregados(this.alquilerOld.getRetornables());
+
     Dialogo.setListenerEventoAceptarInterfaz(new ListenerEventoAceptar());
     Dialogo.aceptar("Atencion!","Entrega de Bidones guardada",this);
     }

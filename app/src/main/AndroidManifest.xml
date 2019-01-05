@@ -35,6 +35,7 @@
 
         <activity android:name=".actividades.diaRepartidor.ADatosDelDia" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.AEnviarDia" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.AAgregarCliente" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
         <activity android:name=".actividades.diaRepartidor.reparto.AReparto" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.cargas.ACargamento" android:configChanges="keyboardHidden|orientation|screenSize"/>

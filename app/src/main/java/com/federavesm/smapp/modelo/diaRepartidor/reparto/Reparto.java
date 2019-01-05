@@ -225,6 +225,10 @@ public  class Reparto extends GenericoReparto {
             setEstadosTipoVisita();
 
 
+            this.cliente.getDatosAlquiler().getEstadoAlquiler().restarRetornablesEntregadosDinamico(this.alquiler.getRetornables());
+
+
+
             }
         db.close();
         return aux;

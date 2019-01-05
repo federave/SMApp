@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.federavesm.smapp.modelo.Comunicador;
+import com.federavesm.smapp.modelo.Fecha;
 import com.federavesm.smapp.modelo.Generico;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioAlquileres;
@@ -148,6 +149,56 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
         return false;
         }
     }
+
+
+
+    private Fecha fecha;
+
+    public boolean cargar(Fecha fecha)
+    {
+        this.fecha=fecha;
+
+        try
+        {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM DatosAlquiler WHERE id="+"'"+this.id+"'",null);
+            boolean aux = false;
+            if(cursor.moveToFirst())
+            {
+                aux = true;
+                if(cursor.getInt(1)!=-1)
+                {
+                    this.precioAlquileres = new PrecioEspecialAlquiler(this.context);
+                    this.precioAlquileres.setId(cursor.getInt(1));
+                    this.precioAlquileres.cargar();
+
+                }
+                else
+                {
+                    this.precioAlquileres = new PrecioNormalAlquileres(this.context);
+                    this.precioAlquileres.cargar(fecha);
+
+
+                }
+
+                this.alquileres.setAlquileres6Bidones(cursor.getInt(2));
+                this.alquileres.setAlquileres8Bidones(cursor.getInt(3));
+                this.alquileres.setAlquileres10Bidones(cursor.getInt(4));
+                this.alquileres.setAlquileres12Bidones(cursor.getInt(5));
+
+                this.estadoAlquiler.setIdAlquiler(this.id);
+                aux &= this.estadoAlquiler.cargar(this.fecha);
+            }
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+
 
 
 

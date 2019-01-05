@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorEvaluar;
-import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioRetornables;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
 import com.federavesm.smapp.modelo.servidor.datosXML.XML;
 

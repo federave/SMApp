@@ -180,6 +180,96 @@ public class Cliente extends GenericoDiaRepartidor {
 
 
 
+    public boolean cargar(Fecha fecha)
+    {
+        this.fecha=fecha;
+        try
+        {
+            SQLiteDatabase db = getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM DatosClientes WHERE id="+"'"+this.id+"'",null);
+            boolean aux = false;
+            if(cursor.moveToFirst())
+            {
+                aux = true;
+                this.datos.setId(cursor.getInt(1));
+                this.direccion.setId(cursor.getInt(2));
+                this.datos.setNombre(cursor.getString(3));
+                this.datos.setApellido(cursor.getString(4));
+                this.datos.setTelefono(cursor.getString(5));
+                this.datos.getTipoCliente().setId(cursor.getInt(6));
+
+
+
+                aux &= this.direccion.cargar();
+                aux &= this.datos.getTipoCliente().cargar();
+
+
+
+                if(cursor.getInt(7)!=-1)
+                {
+                    this.precioProductos = new PrecioEspecialProductos(this.context);
+                    this.precioProductos.setId(cursor.getInt(7));
+                    aux &= this.precioProductos.cargar();
+                }
+                else
+                {
+                    this.precioProductos = new PrecioNormalProductos(this.context);
+                    aux &= this.precioProductos.cargar(fecha);
+                }
+
+
+
+                this.datosAlquiler.setId(cursor.getInt(8));
+                aux &= this.datosAlquiler.cargar(this.fecha);
+
+
+                this.estadoInactividad.setIdCliente(this.datos.getId());
+                this.estadoBidonesDispenserFC.setIdCliente(this.datos.getId());
+
+
+                aux &= this.estadoBidonesDispenserFC.cargar(this.fecha);
+                aux &= this.estadoInactividad.cargar(this.fecha);
+
+
+
+
+            }
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            String x = e.toString();
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Override
     public boolean guardar()
     {
@@ -341,6 +431,11 @@ public class Cliente extends GenericoDiaRepartidor {
 
         }
     }
+
+
+
+
+
 
 
     protected boolean existe = false;

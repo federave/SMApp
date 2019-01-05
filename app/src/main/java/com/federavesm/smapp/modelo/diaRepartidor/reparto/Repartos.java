@@ -237,6 +237,23 @@ public class Repartos extends GenericoReparto {
     return aux;
     }
 
+
+
+
+    public boolean addReparto(Reparto reparto)
+    {
+    reparto.setIdDiaRepartidor(this.idDiaRepartidor);
+    repartos.add(reparto);
+    return reparto.guardar();
+    }
+
+
+
+
+
+
+
+
     @Override
     public boolean eliminar()
     {

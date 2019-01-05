@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.Cliente;
+import com.federavesm.smapp.modelo.diaRepartidor.clientes.ClienteBusqueda;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
 
 import java.util.ArrayList;
@@ -33,10 +34,10 @@ public class AdaptadorClientes extends BaseAdapter
 
 
 
-    private List<Cliente> clientes = new ArrayList<Cliente>();
+    private List<ClienteBusqueda> clientes = new ArrayList<ClienteBusqueda>();
 
 
-    public AdaptadorClientes(Context context, List<Cliente> clientes)
+    public AdaptadorClientes(Context context, List<ClienteBusqueda> clientes)
     {
     this.clientes = clientes;
     inflador = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -64,10 +65,13 @@ public class AdaptadorClientes extends BaseAdapter
 
 
 
-            Cliente cliente = this.clientes.get(posicion);
+            ClienteBusqueda cliente = this.clientes.get(posicion);
 
-            this.nombre.setText(cliente.getDatos().toString()+" Id: "+cliente.getDatos().getId());
-            this.direccion.setText(cliente.getDireccion().toString());
+            this.nombre.setText(cliente.getNombre()+" Id: "+cliente.getIdCliente());
+            this.direccion.setText(cliente.getDireccion());
+
+
+            this.tipoCliente.setImageResource(cliente.getRecursoImagen());
 
 
         }

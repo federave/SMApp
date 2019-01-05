@@ -1,6 +1,7 @@
 package com.federavesm.smapp.actividades.diaRepartidor.reparto;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
@@ -86,7 +87,11 @@ public class ADatosCliente extends ActivityGenerica
         textViewBidones12L = (TextView) findViewById(R.id.aDatosClienteBidones12L);
         textViewDispenserFC = (TextView) findViewById(R.id.aDatosClienteDispenserFC);
 
-        cliente = Comunicador.getReparto().getCliente();
+
+        if(Comunicador.getClienteSeleccionado())
+            cliente = Comunicador.getClienteBusqueda();
+        else
+            cliente = Comunicador.getReparto().getCliente();
 
         cargarViews();
 

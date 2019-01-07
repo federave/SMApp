@@ -595,7 +595,7 @@ public class Cliente extends GenericoDiaRepartidor {
                 case "IdInactividad":
                 {
                     int id = getInt(cadena.toString());
-                    TipoInactivo tipoInactivo = new TipoInactivo(activity,id);
+                    TipoInactivo tipoInactivo = new TipoInactivo(context,id);
                     estadoInactividad.setTipoInactivo(tipoInactivo);
                     break;
                 }
@@ -727,7 +727,7 @@ public class Cliente extends GenericoDiaRepartidor {
             {
                 case "PrecioEspecialAlquiler":
                 {
-                    this.precioEspecialAlquiler = new PrecioEspecialAlquiler(activity);
+                    this.precioEspecialAlquiler = new PrecioEspecialAlquiler(context);
                     break;
                 }
                 default:{break;}
@@ -741,7 +741,7 @@ public class Cliente extends GenericoDiaRepartidor {
             {
                 case "PrecioEspecialProductos":
                 {
-                    this.precioEspecialProductos = new PrecioEspecialProductos(activity);
+                    this.precioEspecialProductos = new PrecioEspecialProductos(context);
                     break;
                 }
                 default:{break;}
@@ -777,7 +777,7 @@ public class Cliente extends GenericoDiaRepartidor {
             endBidonesDispenserFC(localName);
             endInactividad(localName);
             endAlquiler(localName);
-
+            endPrecioEspecialProductos(localName);
         }
 
 

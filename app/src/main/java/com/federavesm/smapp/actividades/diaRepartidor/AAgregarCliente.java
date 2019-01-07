@@ -195,7 +195,7 @@ public class AAgregarCliente extends ActivityGenerica
     reparto.getCliente().getEstadoBidonesDispenserFC().actualizar();
     reparto.getCliente().getDatosAlquiler().actualizar();
     reparto.getFueraDeRecorrido().setTipoFueraDeRecorrido(new TipoFueraDeRecorrido(this,1)); // llamado
-        
+
     if(Comunicador.getDiaRepartidor().getRepartos().isReparto(reparto) == false) {
         Comunicador.getDiaRepartidor().getRepartos().addReparto(reparto);
         Dialogo.setListenerEventoAceptarInterfaz(new ListenerEventoAceptar());

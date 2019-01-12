@@ -192,6 +192,7 @@ public class APagoAlquiler extends Activity
                 if(this.pagoAlquilerAux.getAlquileres().getAlquileres6Bidones() > 0)
                     {
                     this.editTextAlquileres6Bidones.setText(String.valueOf(this.pagoAlquilerAux.getAlquileres().getAlquileres6Bidones()));
+                    this.textViewDineroAlquileres6Bidones.setText("Dinero: "+this.pagoAlquilerAux.getAlquileres().getAlquileres6Bidones() * this.cliente.getDatosAlquiler().getPrecioAlquileres().getAlquiler6Bidones());
                     }
                 }
             catch (Exception e)
@@ -233,6 +234,8 @@ public class APagoAlquiler extends Activity
                     if(this.pagoAlquilerAux.getAlquileres().getAlquileres8Bidones() > 0)
                     {
                         this.editTextAlquileres8Bidones.setText(String.valueOf(this.pagoAlquilerAux.getAlquileres().getAlquileres8Bidones()));
+                        this.textViewDineroAlquileres8Bidones.setText("Dinero: "+this.pagoAlquilerAux.getAlquileres().getAlquileres8Bidones() * this.cliente.getDatosAlquiler().getPrecioAlquileres().getAlquiler8Bidones());
+
                     }
                 }
                 catch (Exception e)
@@ -272,6 +275,8 @@ public class APagoAlquiler extends Activity
                     if(this.pagoAlquilerAux.getAlquileres().getAlquileres10Bidones() > 0)
                     {
                         this.editTextAlquileres10Bidones.setText(String.valueOf(this.pagoAlquilerAux.getAlquileres().getAlquileres10Bidones()));
+                        this.textViewDineroAlquileres10Bidones.setText("Dinero: "+this.pagoAlquilerAux.getAlquileres().getAlquileres10Bidones() * this.cliente.getDatosAlquiler().getPrecioAlquileres().getAlquiler10Bidones());
+
                     }
                 }
                 catch (Exception e)
@@ -312,6 +317,8 @@ public class APagoAlquiler extends Activity
                     if(this.pagoAlquilerAux.getAlquileres().getAlquileres12Bidones() > 0)
                     {
                         this.editTextAlquileres12Bidones.setText(String.valueOf(this.pagoAlquilerAux.getAlquileres().getAlquileres12Bidones()));
+                        this.textViewDineroAlquileres12Bidones.setText("Dinero: "+this.pagoAlquilerAux.getAlquileres().getAlquileres12Bidones() * this.cliente.getDatosAlquiler().getPrecioAlquileres().getAlquiler12Bidones());
+
                     }
                 }
                 catch (Exception e)

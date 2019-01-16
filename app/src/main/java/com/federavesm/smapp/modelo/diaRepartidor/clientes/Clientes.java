@@ -35,7 +35,7 @@ public class Clientes extends Conector {
 
             // Busqueda por id o nombre
 
-            Cursor cursor = db.rawQuery("SELECT DC.id,DC.idCliente,DC.nombre,D.calle,D.entre1,D.entre2,D.numero,D.departamento,D.piso,DC.idTipoCliente FROM DatosClientes AS DC INNER JOIN DireccionCliente AS D ON DC.idDatosDireccion = D.id WHERE DC.idCliente LIKE "+"'%"+dato+"%'" + " OR DC.nombre LIKE "+"'%"+dato+"%'" + " OR DC.apellido LIKE "+"'%"+dato+"%'" + " OR DC.telefono LIKE "+"'%"+dato+"%'",null);
+            Cursor cursor = db.rawQuery("SELECT DC.id,DC.idCliente,DC.nombre,D.calle,D.entre1,D.entre2,D.numero,D.departamento,D.piso,DC.idTipoCliente FROM DatosClientes AS DC INNER JOIN DireccionCliente AS D ON DC.idDatosDireccion = D.id WHERE DC.idCliente LIKE "+"'%"+dato+"%'" + " OR DC.nombre LIKE "+"'%"+dato+"%'" ,null);
 
             boolean aux = cursor.moveToFirst();
             while(aux)

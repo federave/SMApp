@@ -30,6 +30,7 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
     super(context);
     this.context = context;
     this.estadoAlquiler = new EstadoAlquiler(context);
+    this.precioAlquileres = new PrecioNormalAlquileres(context);
     }
 
 

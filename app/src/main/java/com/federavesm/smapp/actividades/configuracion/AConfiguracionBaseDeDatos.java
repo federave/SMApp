@@ -9,16 +9,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.CodigosActividades;
 import com.federavesm.smapp.actividades.Dialogo;
 import com.federavesm.smapp.modelo.BaseDeDatos;
 import com.federavesm.smapp.modelo.Comunicador;
-import com.federavesm.smapp.modelo.Fecha;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoCliente.TipoClientes;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoInactivo.TipoInactivos;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.fueraDeRecorrido.TiposFueraDeRecorrido;
@@ -64,6 +61,10 @@ public class AConfiguracionBaseDeDatos extends Activity
         buttonActualizarBaseDeDatos.setOnClickListener(new AConfiguracionBaseDeDatos.ListenerClickButtonActualizarBaseDeDatos());
 
 
+        buttonActualizarClientes = (Button)findViewById(R.id.aConfiguracionBaseDeDatosButtonActualizarClientes);
+        buttonActualizarClientes.setOnClickListener(new ListenerClickButtonActualizarClientes());
+
+
         buttonVaciarBD = (Button)findViewById(R.id.aConfiguracionBaseDeDatosButtonVaciarBD);
         buttonVaciarBD.setOnClickListener(new AConfiguracionBaseDeDatos.ListenerClickButtonVaciarBD());
 
@@ -81,14 +82,31 @@ public class AConfiguracionBaseDeDatos extends Activity
 
     BaseDeDatos baseDeDatos;
 
-
+    private Button buttonActualizarClientes;
     private Button buttonActualizarBaseDeDatos;
     private Button buttonVaciarBD;
     private TextView textViewInfoBD;
 
 
+    class ListenerClickButtonActualizarClientes implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            mostrarActualizarClientes();
+        }
+    }
 
 
+    private void mostrarActualizarClientes()
+    {
+        Intent intentActualizarClientes = new Intent(this,AActualizarClientes.class);
+        startActivityForResult(intentActualizarClientes, CodigosACBD.ActualizarClientes);
+    }
+
+    static class CodigosACBD extends CodigosActividades
+    {
+        public static int ActualizarClientes =3;
+    }
 
 
 

@@ -44,6 +44,7 @@ public class Cliente extends GenericoDiaRepartidor {
     this.estadoBidonesDispenserFC = new EstadoBidonesDispenserFC(context);
     this.estadoInactividad = new EstadoInactividad(context);
     this.datosAlquiler = new DatosAlquiler(context);
+    this.precioProductos = new PrecioNormalProductos(context);
     this.context = context;
     }
     private Context context;
@@ -377,7 +378,7 @@ public class Cliente extends GenericoDiaRepartidor {
 
 
 
-    public void cargar(int idCliente,int idDireccion)
+    public boolean cargar(int idCliente,int idDireccion)
     {
     SQLiteDatabase db = getReadableDatabase();
     Cursor cursor = db.rawQuery("SELECT DC.id FROM DatosClientes AS DC INNER JOIN DireccionCliente AS D " +
@@ -430,6 +431,7 @@ public class Cliente extends GenericoDiaRepartidor {
         db.close();
 
         }
+        return aux;
     }
 
 
@@ -462,10 +464,11 @@ public class Cliente extends GenericoDiaRepartidor {
 
 
 
-    public void actualizar(String xml)
+    public boolean actualizar(String xml)
     {
         try
         {
+            boolean aux=true;
             factory = SAXParserFactory.newInstance();
             parser = factory.newSAXParser();
             this.reader = parser.getXMLReader();
@@ -476,17 +479,17 @@ public class Cliente extends GenericoDiaRepartidor {
 
 
 
-            this.estadoInactividad.actualizar();
-            this.estadoBidonesDispenserFC.actualizar();
-            this.datosAlquiler.getEstadoAlquiler().actualizar();
-
+            aux&=this.estadoInactividad.actualizar();
+            aux&=this.estadoBidonesDispenserFC.actualizar();
+            aux&=this.datosAlquiler.getEstadoAlquiler().actualizar();
+    return aux;
 
 
         }
         catch (Exception e)
         {
             String x = e.toString();
-
+            return false;
         }
 
 
@@ -638,7 +641,7 @@ public class Cliente extends GenericoDiaRepartidor {
 
 
 
-    public void guardar(String xml)
+    public boolean guardar(String xml)
     {
     try
         {
@@ -647,11 +650,12 @@ public class Cliente extends GenericoDiaRepartidor {
         this.reader = parser.getXMLReader();
         this.reader.setContentHandler(new DatosClienteXML());
         this.reader.parse(new InputSource(new StringReader(xml)));
-        this.guardar();
+        return this.guardar();
         }
     catch (Exception e)
         {
         String x = e.toString();
+        return false;
         }
 
 

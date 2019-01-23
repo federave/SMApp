@@ -1,5 +1,8 @@
 package com.federavesm.smapp.actividades.diaRepartidor.reparto;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -7,11 +10,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.ActivityGenerica;
+import com.federavesm.smapp.actividades.Dialogo;
+import com.federavesm.smapp.actividades.configuracion.AActualizarClientes;
 import com.federavesm.smapp.modelo.Comunicador;
+import com.federavesm.smapp.modelo.Fecha;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.Cliente;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.vendedor.Vendedor;
+import com.federavesm.smapp.modelo.servidor.RequerimientoGET;
+import com.federavesm.smapp.modelo.servidor.Servidor;
+import com.federavesm.smapp.modelo.servidor.VerificarConexion;
+import com.federavesm.smapp.modelo.servidor.datosXML.DatosBasicosClienteXML;
+import com.federavesm.smapp.modelo.servidor.datosXML.InfoClientesRepartidorXML;
+import com.federavesm.smapp.modelo.servidor.datosXML.VerificarConexionXML;
 
 /**
  * Created by Federico on 24/2/2018.
@@ -29,6 +43,11 @@ public class ADatosCliente extends ActivityGenerica
 
         this.buttonRetornar = (Button) findViewById(R.id.aDatosClienteButtonRetornar);
         this.buttonRetornar.setOnClickListener(new ListenerClickButtonRetornar());
+
+        this.buttonActualizar = (Button) findViewById(R.id.aDatosClienteButtonActualizar);
+        this.buttonActualizar.setOnClickListener(new ListenerClickButtonActualizarCliente());
+
+
 
         /////Datos Cliente
 
@@ -88,10 +107,16 @@ public class ADatosCliente extends ActivityGenerica
         textViewDispenserFC = (TextView) findViewById(R.id.aDatosClienteDispenserFC);
 
 
-        if(Comunicador.getClienteSeleccionado())
+        if(Comunicador.getClienteSeleccionado()) {
             cliente = Comunicador.getClienteBusqueda();
-        else
+            this.buttonActualizar.setVisibility(View.VISIBLE);
+        }
+            else
+        {
             cliente = Comunicador.getReparto().getCliente();
+            this.buttonActualizar.setVisibility(View.GONE);
+
+        }
 
         cargarViews();
 
@@ -101,6 +126,9 @@ public class ADatosCliente extends ActivityGenerica
     private Cliente cliente;
 
     /////////////////////
+
+    private Button buttonActualizar;
+
 
     /////Datos Cliente
 
@@ -311,6 +339,226 @@ public class ADatosCliente extends ActivityGenerica
 
 
 
+
+
+    //////////////////////////////////////////////////
+
+
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// -------------   Actualizar Clientes Vendedores         --------------
+
+
+
+
+    class ListenerClickButtonActualizarCliente implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            actualizarClienteVerificarConexion();
+        }
+    }
+
+    private void actualizarClienteVerificarConexion()
+    {
+
+
+    if(Comunicador.getConexionInternet(this))
+    {
+        VerificarConexionActualizarCliente verificarConexion = new VerificarConexionActualizarCliente(this,Comunicador.getConexionServidor().getIp());
+        verificarConexion.execute();
+    }
+    else
+    {
+        Dialogo.aceptarVacioError("Atención!","No está conectado a internet",this);
+    }
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+    class VerificarConexionActualizarCliente extends VerificarConexion
+    {
+        public VerificarConexionActualizarCliente(Context activity, String ip)
+        {
+            super(activity,ip);
+        }
+        @Override
+        protected void onPostExecute(String respuesta) {
+            this.dialogoProgreso.dismiss();
+            actualizarCliente(this.verificarConexionXML);
+        }
+
+    }
+
+
+    private void actualizarCliente(VerificarConexionXML verificarConexionXML)
+    {
+        if(verificarConexionXML.getEstado())
+        {
+            ActualizarCliente actualizarCliente = new ActualizarCliente(this);
+            actualizarCliente.setCancelar(new Cancelar(actualizarCliente));
+            actualizarCliente.execute();
+        }
+        else
+        {
+            Dialogo.aceptarVacioError("Atención!","La conexión con el servidor no funciona",this);
+        }
+    }
+
+
+    ////////////////Actualizar Base De Datos
+
+
+
+
+
+    public class Cancelar implements DialogInterface.OnClickListener {
+
+
+        public Cancelar(AsyncTask<String,Integer,String> tarea)
+        {
+            this.tarea=tarea;
+        }
+
+        private AsyncTask<String,Integer,String> tarea;
+
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+            tarea.cancel(true);
+        }
+    }
+
+
+    public class CancelarVacio implements DialogInterface.OnClickListener {
+
+
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {}
+    }
+
+
+
+
+    public class ActualizarCliente extends Servidor
+    {
+
+
+        public ActualizarCliente(Context activity)
+        {
+            super(activity);
+            this.url = this.urlServidor + "AplicacionSM/servidor/getActualizarBaseDeDatos.php";
+            this.activity = activity;
+        }
+
+        @Override
+        protected void onCancelled(String s) {
+            super.onCancelled(s);
+
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            Dialogo.aceptarVacioError("Atención!","La actualizacion de clientes se ha cancelado",this.activity);
+
+        }
+
+        private Context activity;
+
+
+        @Override
+        protected void onPreExecute()
+        {
+            this.dialogoProgreso.setMessage("Actualizando Cliente");
+            this.dialogoProgreso.show();
+        }
+
+
+
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+
+
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+            try
+            {
+
+                Fecha fecha = new Fecha();
+                RequerimientoGET requerimientoGET = new RequerimientoGET();
+                requerimientoGET.setHost(this.urlServidor);
+                String respuestaXML = "";
+
+
+
+
+                requerimientoGET.clear();
+                requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getActualidadCliente.php");
+                requerimientoGET.addParametro("fecha",fecha.toString());
+                requerimientoGET.addParametro("idCliente",String.valueOf(cliente.getDatos().getId()));
+                requerimientoGET.addParametro("idDireccion",String.valueOf(cliente.getDireccion().getIdDireccion()));
+                respuestaXML = requerimientoGET.ejecutar();
+
+                this.resultado&=cliente.actualizar(respuestaXML);
+
+
+
+
+
+
+
+            }
+            catch (Exception e)
+            {
+                String x = e.toString();
+            }
+            return "";
+        }
+
+        boolean resultado=true;
+
+
+        @Override
+        protected void onPostExecute(String respuesta) {
+            this.dialogoProgreso.dismiss();
+            actualizarClienteFin(this.resultado);
+        }
+
+
+    }
+
+    private void actualizarClienteFin(boolean resultado)
+    {
+        if(resultado)
+        {
+        cargarViews();
+        Dialogo.aceptarVacio("Atención!","El cliente se actualizó correctamente",this);
+
+
+        }
+        else
+        {
+            Dialogo.aceptarVacioError("Atención!","El cliente se actualizó correctamente",this);
+
+        }
+    }
 
 
 

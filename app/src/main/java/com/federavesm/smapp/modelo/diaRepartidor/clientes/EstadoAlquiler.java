@@ -190,40 +190,48 @@ public class EstadoAlquiler extends GenericoDiaRepartidor {
     @Override
     public boolean actualizar()
     {
-        try
+        if(this.idAlquiler>0)
         {
-
-
-            boolean aux = true;
-
-            SQLiteDatabase db = getWritableDatabase();
-
-            ContentValues estadoAlquiler = new ContentValues();
-            estadoAlquiler.put("idAlquiler",this.idAlquiler);
-            estadoAlquiler.put("alquileres6BidonesPagados",this.alquileresPagados.getAlquileres6Bidones());
-            estadoAlquiler.put("alquileres8BidonesPagados",this.alquileresPagados.getAlquileres8Bidones());
-            estadoAlquiler.put("alquileres10BidonesPagados",this.alquileresPagados.getAlquileres10Bidones());
-            estadoAlquiler.put("alquileres12BidonesPagados",this.alquileresPagados.getAlquileres12Bidones());
-            estadoAlquiler.put("bidones20LEntregados",this.retornablesEntregados.getBidones20L());
-            estadoAlquiler.put("bidones12LEntregados",this.retornablesEntregados.getBidones12L());
-            estadoAlquiler.put("fecha",this.fecha.toString());
-
-
-            if(db.insert("EstadoAlquiler",null,estadoAlquiler) > 0)
+            try
             {
-                this.id = getLastId("EstadoAlquiler");
+
+
+                boolean aux = true;
+
+                SQLiteDatabase db = getWritableDatabase();
+
+                ContentValues estadoAlquiler = new ContentValues();
+                estadoAlquiler.put("idAlquiler",this.idAlquiler);
+                estadoAlquiler.put("alquileres6BidonesPagados",this.alquileresPagados.getAlquileres6Bidones());
+                estadoAlquiler.put("alquileres8BidonesPagados",this.alquileresPagados.getAlquileres8Bidones());
+                estadoAlquiler.put("alquileres10BidonesPagados",this.alquileresPagados.getAlquileres10Bidones());
+                estadoAlquiler.put("alquileres12BidonesPagados",this.alquileresPagados.getAlquileres12Bidones());
+                estadoAlquiler.put("bidones20LEntregados",this.retornablesEntregados.getBidones20L());
+                estadoAlquiler.put("bidones12LEntregados",this.retornablesEntregados.getBidones12L());
+                estadoAlquiler.put("fecha",this.fecha.toString());
+
+
+                if(db.insert("EstadoAlquiler",null,estadoAlquiler) > 0)
+                {
+                    this.id = getLastId("EstadoAlquiler");
+                }
+                else
+                {
+                    aux = false;
+                }
+                db.close();
+                return aux;
             }
-            else
+            catch (Exception e)
             {
-                aux = false;
+                return false;
             }
-            db.close();
-            return aux;
         }
-        catch (Exception e)
-        {
-            return false;
-        }
+        else
+            {
+                return true;
+            }
+
 
     }
 

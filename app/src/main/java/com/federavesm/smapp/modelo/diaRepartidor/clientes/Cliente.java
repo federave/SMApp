@@ -482,7 +482,29 @@ public class Cliente extends GenericoDiaRepartidor {
             aux&=this.estadoInactividad.actualizar();
             aux&=this.estadoBidonesDispenserFC.actualizar();
             aux&=this.datosAlquiler.getEstadoAlquiler().actualizar();
-    return aux;
+
+            aux&=this.precioProductos.guardar();
+
+            if(this.precioProductos.getId()>0)
+                {
+                SQLiteDatabase db = getWritableDatabase();
+
+                ContentValues cliente = new ContentValues();
+
+                cliente.put("idPrecioEspecial",this.precioProductos.getId());
+
+                String whereClause = "id=?";
+                String whereArgs[] = {String.valueOf(this.id)};
+
+                if (!(db.update("DatosClientes", cliente, whereClause, whereArgs) > 0))
+                    {
+                    aux = false;
+                    }
+                }
+
+
+
+            return aux;
 
 
         }
@@ -513,10 +535,16 @@ public class Cliente extends GenericoDiaRepartidor {
         }
 
 
+        private PrecioProductos precioEspecialProductos;
+
+
+
         @Override
         public void startDocument()throws SAXException
         {
         }
+
+
 
         private StringBuilder cadena = new StringBuilder();
 
@@ -524,8 +552,24 @@ public class Cliente extends GenericoDiaRepartidor {
         public void startElement(String uri, String localName, String qName,Attributes attributes) throws SAXException
         {
             cadena.setLength(0);
+            startPrecioEspecialProductos(localName);
 
         }
+
+
+        private void startPrecioEspecialProductos(String localName)
+        {
+            switch (localName)
+            {
+                case "PrecioEspecialProductos":
+                {
+                    this.precioEspecialProductos = new PrecioEspecialProductos(context);
+                    break;
+                }
+                default:{break;}
+            }
+        }
+
 
         @Override
         public void characters(char ch[], int start, int length)throws SAXException
@@ -536,6 +580,10 @@ public class Cliente extends GenericoDiaRepartidor {
         @Override
         public void endElement(String uri, String localName, String qName)throws SAXException
         {
+
+
+            endPrecioEspecialProductos(localName);
+
             switch (localName)
             {
 
@@ -615,11 +663,89 @@ public class Cliente extends GenericoDiaRepartidor {
         }
 
 
+        private void endPrecioEspecialProductos(String localName)
+        {
+
+            switch (localName)
+            {
+
+
+                ////////////////////////VENTA PRODUCTOS///////////////////////////////
+
+
+
+                case "Bidon20L_PrecioEspecial":
+                {
+                    this.precioEspecialProductos.getPrecioRetornables().setBidon20L(getFloat(cadena.toString()));
+                    break;
+                }
+
+                case "Bidon12L_PrecioEspecial":
+                {
+                    this.precioEspecialProductos.getPrecioRetornables().setBidon12L(getFloat(cadena.toString()));
+                    break;
+                }
+
+                case "Bidon10L_PrecioEspecial":
+                {
+                    this.precioEspecialProductos.getPrecioDescartables().setBidon10L(getFloat(cadena.toString()));
+                    break;
+                }
+
+                case "Bidon8L_PrecioEspecial":
+                {
+                    this.precioEspecialProductos.getPrecioDescartables().setBidon8L(getFloat(cadena.toString()));
+                    break;
+                }
+
+                case "Bidon5L_PrecioEspecial":
+                {
+                    this.precioEspecialProductos.getPrecioDescartables().setBidon5L(getFloat(cadena.toString()));
+                    break;
+                }
+
+                case "PackBotellas2L_PrecioEspecial":
+                {
+                    this.precioEspecialProductos.getPrecioDescartables().setPackBotellas2L(getFloat(cadena.toString()));
+                    break;
+                }
+
+                case "PackBotellas500mL_PrecioEspecial":
+                {
+                    this.precioEspecialProductos.getPrecioDescartables().setPackBotellas500mL(getFloat(cadena.toString()));
+                    break;
+                }
+                case "PrecioEspecialProductos":
+                {
+                    precioProductos = this.precioEspecialProductos;
+                    break;
+                }
+
+
+                default:{break;}
+            }
+
+        }
+
+
         private int getInt(String cadena)
         {
             try
             {
                 return Integer.valueOf(cadena.toString());
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+        }
+
+
+        private float getFloat(String cadena)
+        {
+            try
+            {
+                return Float.valueOf(cadena.toString());
             }
             catch (Exception e)
             {

@@ -303,6 +303,14 @@
                 >
 
                 <Button
+                    android:id="@+id/aDatosClienteButtonActualizar"
+                    style="@style/button"
+                    android:text="Actualizar"
+                    android:layout_marginBottom="50dp"
+
+                    />
+
+                <Button
                     android:id="@+id/aDatosClienteButtonRetornar"
                     style="@style/buttonRetornar"
                     android:text="Retornar"

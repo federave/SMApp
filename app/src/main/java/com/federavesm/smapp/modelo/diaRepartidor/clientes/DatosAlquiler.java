@@ -157,46 +157,58 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
 
     public boolean cargar(Fecha fecha)
     {
-        this.fecha=fecha;
 
-        try
+
+        if(this.id>0)
         {
-            SQLiteDatabase db = getReadableDatabase();
-            Cursor cursor = db.rawQuery("SELECT * FROM DatosAlquiler WHERE id="+"'"+this.id+"'",null);
-            boolean aux = false;
-            if(cursor.moveToFirst())
+            this.fecha=fecha;
+
+            try
             {
-                aux = true;
-                if(cursor.getInt(1)!=-1)
+                SQLiteDatabase db = getReadableDatabase();
+                Cursor cursor = db.rawQuery("SELECT * FROM DatosAlquiler WHERE id="+"'"+this.id+"'",null);
+                boolean aux = false;
+                if(cursor.moveToFirst())
                 {
-                    this.precioAlquileres = new PrecioEspecialAlquiler(this.context);
-                    this.precioAlquileres.setId(cursor.getInt(1));
-                    this.precioAlquileres.cargar();
+                    aux = true;
+                    if(cursor.getInt(1)!=-1)
+                    {
+                        this.precioAlquileres = new PrecioEspecialAlquiler(this.context);
+                        this.precioAlquileres.setId(cursor.getInt(1));
+                        this.precioAlquileres.cargar();
 
+                    }
+                    else
+                    {
+                        this.precioAlquileres = new PrecioNormalAlquileres(this.context);
+                        this.precioAlquileres.cargar(fecha);
+
+
+                    }
+
+                    this.alquileres.setAlquileres6Bidones(cursor.getInt(2));
+                    this.alquileres.setAlquileres8Bidones(cursor.getInt(3));
+                    this.alquileres.setAlquileres10Bidones(cursor.getInt(4));
+                    this.alquileres.setAlquileres12Bidones(cursor.getInt(5));
+
+                    this.estadoAlquiler.setIdAlquiler(this.id);
+                    aux &= this.estadoAlquiler.cargar(this.fecha);
                 }
-                else
-                {
-                    this.precioAlquileres = new PrecioNormalAlquileres(this.context);
-                    this.precioAlquileres.cargar(fecha);
-
-
-                }
-
-                this.alquileres.setAlquileres6Bidones(cursor.getInt(2));
-                this.alquileres.setAlquileres8Bidones(cursor.getInt(3));
-                this.alquileres.setAlquileres10Bidones(cursor.getInt(4));
-                this.alquileres.setAlquileres12Bidones(cursor.getInt(5));
-
-                this.estadoAlquiler.setIdAlquiler(this.id);
-                aux &= this.estadoAlquiler.cargar(this.fecha);
+                db.close();
+                return aux;
             }
-            db.close();
-            return aux;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
-        catch (Exception e)
-        {
-            return false;
-        }
+        else
+            {
+                return true;
+
+            }
+
+
     }
 
 

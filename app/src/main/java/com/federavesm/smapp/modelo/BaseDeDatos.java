@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.federavesm.smapp.modelo.diaRepartidor.repartidores.Repartidor;
+
 
 /**
  * Created by Federico on 12/2/2018.
@@ -492,24 +494,121 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 int idDiaRepartidor = cursor.getInt(0);
 
 
-                //if((dbEscritura.delete("Gastos", "id=" + "'" + this.id + "'", null)>0))
+
+                if(!(dbEscritura.delete("DiaEnviado", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                    {
+                    aux=false;
+                    }
+                if(!(dbEscritura.delete("Gastos", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                    {
+                    aux=false;
+                    }
+                if(!(dbEscritura.delete("Cargas", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                    {
+                    aux=false;
+                    }
+                if(!(dbEscritura.delete("Descargas", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                    {
+                    aux=false;
+                    }
+                if(!(dbEscritura.delete("PrecioDiaRepartidor", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                    {
+                    aux=false;
+                    }
 
 
+                cursor = dbLectura.rawQuery("SELECT * FROM Repartos WHERE idDiaRepartidor="+"'"+idDiaRepartidor+"'" ,null);
+                boolean aux2 = cursor.moveToFirst();
+                while(aux2)
+                    {
+                    int idReparto = cursor.getInt(0);
+                    int idVentaProductos = cursor.getInt(4);
+                    int idDeudaProductos = cursor.getInt(5);
+                    int idAlquiler = cursor.getInt(6);
+                    int idVacios = cursor.getInt(7);
+                    int idObservacion = cursor.getInt(11);
+
+                    if(idVentaProductos>0)
+                        {
+                        if(!(dbEscritura.delete("VentaProductos", "id=" + "'" + idVentaProductos + "'", null)>0))
+                            {
+                            aux=false;
+                            }
+                        }
+
+                    if(idDeudaProductos>0)
+                        {
+                        if(!(dbEscritura.delete("DeudaProductos", "id=" + "'" + idDeudaProductos + "'", null)>0))
+                            {
+                            aux=false;
+                            }
+                        }
+
+                    if(idVacios>0)
+                        {
+                        if(!(dbEscritura.delete("Vacios", "id=" + "'" + idVacios + "'", null)>0))
+                            {
+                            aux=false;
+                            }
+                        }
+
+                    if(idObservacion>0)
+                        {
+                        if(!(dbEscritura.delete("Observaciones", "id=" + "'" + idObservacion + "'", null)>0))
+                            {
+                            aux=false;
+                            }
+                        }
+
+
+                    if(idAlquiler>0)
+                        {
+                        Cursor cursor2 = dbLectura.rawQuery("SELECT * FROM Alquiler WHERE idAlquiler="+"'"+idAlquiler+"'",null);
+
+                        if(cursor2.moveToFirst())
+                            {
+                            int idExcedente = cursor2.getInt(1);
+                            int idPagoAlquiler = cursor2.getInt(2);
+
+                            if(idExcedente>0)
+                                {
+                                if(!(dbEscritura.delete("ExcedenteAlquiler", "id=" + "'" + idExcedente + "'", null)>0))
+                                    {
+                                    aux=false;
+                                    }
+                                }
+
+                            if(idPagoAlquiler>0)
+                                {
+                                if(!(dbEscritura.delete("PagoAlquiler", "id=" + "'" + idPagoAlquiler + "'", null)>0))
+                                    {
+                                    aux=false;
+                                    }
+                                }
+                            }
+
+                        if(!(dbEscritura.delete("Alquiler", "id=" + "'" + idAlquiler + "'", null)>0))
+                            {
+                            aux=false;
+                            }
+
+                        }
+
+                    if(!(dbEscritura.delete("Repartos", "id=" + "'" + idReparto + "'", null)>0))
+                        {
+                        aux=false;
+                        }
+
+                    aux2 = cursor.moveToNext();
+                    }
 
                 }
 
-
-
-
-
-
-
-
-            return aux;
+        return aux;
         }
-        catch (Exception e)
+    catch (Exception e)
         {
-            return false;
+        return false;
         }
 
 

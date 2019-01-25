@@ -64,6 +64,11 @@ public class AConfiguracionBaseDeDatos extends Activity
         buttonActualizarClientes = (Button)findViewById(R.id.aConfiguracionBaseDeDatosButtonActualizarClientes);
         buttonActualizarClientes.setOnClickListener(new ListenerClickButtonActualizarClientes());
 
+        buttonEliminarDia = (Button)findViewById(R.id.aConfiguracionBaseDeDatosButtonEliminarDiaRepartidor);
+        buttonEliminarDia.setOnClickListener(new ListenerClickButtonEliminarDia());
+
+
+
 
         buttonVaciarBD = (Button)findViewById(R.id.aConfiguracionBaseDeDatosButtonVaciarBD);
         buttonVaciarBD.setOnClickListener(new AConfiguracionBaseDeDatos.ListenerClickButtonVaciarBD());
@@ -82,10 +87,41 @@ public class AConfiguracionBaseDeDatos extends Activity
 
     BaseDeDatos baseDeDatos;
 
+    private Button buttonEliminarDia;
+
     private Button buttonActualizarClientes;
     private Button buttonActualizarBaseDeDatos;
     private Button buttonVaciarBD;
     private TextView textViewInfoBD;
+
+
+
+    static class CodigosACBD extends CodigosActividades
+    {
+    public static int ActualizarClientes =3;
+    public static int EliminarDia =4;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// -------------   Mostrar Eliminar Dia         --------------
+
+    class ListenerClickButtonEliminarDia implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            mostrarEliminarDia();
+        }
+    }
+
+
+    private void mostrarEliminarDia()
+    {
+        Intent intentEliminarDia = new Intent(this,AEliminarDiaRepartidor.class);
+        startActivityForResult(intentEliminarDia, CodigosACBD.EliminarDia);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///// -------------   Mostrar Actualizar Clientes         --------------
 
 
     class ListenerClickButtonActualizarClientes implements View.OnClickListener
@@ -103,10 +139,6 @@ public class AConfiguracionBaseDeDatos extends Activity
         startActivityForResult(intentActualizarClientes, CodigosACBD.ActualizarClientes);
     }
 
-    static class CodigosACBD extends CodigosActividades
-    {
-        public static int ActualizarClientes =3;
-    }
 
 
 

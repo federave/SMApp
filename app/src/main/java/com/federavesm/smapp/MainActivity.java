@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.federavesm.smapp.actividades.*;
 import com.federavesm.smapp.actividades.clientes.AClientes;
 import com.federavesm.smapp.actividades.configuracion.AConfiguracion;
@@ -22,6 +21,9 @@ import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.DiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.repartidores.Repartidores;
 import com.federavesm.smapp.modelo.servidor.ConexionServidor;
+
+
+
 
 public class MainActivity extends AppCompatActivity {
 

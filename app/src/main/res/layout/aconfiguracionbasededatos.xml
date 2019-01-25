@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
+    android:paddingHorizontal="40dp"
     android:background="@drawable/fondo"
-
     >
 
 
@@ -32,10 +31,15 @@
             style="@style/button"
             android:layout_marginBottom="60dp"
             />
-
         <Button
             android:id="@+id/aConfiguracionBaseDeDatosButtonActualizarClientes"
             android:text="Actualizar Clientes"
+            style="@style/button"
+            android:layout_marginBottom="60dp"
+            />
+        <Button
+            android:id="@+id/aConfiguracionBaseDeDatosButtonEliminarDiaRepartidor"
+            android:text="Eliminar Día"
             style="@style/button"
             android:layout_marginBottom="60dp"
             />

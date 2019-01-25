@@ -475,7 +475,45 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
 
 
+    public boolean eliminarDiaRepartidor(int idRepartidor,Fecha fecha)
+    {
 
+        try
+        {
+
+            SQLiteDatabase dbLectura = getReadableDatabase();
+            SQLiteDatabase dbEscritura = getWritableDatabase();
+
+            Cursor cursor = dbLectura.rawQuery("SELECT * FROM DiaRepartidor WHERE idRepartidor="+"'"+idRepartidor+"'" + "AND fecha="+"'"+fecha.toString()+"'",null);
+            boolean aux = true;
+            if(cursor.moveToFirst())
+                {
+
+                int idDiaRepartidor = cursor.getInt(0);
+
+
+                //if((dbEscritura.delete("Gastos", "id=" + "'" + this.id + "'", null)>0))
+
+
+
+                }
+
+
+
+
+
+
+
+
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+
+
+    }
 
 
 

@@ -30,6 +30,7 @@
         <activity android:name=".actividades.configuracion.AConfiguracion" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.configuracion.AConfiguracionBaseDeDatos" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.configuracion.AActualizarClientes" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.configuracion.AEliminarDiaRepartidor" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
         <activity android:name=".actividades.diaRepartidor.ARepartos" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.gastos.AGastos" android:configChanges="keyboardHidden|orientation|screenSize"/>

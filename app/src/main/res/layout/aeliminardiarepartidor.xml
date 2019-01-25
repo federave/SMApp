@@ -2,7 +2,6 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -41,62 +40,45 @@
 
 
         <Spinner
-            android:id="@+id/aActualizarClientesSpinnerRepartidores"
+            android:id="@+id/aEliminarDiaRepartidorSpinnerRepartidores"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="10dp"
             android:textAlignment="center"
             />
-
-        <Button
-            android:layout_marginBottom="40dp"
-            android:id="@+id/aActualizarClientesButtonActualizar"
-            android:text="Actualizar"
-            style="@style/button"
-            />
-
-
-    </LinearLayout>
-
-
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:paddingHorizontal="40dp"
-        android:gravity="center"
-        >
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seleccionar Vendedor"
+            android:text="Seleccionar Fecha"
             style="@style/texto"
             android:textSize="28dp"
             android:layout_marginBottom="50dp"
             android:textColor="@color/colorAmarillo"
-
             />
 
 
-        <Spinner
-            android:id="@+id/aActualizarClientesSpinnerVendedores"
+        <DatePicker
+            android:id="@+id/aEliminarDiaRepartidorDatePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center"
-            />
+            android:layout_marginBottom="20dp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            >
+        </DatePicker>
+
 
         <Button
-            android:id="@+id/aActualizarClientesButtonActualizarVendedores"
-            android:text="Actualizar"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
+
+            android:id="@+id/aEliminarDiaRepartidorButtonEliminar"
+            android:text="Eliminar"
             style="@style/button"
             />
 
@@ -114,15 +96,11 @@
         android:paddingHorizontal="40dp"
         >
 
-
-
-
         <Button
-            android:id="@+id/aActualizarClientesButtonRetornar"
+            android:id="@+id/aEliminarDiaRepartidorButtonRetornar"
             android:text="Retornar"
             style="@style/buttonRetornar"
             />
-
 
     </LinearLayout>
 

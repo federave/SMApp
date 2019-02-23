@@ -15,6 +15,17 @@
         <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
     </LinearLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
 
 
@@ -55,6 +66,19 @@
             android:text="Actualizar"
             style="@style/button"
             />
+
+        <TextView
+            android:id="@+id/aActualizarClientesTextViewInfoClientesRepartidores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Resultado: "
+            style="@style/texto"
+            android:textSize="28dp"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/colorAmarillo"
+
+            />
+
 
 
     </LinearLayout>
@@ -101,6 +125,22 @@
             />
 
 
+        <TextView
+        android:id="@+id/aActualizarClientesTextViewInfoClientesVendedores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado: "
+        style="@style/texto"
+        android:textSize="28dp"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/colorAmarillo"
+
+        />
+
+
+
+
+
     </LinearLayout>
 
 
@@ -113,19 +153,17 @@
         android:orientation="vertical"
         android:paddingHorizontal="40dp"
         >
-
-
-
-
         <Button
             android:id="@+id/aActualizarClientesButtonRetornar"
             android:text="Retornar"
             style="@style/buttonRetornar"
             />
+    </LinearLayout>
 
 
     </LinearLayout>
 
+    </ScrollView>
 
 
 

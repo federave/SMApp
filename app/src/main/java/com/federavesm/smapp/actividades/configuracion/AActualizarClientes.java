@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.federavesm.smapp.R;
@@ -60,6 +61,7 @@ public class AActualizarClientes extends ActivityGenerica
         adaptadorRepartidores = new AdaptadorRepartidores(this,repartidores.getRepartidores());
         spinnerRepartidores.setAdapter(adaptadorRepartidores);
 
+        textViewInfoClientesRepartidores = (TextView)findViewById(R.id.aActualizarClientesTextViewInfoClientesRepartidores);
 
 
         vendedores = new Vendedores(this);
@@ -67,6 +69,7 @@ public class AActualizarClientes extends ActivityGenerica
         adaptadorVendedores = new AdaptadorVendedores(this,vendedores.getVendedores());
         spinnerVendedores.setAdapter(adaptadorVendedores);
 
+        textViewInfoClientesVendedores = (TextView)findViewById(R.id.aActualizarClientesTextViewInfoClientesVendedores);
 
 
         buttonActualizarClientesVendedores = (Button)findViewById(R.id.aActualizarClientesButtonActualizarVendedores);
@@ -97,6 +100,7 @@ public class AActualizarClientes extends ActivityGenerica
     private AdaptadorRepartidores adaptadorRepartidores;
     private Spinner spinnerRepartidores;
     private Repartidores repartidores;
+    private TextView textViewInfoClientesRepartidores;
 
     BaseDeDatos baseDeDatos = new BaseDeDatos(this);
 
@@ -105,7 +109,7 @@ public class AActualizarClientes extends ActivityGenerica
     private AdaptadorVendedores adaptadorVendedores;
     private Spinner spinnerVendedores;
     private Vendedores vendedores;
-
+    private TextView textViewInfoClientesVendedores;
 
 
 
@@ -134,7 +138,7 @@ public class AActualizarClientes extends ActivityGenerica
     if(spinnerRepartidores.getSelectedItemPosition()>=0)
         {
         this.idEmpleado = ((Repartidor)spinnerRepartidores.getSelectedItem()).getId();
-
+        this.estadoRepartidor=true;
         if(Comunicador.getConexionInternet(this))
             {
             VerificarConexionActualizarClientes verificarConexion = new VerificarConexionActualizarClientes(this,Comunicador.getConexionServidor().getIp());
@@ -178,7 +182,7 @@ public class AActualizarClientes extends ActivityGenerica
         if(spinnerVendedores.getSelectedItemPosition()>=0)
         {
             this.idEmpleado = ((Vendedor)spinnerVendedores.getSelectedItem()).getId();
-
+            this.estadoVendedor=true;
             if(Comunicador.getConexionInternet(this))
             {
                 VerificarConexionActualizarClientes verificarConexion = new VerificarConexionActualizarClientes(this,Comunicador.getConexionServidor().getIp());
@@ -204,6 +208,8 @@ public class AActualizarClientes extends ActivityGenerica
 
 
 
+    private boolean estadoRepartidor=false;
+    private boolean estadoVendedor=false;
 
 
 
@@ -377,7 +383,7 @@ public class AActualizarClientes extends ActivityGenerica
                 this.numeroClientes = infoClientesRepartidorXML.getNumeroClientes();
                 publishProgress();
 
-
+                int nclientespasados=0;
                 int idCliente=0;
                 for(int i = 0; i< infoClientesRepartidorXML.getNumeroClientes()  && this.resultado && !isCancelled(); i++)
                 {
@@ -476,7 +482,23 @@ public class AActualizarClientes extends ActivityGenerica
                         this.numeroCliente = i+1;
                         publishProgress();
 
+
+                        if(this.resultado)
+                            nclientespasados++;
+
+
                     }
+
+                    if(estadoRepartidor)
+                    {
+                    textViewInfoClientesRepartidores.setText("Resultado: "+nclientespasados+" clientes pasados de: "+infoClientesRepartidorXML.getNumeroClientes());
+                    estadoRepartidor=false;
+                    }
+                    else
+                        {
+                            textViewInfoClientesVendedores.setText("Resultado: "+nclientespasados+" clientes pasados de: "+infoClientesRepartidorXML.getNumeroClientes());
+                            estadoVendedor=false;
+                        }
 
                     if(!isCancelled())
                     {

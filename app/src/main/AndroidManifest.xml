@@ -27,6 +27,7 @@
 
 
         <activity android:name=".actividades.resumenRepartidor.ASeleccionarDatosResumen" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.resumenRepartidor.ADatosResumen" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
 
 

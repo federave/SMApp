@@ -53,6 +53,48 @@ public class Fecha {
         this.dia = dia;
     }
 
+    // retorna 1 si es menor
+    // retorna 0 si es igual
+    // retorna -1 si es mayor
+    public int comparar(Fecha fecha)
+    {
+    if(this.year < fecha.getYear())
+        {
+        return 1;
+        }
+    else if (this.year == fecha.getYear())
+        {
+        if(this.mes < fecha.getMes())
+            {
+            return 1;
+            }
+        else if (this.mes == fecha.getMes())
+            {
+            if(this.dia < fecha.getDia())
+                {
+                return 1;
+                }
+            else if (this.dia == fecha.getDia())
+                {
+                return 0;
+                }
+            else
+                {
+                return -1;
+                }
+            }
+        else
+            {
+            return -1;
+            }
+
+        }
+    else
+        {
+        return -1;
+        }
+    }
+
 
 
 

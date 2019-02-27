@@ -18,12 +18,14 @@ import android.widget.Toast;
 
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.CodigosActividades;
+import com.federavesm.smapp.actividades.Dialogo;
 import com.federavesm.smapp.actividades.diaRepartidor.AdaptadorRepartidores;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.Fecha;
 import com.federavesm.smapp.modelo.diaRepartidor.DiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.repartidores.Repartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.repartidores.Repartidores;
+import com.federavesm.smapp.modelo.resumenRepartidor.ResumenRepartidor;
 
 /**
  * Created by Federico on 27/4/2017.
@@ -42,7 +44,7 @@ public class ASeleccionarDatosResumen extends Activity
 
 
 
-        spinnerRepartidores = (Spinner) findViewById(R.id.aSeleccionarDiaRepartidorSpinnerRepartidores);
+        spinnerRepartidores = (Spinner) findViewById(R.id.aSeleccionarDatosResumenSpinnerRepartidores);
         adaptadorRepartidores = new AdaptadorRepartidores(this,repartidores.getRepartidores());
         spinnerRepartidores.setAdapter(adaptadorRepartidores);
 
@@ -79,19 +81,38 @@ public class ASeleccionarDatosResumen extends Activity
 
     Fecha fechaInicio = new Fecha(fechaInicioDatePicker.getYear(),fechaInicioDatePicker.getMonth()+1,fechaInicioDatePicker.getDayOfMonth());
     Fecha fechaFin = new Fecha(fechaFinDatePicker.getYear(),fechaFinDatePicker.getMonth()+1,fechaFinDatePicker.getDayOfMonth());
-
-    if(spinnerRepartidores.getSelectedItemPosition()>=0)
+    if(fechaInicio.comparar(fechaFin)==1)
         {
+        if(spinnerRepartidores.getSelectedItemPosition()>=0)
+            {
+            int idRepartidor = ((Repartidor)spinnerRepartidores.getSelectedItem()).getId();
 
-        int idRepartidor = ((Repartidor)spinnerRepartidores.getSelectedItem()).getId();
+            ResumenRepartidor resumenRepartidor = new ResumenRepartidor(this);
+            resumenRepartidor.setFechaInicio(fechaInicio);
+            resumenRepartidor.setFechaFin(fechaFin);
+            resumenRepartidor.setIdRepartidor(idRepartidor);
+            Comunicador.setResumenRepartidor(resumenRepartidor);
 
 
+            Intent intentDatosResumen = new Intent(this, ADatosResumen.class);
+            startActivityForResult(intentDatosResumen,1);
 
+            }
+        else
+            {
+            Dialogo.aceptarVacioError("Atención!","Debe seleccionar un repartidor",this);
+            }
         }
     else
         {
-        Toast.makeText(this,"no worker selected",Toast.LENGTH_SHORT).show();
+        Dialogo.aceptarVacioError("Atención!","La fecha de Inicio debe ser menor que la de Fin",this);
         }
+
+
+
+
+
+
     }
 
 

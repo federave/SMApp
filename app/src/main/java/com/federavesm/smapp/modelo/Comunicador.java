@@ -17,6 +17,7 @@ import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.alquiler.Alquiler;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.deudaProductos.DeudaProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.ventaProductos.VentaProductos;
+import com.federavesm.smapp.modelo.resumenRepartidor.ResumenRepartidor;
 import com.federavesm.smapp.modelo.servidor.ConexionServidor;
 
 /**
@@ -67,7 +68,18 @@ public class Comunicador {
 
 
 
+    //////////////////////////RESUMEN REPARTIDRO ////////////////////////
 
+
+    private static ResumenRepartidor resumenRepartidor;
+
+    public static ResumenRepartidor getResumenRepartidor() {
+        return resumenRepartidor;
+    }
+
+    public static void setResumenRepartidor(ResumenRepartidor resumenRepartidor) {
+        Comunicador.resumenRepartidor = resumenRepartidor;
+    }
 
     //////////////////////////CLIENTES ////////////////////////
 

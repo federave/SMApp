@@ -15,10 +15,12 @@ import com.federavesm.smapp.actividades.configuracion.AConfiguracion;
 import com.federavesm.smapp.actividades.diaRepartidor.ADiaRepartidor;
 import com.federavesm.smapp.actividades.diaRepartidor.ASeleccionarDiaRepartidor;
 import com.federavesm.smapp.actividades.login.ALogin;
+import com.federavesm.smapp.actividades.resumenRepartidor.ASeleccionarDatosResumen;
 import com.federavesm.smapp.modelo.BaseDeDatos;
 import com.federavesm.smapp.modelo.Usuario;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.DiaRepartidor;
+import com.federavesm.smapp.modelo.diaRepartidor.repartidores.Repartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.repartidores.Repartidores;
 import com.federavesm.smapp.modelo.servidor.ConexionServidor;
 
@@ -63,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         buttonClientes = (Button)findViewById(R.id.buttonClientes);
         buttonClientes.setOnClickListener(new ListenerClickButtonClientes());
 
+        buttonResumenRepartidores = (Button)findViewById(R.id.buttonResumen);
+        buttonResumenRepartidores.setOnClickListener(new ListenerClickButtonResumenRepartidores());
+
 
         Comunicador.setRepartidores(new Repartidores(this));
 
@@ -85,6 +90,27 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonSeleccionarDia;
     private Button buttonConfigurar;
+
+/////////////////////////////////////////////////////////////////////
+    /////////////////// RESUMEN REPARTIDOR
+
+    private Button buttonResumenRepartidores;
+
+    class ListenerClickButtonResumenRepartidores implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            resumenRepartidores();
+        }
+    }
+
+    private void resumenRepartidores()
+    {
+    Intent intentResumenRepartidores = new Intent(this, ASeleccionarDatosResumen.class);
+    startActivityForResult(intentResumenRepartidores,CodigosMA.ResumenRepartidores);
+    }
+
+
 
 
 
@@ -262,6 +288,8 @@ public class MainActivity extends AppCompatActivity {
     public static int SeleccionarDiaRepartidor = 3;
     public static int DiaRepartidor = 4;
     public static int Clientes = 5;
+    public static int ResumenRepartidores = 6;
+
     }
 
 

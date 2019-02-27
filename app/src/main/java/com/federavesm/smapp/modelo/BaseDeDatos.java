@@ -494,27 +494,52 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 int idDiaRepartidor = cursor.getInt(0);
 
 
+                cursor = dbLectura.rawQuery("SELECT * FROM DiaEnviado WHERE idDiaRepartidor="+"'"+idDiaRepartidor+"'" ,null);
+                if(cursor.moveToFirst())
+                    {
+                    if(!(dbEscritura.delete("DiaEnviado", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                        {
+                        aux=false;
+                        }
+                    }
 
-                if(!(dbEscritura.delete("DiaEnviado", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                cursor = dbLectura.rawQuery("SELECT * FROM Gastos WHERE idDiaRepartidor="+"'"+idDiaRepartidor+"'" ,null);
+                if(cursor.moveToFirst())
+                {
+                    if(!(dbEscritura.delete("Gastos", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
                     {
-                    aux=false;
+                        aux=false;
                     }
-                if(!(dbEscritura.delete("Gastos", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                }
+
+                cursor = dbLectura.rawQuery("SELECT * FROM Cargas WHERE idDiaRepartidor="+"'"+idDiaRepartidor+"'" ,null);
+                if(cursor.moveToFirst())
+                {
+                    if(!(dbEscritura.delete("Cargas", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
                     {
-                    aux=false;
+                        aux=false;
                     }
-                if(!(dbEscritura.delete("Cargas", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                }
+
+                cursor = dbLectura.rawQuery("SELECT * FROM Descargas WHERE idDiaRepartidor="+"'"+idDiaRepartidor+"'" ,null);
+                if(cursor.moveToFirst())
+                {
+                    if(!(dbEscritura.delete("Descargas", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
                     {
-                    aux=false;
+                        aux=false;
                     }
-                if(!(dbEscritura.delete("Descargas", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
+                }
+
+                cursor = dbLectura.rawQuery("SELECT * FROM PrecioDiaRepartidor WHERE idDiaRepartidor="+"'"+idDiaRepartidor+"'" ,null);
+                if(cursor.moveToFirst())
+                {
+                    if(!(dbEscritura.delete("PrecioDiaRepartidor", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
                     {
-                    aux=false;
+                        aux=false;
                     }
-                if(!(dbEscritura.delete("PrecioDiaRepartidor", "idDiaRepartidor=" + "'" + idDiaRepartidor + "'", null)>0))
-                    {
-                    aux=false;
-                    }
+                }
+
+
 
 
                 cursor = dbLectura.rawQuery("SELECT * FROM Repartos WHERE idDiaRepartidor="+"'"+idDiaRepartidor+"'" ,null);
@@ -601,6 +626,14 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
                     aux2 = cursor.moveToNext();
                     }
+
+
+
+                if(!(dbEscritura.delete("DiaRepartidor", "id=" + "'" + idDiaRepartidor + "'", null)>0))
+                    {
+                    aux=false;
+                    }
+
 
                 }
 

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+        <ScrollView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingHorizontal="40dp"
+                android:layout_marginTop="20dp"
+
+                >
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="40dp"
+                android:gravity="center"
+                >
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha Inicio"
+                    style="@style/texto"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:textAlignment="center"
+                    />
+
+
+                <DatePicker
+                    android:id="@+id/aSeleccionarDatosResumenDatePickerFechaInicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:datePickerMode="spinner"
+                    android:calendarViewShown="false"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    >
+                </DatePicker>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha Fin"
+                    style="@style/texto"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:textAlignment="center"
+                    />
+
+                <DatePicker
+                    android:id="@+id/aSeleccionarDatosResumenDatePickerFechaFin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:datePickerMode="spinner"
+                    android:calendarViewShown="false"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    >
+                </DatePicker>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccione Repartidor"
+                    style="@style/texto"
+                    android:textSize="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:textAlignment="center"
+                    />
+
+                <Spinner
+                    android:id="@+id/aSeleccionarDatosResumenSpinnerRepartidores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="50dp"
+                    android:textAlignment="center"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="100dp"
+                    >
+                    <Button
+                        android:layout_marginTop="25dp"
+                        android:text="Seleccionar"
+                        android:id="@+id/aSeleccionarDatosResumenBotonSeleccionar"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+                    <Button
+                        android:id="@+id/aSeleccionarDatosResumenButtonRetornar"
+                        style="@style/buttonRetornar"
+                        android:text="Retornar"
+                        android:layout_marginBottom="150dp"
+
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+        </ScrollView>
+
+
+
+</LinearLayout>

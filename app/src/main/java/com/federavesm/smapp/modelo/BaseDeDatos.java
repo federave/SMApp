@@ -220,7 +220,6 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
 
 
-
         db.execSQL("CREATE TABLE DatosClientes" +
                 "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +

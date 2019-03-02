@@ -177,8 +177,11 @@ public class ADatosResumen extends Activity
 
     private void mostrarDatosResumen()
     {
-
+    String dinero ="Dinero Venta Bidones 20L: " + this.resumenRepartidor.getDineroBidones20LVendidos();
+    String datos ="Venta Bidones 20L: " + this.resumenRepartidor.getTotalBidones20LVendidos();
+    this.textViewDatos.setText(dinero+datos);
     }
+
 
 
 

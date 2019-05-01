@@ -137,7 +137,32 @@
                 android:layout_marginBottom="20dp"
                 />
 
-        <TextView
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vertedores: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aDescargasMenuTextViewVertedores"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dispensers"
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aDescargasMenuTextViewDispensers"
+                android:layout_marginBottom="20dp"
+                />
+
+
+
+
+
+
+
+            <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Incoherencia:"

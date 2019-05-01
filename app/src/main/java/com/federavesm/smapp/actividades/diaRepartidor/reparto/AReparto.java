@@ -61,6 +61,16 @@ public class AReparto extends Activity
         buttonVisita = (Button)findViewById(R.id.aRepartoButtonVisita);
         buttonVisita.setOnClickListener(new ListenerClickButtonVisita());
 
+        buttonVertedores = (Button)findViewById(R.id.aRepartoButtonVertedores);
+        buttonVertedores.setOnClickListener(new ListenerClickButtonVertedores());
+
+        buttonDispensers = (Button)findViewById(R.id.aRepartoButtonDispensers);
+        buttonDispensers.setOnClickListener(new ListenerClickButtonDispensers());
+
+
+
+
+
         if(!(this.reparto.getCliente().getDatosAlquiler().getEstado()))
             {
             buttonAlquiler.setVisibility(View.GONE);
@@ -92,15 +102,12 @@ public class AReparto extends Activity
     public static int DeudaProductosGuardar = 6;
 
     public static int Alquiler = 6;
-
     public static int Vacios = 7;
-
     public static int DatosCliente = 8;
-
     public static int Observacion = 9;
-
     public static int Visita = 9;
-
+    public static int Vertedores = 10;
+    public static int Dispensers = 11;
 
     }
 
@@ -136,6 +143,59 @@ public class AReparto extends Activity
 
 
     }
+
+
+
+    /////////////////////////////////////////////////////////
+    ////// VERTEDORES
+
+
+    private Button buttonVertedores;
+
+    class ListenerClickButtonVertedores implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            vertedores();
+        }
+    }
+
+
+    private void vertedores()
+    {
+        Comunicador.setVentaProductosAux((VentaProductos)this.reparto.getVentaProductos().getCopia());
+        Intent intentVentaProductos = new Intent(this,AVentaProductos.class);
+        startActivityForResult(intentVentaProductos, CodigosReparto.VentaProductos);
+    }
+
+
+
+
+
+    /////////////////////////////////////////////////////////
+    ////// DISPENSERS
+
+
+    private Button buttonDispensers;
+
+    class ListenerClickButtonDispensers implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            dispensers();
+        }
+    }
+
+
+    private void dispensers()
+    {
+        Comunicador.setVentaProductosAux((VentaProductos)this.reparto.getVentaProductos().getCopia());
+        Intent intentVentaProductos = new Intent(this,AVentaProductos.class);
+        startActivityForResult(intentVentaProductos, CodigosReparto.VentaProductos);
+    }
+
+
+
 
 
 

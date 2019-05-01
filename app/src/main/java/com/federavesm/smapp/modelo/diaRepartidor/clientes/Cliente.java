@@ -10,6 +10,7 @@ import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoInactivo.EstadoInactividad;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoInactivo.TipoInactivo;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioAlquileres;
+import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioDispensadores;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioEspecialAlquiler;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioEspecialProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioNormalProductos;
@@ -45,6 +46,7 @@ public class Cliente extends GenericoDiaRepartidor {
     this.estadoInactividad = new EstadoInactividad(context);
     this.datosAlquiler = new DatosAlquiler(context);
     this.precioProductos = new PrecioNormalProductos(context);
+    this.precioDispensadores = new PrecioDispensadores(context);
     this.context = context;
     }
     private Context context;
@@ -55,6 +57,8 @@ public class Cliente extends GenericoDiaRepartidor {
     private EstadoInactividad estadoInactividad;
     private EstadoBidonesDispenserFC estadoBidonesDispenserFC;
     private PrecioProductos precioProductos;
+    private PrecioDispensadores precioDispensadores;
+
     protected int idDiaRepartidor;
 
     private Fecha fecha;
@@ -96,6 +100,7 @@ public class Cliente extends GenericoDiaRepartidor {
         this.estadoInactividad.copiar(cliente.getEstadoInactividad());
         this.estadoBidonesDispenserFC.copiar(cliente.getEstadoBidonesDispenserFC());
         this.precioProductos.copiar(cliente.getPrecioProductos());
+        this.precioDispensadores.copiar(cliente.getPrecioDispensadores());
         }
     catch (Exception e)
         {
@@ -144,8 +149,13 @@ public class Cliente extends GenericoDiaRepartidor {
                 this.precioProductos = new PrecioNormalProductos(this.context);
                 }
 
+
             this.precioProductos.setId(cursor.getInt(7));
             this.precioProductos.setIdDiaRepartidor(this.idDiaRepartidor);
+
+            this.precioDispensadores.setIdDiaRepartidor(this.idDiaRepartidor);
+
+
 
 
             this.datosAlquiler.setId(cursor.getInt(8));
@@ -163,6 +173,7 @@ public class Cliente extends GenericoDiaRepartidor {
             aux &= this.direccion.cargar();
             aux &= this.datos.getTipoCliente().cargar();
             aux &= this.precioProductos.cargar();
+            aux &= this.precioDispensadores.cargar();
             aux &= this.datosAlquiler.cargar();
             aux &= this.estadoBidonesDispenserFC.cargar();
             aux &= this.estadoInactividad.cargar();
@@ -217,6 +228,12 @@ public class Cliente extends GenericoDiaRepartidor {
                     this.precioProductos = new PrecioNormalProductos(this.context);
                     aux &= this.precioProductos.cargar(fecha);
                 }
+
+
+                aux &= this.precioDispensadores.cargar(fecha);
+
+
+
 
 
 
@@ -450,16 +467,16 @@ public class Cliente extends GenericoDiaRepartidor {
         this.existe = existe;
     }
 
+    public PrecioDispensadores getPrecioDispensadores() {
+        return precioDispensadores;
+    }
+
+    public void setPrecioDispensadores(PrecioDispensadores precioDispensadores) {
+        this.precioDispensadores = precioDispensadores;
+    }
 
 
-
-
-
-
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
     /////////////ACTUALIZAR
 
 

@@ -6,6 +6,8 @@ import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorEvaluar;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoReparto;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Dispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Vertedores;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Descartables;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
 
@@ -27,6 +29,34 @@ public class Cargamento extends GenericoDiaRepartidorProductos {
     this.cargas = new Cargas(context);
     this.descargas = new Descargas(context);
     }
+
+
+
+    public Vertedores getVertedores()
+    {
+    Vertedores vertedoresCargados = this.cargas.getVertedores();
+    Vertedores vertedoresDescargados = this.descargas.getVertedores();
+    Vertedores vertedoresVendidos = new Vertedores(); // Comunicador.getDiaRepartidor().getRepartos().getVertedoresVendidos();
+    Vertedores vertedoresEntregados = new Vertedores(); // Comunicador.getDiaRepartidor().getRepartos().getVertedoresEntregados();
+    Vertedores vertedores = new Vertedores();
+    vertedores.setCantidad(vertedoresCargados.getCantidad()-vertedoresDescargados.getCantidad()-vertedoresVendidos.getCantidad()-vertedoresEntregados.getCantidad());
+    return vertedores;
+    }
+
+
+    public Dispensers getDispensers()
+    {
+        Dispensers dispensersCargados = this.cargas.getDispensers();
+        Dispensers dispensersDescargados = this.descargas.getDispensers();
+        Dispensers dispensersVendidos = new Dispensers(); // Comunicador.getDiaRepartidor().getRepartos().getDispensersVendidos();
+        Dispensers dispensersEntregados = new Dispensers(); // Comunicador.getDiaRepartidor().getRepartos().getDispensersEntregados();
+        Dispensers dispensersRetirados = new Dispensers(); // Comunicador.getDiaRepartidor().getRepartos().getDispensersRetirados();
+        Dispensers dispensers = new Dispensers();
+        dispensers.setCantidad(dispensersCargados.getCantidad() + dispensersRetirados.getCantidad() -dispensersDescargados.getCantidad()-dispensersVendidos.getCantidad()-dispensersEntregados.getCantidad());
+        return dispensers;
+    }
+
+
 
 
     public Retornables getRetornables()

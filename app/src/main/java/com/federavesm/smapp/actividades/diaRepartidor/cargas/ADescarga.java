@@ -45,6 +45,8 @@ public class ADescarga extends Activity
         this.editTextBidones5L = (EditText) findViewById(R.id.aDescargaEditTextBidones5L);
         this.editTextPackBotellas2L = (EditText) findViewById(R.id.aDescargaEditTextPackBotellas2L);
         this.editTextPackBotellas500mL = (EditText) findViewById(R.id.aDescargaEditTextPackBotellas500mL);
+        this.editTextVertedores = (EditText) findViewById(R.id.aDescargaEditTextVertedores);
+        this.editTextDispensers = (EditText) findViewById(R.id.aDescargaEditDispensers);
 
         this.buttonIngresarDescarga = (Button) findViewById(R.id.aDescargaButtonIngresarDescarga);
         this.buttonIngresarDescarga.setOnClickListener(new ListenerClickButtonIngresarDescarga());
@@ -75,6 +77,8 @@ public class ADescarga extends Activity
     private EditText editTextBidones5L;
     private EditText editTextPackBotellas2L;
     private EditText editTextPackBotellas500mL;
+    private EditText editTextVertedores;
+    private EditText editTextDispensers;
 
 
     private Button buttonIngresarDescarga;
@@ -222,6 +226,18 @@ public class ADescarga extends Activity
         {
             this.descarga.getDescartables().setPackBotellas500mL(Integer.valueOf(this.editTextPackBotellas500mL.getText().toString()));
         }
+
+        if(this.editTextVertedores.getText().length() > 0)
+        {
+            this.descarga.getVertedores().setCantidad(Integer.valueOf(this.editTextVertedores.getText().toString()));
+        }
+        if(this.editTextDispensers.getText().length() > 0)
+        {
+            this.descarga.getDispensers().setCantidad(Integer.valueOf(this.editTextDispensers.getText().toString()));
+        }
+
+
+
     }
 
 

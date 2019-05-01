@@ -232,6 +232,63 @@
                 />
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp"
+            android:paddingHorizontal="50dp"
+            >
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:text="Vertedores: "
+            style="@style/textoDatosCargamento"
+            android:textAlignment="center"
+            />
+        <EditText
+            android:id="@+id/aCargaEditTextVertedores"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="24dp"
+            android:inputType="number"
+            />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp"
+            android:paddingHorizontal="50dp"
+            >
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="Dispenser Frio Calor: "
+                style="@style/textoDatosCargamento"
+                android:textAlignment="center"
+
+                />
+            <EditText
+                android:id="@+id/aCargaEditDispensers"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_light"
+                android:textSize="24dp"
+                android:inputType="number"
+                />
+        </LinearLayout>
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -44,6 +44,9 @@ public class AVerCarga extends Activity
         textViewBidones5L = (TextView)findViewById(R.id.aVerCargaTextViewBidones5L);
         textViewPackBotellas2L = (TextView)findViewById(R.id.aVerCargaTextViewPackBotellas2L);
         textViewPackBotellas500mL = (TextView)findViewById(R.id.aVerCargaTextViewPackBotellas500mL);
+        textViewVertedores = (TextView)findViewById(R.id.aVerCargaTextViewVertedores);
+        textViewDispensers = (TextView)findViewById(R.id.aVerCargaTextViewDispensers);
+
 
         actualizarCargamento();
 
@@ -73,7 +76,10 @@ public class AVerCarga extends Activity
     textViewBidones5L.setText("Bidones 5L: " + Comunicador.getCargaSeleccionada().getDescartables().getBidones5L());
     textViewPackBotellas2L.setText("Pack Botellas 2L: " + Comunicador.getCargaSeleccionada().getDescartables().getPackBotellas2L());
     textViewPackBotellas500mL.setText("Pack Botellas 500mL: " + Comunicador.getCargaSeleccionada().getDescartables().getPackBotellas500mL());
+    textViewVertedores.setText("Vertedores: " + Comunicador.getCargaSeleccionada().getVertedores().getCantidad());
+    textViewDispensers.setText("Dispensers: " + Comunicador.getCargaSeleccionada().getDispensers().getCantidad());
     }
+
 
 
 
@@ -95,6 +101,8 @@ public class AVerCarga extends Activity
     private TextView textViewBidones5L;
     private TextView textViewPackBotellas2L;
     private TextView textViewPackBotellas500mL;
+    private TextView textViewVertedores;
+    private TextView textViewDispensers;
 
 
 

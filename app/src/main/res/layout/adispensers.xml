@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dispensers"
+                style="@style/texto"
+                android:textSize="28dp"
+                android:layout_marginBottom="50dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="100dp"
+                >
+                <Button
+                    android:id="@+id/aDispensersButtonVenta"
+                    android:text="Vender"
+                    style="@style/button"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aDispensersButtonEntrega"
+                    android:text="Entregar"
+                    style="@style/button"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aDispensersButtonCambio"
+                    android:text="Cambiar"
+                    style="@style/button"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aDispensersButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:text="Retornar"
+                    android:layout_marginBottom="50dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>

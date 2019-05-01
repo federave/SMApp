@@ -12,6 +12,7 @@ import com.federavesm.smapp.modelo.diaRepartidor.clientes.Cliente;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoInactivo.TipoInactivo;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Descartables;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.VentaDispensers;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.fueraDeRecorrido.FueraDeRecorrido;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.alquiler.Alquiler;
@@ -55,6 +56,8 @@ public  class Reparto extends GenericoReparto {
     this.tipoVisita = new TipoVisita(context);
     this.fueraDeRecorrido = new FueraDeRecorrido(context);
     this.cliente = new Cliente(context);
+    this.ventaDispensers = new VentaDispensers(context);
+
     }
 
 
@@ -70,6 +73,12 @@ public  class Reparto extends GenericoReparto {
     private Observacion observacion;
     private Vendedor vendedor;
     private FueraDeRecorrido fueraDeRecorrido;
+
+
+    private VentaDispensers ventaDispensers;
+
+
+
 
     private Retornables retornablesRepartidos = new Retornables();
     private Descartables descartablesRepartidos = new Descartables();
@@ -925,7 +934,11 @@ public  class Reparto extends GenericoReparto {
 
     public void setDescartablesRepartidos(Descartables descartablesRepartidos) {this.descartablesRepartidos = descartablesRepartidos;}
 
+    public VentaDispensers getVentaDispensers() {
+        return ventaDispensers;
+    }
 
-
-
+    public void setVentaDispensers(VentaDispensers ventaDispensers) {
+        this.ventaDispensers = ventaDispensers;
+    }
 }

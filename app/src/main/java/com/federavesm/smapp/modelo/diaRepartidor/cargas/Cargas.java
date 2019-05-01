@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoReparto;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Dispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Vertedores;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Descartables;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
@@ -31,11 +33,14 @@ public class Cargas extends GenericoDiaRepartidorProductos {
     private Context context;
 
 
+    private Dispensers dispensers = new Dispensers();
+    private Vertedores vertedores = new Vertedores();
+
+
     public Retornables getRetornables()
     {
     return this.retornables;
     }
-
     public Descartables getDescartables()
     {
     return this.descartables;
@@ -51,6 +56,8 @@ public class Cargas extends GenericoDiaRepartidorProductos {
     {
     Descartables descartables = new Descartables();
     Retornables retornables = new Retornables();
+    Vertedores vertedores = new Vertedores();
+    Dispensers dispensers = new Dispensers();
 
     for(int i=0;i<cargas.size();i++)
         {
@@ -61,11 +68,14 @@ public class Cargas extends GenericoDiaRepartidorProductos {
         descartables.setBidones5L(descartables.getBidones5L()+cargas.get(i).getDescartables().getBidones5L());
         descartables.setPackBotellas2L(descartables.getPackBotellas2L()+cargas.get(i).getDescartables().getPackBotellas2L());
         descartables.setPackBotellas500mL(descartables.getPackBotellas500mL()+cargas.get(i).getDescartables().getPackBotellas500mL());
+        vertedores.setCantidad(vertedores.getCantidad() + cargas.get(i).getVertedores().getCantidad());
+        dispensers.setCantidad(dispensers.getCantidad() + cargas.get(i).getDispensers().getCantidad());
         }
 
     this.retornables = retornables;
     this.descartables = descartables;
-
+    this.vertedores = vertedores;
+    this.dispensers = dispensers;
 
     return true;
     }
@@ -153,6 +163,23 @@ public class Cargas extends GenericoDiaRepartidorProductos {
 
     public void setCargas(List<Carga> cargas) {
         this.cargas = cargas;
+    }
+
+
+    public Dispensers getDispensers() {
+        return dispensers;
+    }
+
+    public void setDispensers(Dispensers dispensers) {
+        this.dispensers = dispensers;
+    }
+
+    public Vertedores getVertedores() {
+        return vertedores;
+    }
+
+    public void setVertedores(Vertedores vertedores) {
+        this.vertedores = vertedores;
     }
 
 

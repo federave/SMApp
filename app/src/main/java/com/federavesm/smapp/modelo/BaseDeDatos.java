@@ -161,6 +161,8 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 "bidones5L INTEGER," +
                 "packBotellas2L INTEGER," +
                 "packBotellas500mL INTEGER," +
+                "vertedores INTEGER," +
+                "dispensers INTEGER," +
                 "hora TEXT" +
                 ")");
 
@@ -177,6 +179,8 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 "bidones5L INTEGER," +
                 "packBotellas2L INTEGER," +
                 "packBotellas500mL INTEGER," +
+                "vertedores INTEGER," +
+                "dispensers INTEGER," +
                 "hora TEXT" +
                 ")");
 
@@ -197,7 +201,9 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 "alquiler6Bidones REAL," +
                 "alquiler8Bidones REAL," +
                 "alquiler10Bidones REAL," +
-                "alquiler12Bidones REAL" +
+                "alquiler12Bidones REAL," +
+                "vertedor REAL," +
+                "dispenser REAL" +
                 ")");
 
 
@@ -215,8 +221,61 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 "idVisita INTEGER," +
                 "idFueraDeRecorrido INTEGER," +
                 "enviado INTEGER," +
-                "idObservacion INTEGER" +
+                "idObservacion INTEGER," +
+                "idVentaVertedores INTEGER," +
+                "idEntegaVertedores INTEGER," +
+                "idCambioVertedores INTEGER," +
+                "idVentaDispensers INTEGER," +
+                "idEntegaDispensers INTEGER," +
+                "idCambioDispensers INTEGER," +
+                "idRetiroDispensers INTEGER" +
+
                 ")");
+
+
+
+        db.execSQL("CREATE TABLE VentaVertedores" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "cantidad INTEGER" +
+                ")");
+
+        db.execSQL("CREATE TABLE EntregaVertedores" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "cantidad INTEGER" +
+                ")");
+
+        db.execSQL("CREATE TABLE CambioVertedores" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "cantidad INTEGER" +
+                ")");
+
+
+        db.execSQL("CREATE TABLE VentaDispensers" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "cantidad INTEGER" +
+                ")");
+
+        db.execSQL("CREATE TABLE EntregaDispensers" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "cantidad INTEGER" +
+                ")");
+
+        db.execSQL("CREATE TABLE CambioDispensers" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "cantidad INTEGER" +
+                ")");
+        db.execSQL("CREATE TABLE RetiroDispensers" +
+                "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "cantidad INTEGER" +
+                ")");
+
 
 
 

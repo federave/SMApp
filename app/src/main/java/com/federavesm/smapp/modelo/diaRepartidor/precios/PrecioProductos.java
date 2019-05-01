@@ -29,22 +29,6 @@ public abstract class PrecioProductos extends GenericoReparto {
     }
 
 
-    public PrecioRetornables getPrecioRetornables() {
-        return precioRetornables;
-    }
-
-    public void setPrecioRetornables(PrecioRetornables precioRetornables) {
-        this.precioRetornables = precioRetornables;
-    }
-
-    public PrecioDescartables getPrecioDescartables() {
-        return precioDescartables;
-    }
-
-    public void setPrecioDescartables(PrecioDescartables precioDescartables) {
-        this.precioDescartables = precioDescartables;
-    }
-
     @Override
     public Object getCopia() {
         return null;
@@ -76,6 +60,9 @@ public abstract class PrecioProductos extends GenericoReparto {
                 this.precioDescartables.setBidon5L(cursor.getFloat(6));
                 this.precioDescartables.setPackBotellas2L(cursor.getFloat(7));
                 this.precioDescartables.setPackBotellas500mL(cursor.getFloat(8));
+
+
+
             }
             db.close();
             return aux;
@@ -115,14 +102,21 @@ public abstract class PrecioProductos extends GenericoReparto {
 
 
 
+    public PrecioRetornables getPrecioRetornables() {
+        return precioRetornables;
+    }
 
+    public void setPrecioRetornables(PrecioRetornables precioRetornables) {
+        this.precioRetornables = precioRetornables;
+    }
 
+    public PrecioDescartables getPrecioDescartables() {
+        return precioDescartables;
+    }
 
-
-
-
-
-
+    public void setPrecioDescartables(PrecioDescartables precioDescartables) {
+        this.precioDescartables = precioDescartables;
+    }
 
 
 }

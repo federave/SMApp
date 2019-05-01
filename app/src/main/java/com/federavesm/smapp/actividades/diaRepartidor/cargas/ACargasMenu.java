@@ -57,6 +57,8 @@ public class ACargasMenu extends Activity
                 textViewBidones5L = (TextView)findViewById(R.id.aCargasMenuTextViewBidones5L);
                 textViewPackBotellas2L = (TextView)findViewById(R.id.aCargasMenuTextViewPackBotellas2L);
                 textViewPackBotellas500mL = (TextView)findViewById(R.id.aCargasMenuTextViewPackBotellas500mL);
+                textViewVertedores = (TextView)findViewById(R.id.aCargasMenuTextViewVertedores);
+                textViewDispensers = (TextView)findViewById(R.id.aCargasMenuTextViewDispensers);
 
                 actualizarCargamento();
 
@@ -83,6 +85,8 @@ public class ACargasMenu extends Activity
     private TextView textViewBidones5L;
     private TextView textViewPackBotellas2L;
     private TextView textViewPackBotellas500mL;
+    private TextView textViewVertedores;
+    private TextView textViewDispensers;
 
 
     static class CodigosCargasMenu extends CodigosActividades
@@ -95,14 +99,16 @@ public class ACargasMenu extends Activity
 
     private void actualizarCargamento()
     {
-        textViewBidones20L.setText("Bidones 20L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getRetornables().getBidones20L());
-        textViewBidones20L.setText("Bidones 20L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getRetornables().getBidones20L());
-        textViewBidones12L.setText("Bidones 12L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getRetornables().getBidones12L());
-        textViewBidones10L.setText("Bidones 10L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getBidones10L());
-        textViewBidones8L.setText("Bidones 8L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getBidones8L());
-        textViewBidones5L.setText("Bidones 5L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getBidones5L());
-        textViewPackBotellas2L.setText("Pack Botellas 2L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getPackBotellas2L());
-        textViewPackBotellas500mL.setText("Pack Botellas 500mL: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getPackBotellas500mL());
+    textViewBidones20L.setText("Bidones 20L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getRetornables().getBidones20L());
+    textViewBidones20L.setText("Bidones 20L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getRetornables().getBidones20L());
+    textViewBidones12L.setText("Bidones 12L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getRetornables().getBidones12L());
+    textViewBidones10L.setText("Bidones 10L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getBidones10L());
+    textViewBidones8L.setText("Bidones 8L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getBidones8L());
+    textViewBidones5L.setText("Bidones 5L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getBidones5L());
+    textViewPackBotellas2L.setText("Pack Botellas 2L: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getPackBotellas2L());
+    textViewPackBotellas500mL.setText("Pack Botellas 500mL: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDescartables().getPackBotellas500mL());
+    textViewVertedores.setText("Vertedores: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getVertedores().getCantidad());
+    textViewDispensers.setText("Dispensers: " + Comunicador.getDiaRepartidor().getCargamento().getCargas().getDispensers().getCantidad());
     }
 
 

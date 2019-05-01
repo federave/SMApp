@@ -88,6 +88,7 @@ public class PrecioNormalProductos extends PrecioProductos {
                 this.precioDescartables.setBidon5L(cursor.getFloat(6));
                 this.precioDescartables.setPackBotellas2L(cursor.getFloat(7));
                 this.precioDescartables.setPackBotellas500mL(cursor.getFloat(8));
+
             }
             db.close();
             return aux;

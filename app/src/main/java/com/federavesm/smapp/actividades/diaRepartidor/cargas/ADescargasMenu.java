@@ -62,6 +62,8 @@ public class ADescargasMenu extends Activity
         textViewBidones5L = (TextView)findViewById(R.id.aDescargasMenuTextViewBidones5L);
         textViewPackBotellas2L = (TextView)findViewById(R.id.aDescargasMenuTextViewPackBotellas2L);
         textViewPackBotellas500mL = (TextView)findViewById(R.id.aDescargasMenuTextViewPackBotellas500mL);
+        textViewVertedores = (TextView)findViewById(R.id.aDescargasMenuTextViewVertedores);
+        textViewDispensers = (TextView)findViewById(R.id.aDescargasMenuTextViewDispensers);
 
 
 
@@ -97,6 +99,10 @@ public class ADescargasMenu extends Activity
     textViewBidones5L.setText("Bidones 5L: " + Comunicador.getDiaRepartidor().getCargamento().getDescargas().getDescartables().getBidones5L());
     textViewPackBotellas2L.setText("Pack Botellas 2L: " + Comunicador.getDiaRepartidor().getCargamento().getDescargas().getDescartables().getPackBotellas2L());
     textViewPackBotellas500mL.setText("Pack Botellas 500mL: " + Comunicador.getDiaRepartidor().getCargamento().getDescargas().getDescartables().getPackBotellas500mL());
+    textViewVertedores.setText("Vertedores: " + Comunicador.getDiaRepartidor().getCargamento().getDescargas().getVertedores().getCantidad());
+    textViewDispensers.setText("Dispensers: " + Comunicador.getDiaRepartidor().getCargamento().getDescargas().getDispensers().getCantidad());
+
+
     }
 
 
@@ -116,6 +122,8 @@ public class ADescargasMenu extends Activity
     private TextView textViewBidones5L;
     private TextView textViewPackBotellas2L;
     private TextView textViewPackBotellas500mL;
+    private TextView textViewVertedores;
+    private TextView textViewDispensers;
 
 
 

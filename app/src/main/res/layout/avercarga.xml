@@ -107,6 +107,27 @@
                 android:layout_marginBottom="20dp"
                 />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vertedores: "
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerCargaTextViewVertedores"
+                android:layout_marginBottom="20dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dispensers"
+                style="@style/textoDatosCargamento"
+                android:id="@+id/aVerCargaTextViewDispensers"
+                android:layout_marginBottom="20dp"
+                />
+
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

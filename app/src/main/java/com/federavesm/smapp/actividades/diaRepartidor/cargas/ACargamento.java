@@ -48,6 +48,8 @@ public class ACargamento extends Activity
         textViewPackBotellas2L = (TextView)findViewById(R.id.aCargamentoTextViewPackBotellas2L);
         textViewPackBotellas500mL = (TextView)findViewById(R.id.aCargamentoTextViewPackBotellas500mL);
         textViewPesoTotal = (TextView)findViewById(R.id.aCargamentoTextViewPesoTotal);
+        textViewVertedores = (TextView)findViewById(R.id.aCargamentoTextViewVertedores);
+        textViewDispensers = (TextView)findViewById(R.id.aCargamentoTextViewDispensers);
 
         actualizarCargamento();
 
@@ -73,6 +75,8 @@ public class ACargamento extends Activity
     private TextView textViewBidones5L;
     private TextView textViewPackBotellas2L;
     private TextView textViewPackBotellas500mL;
+    private TextView textViewVertedores;
+    private TextView textViewDispensers;
     private TextView textViewPesoTotal;
 
 
@@ -155,8 +159,10 @@ public class ACargamento extends Activity
     this.textViewBidones5L.setText("Bidones 5L: "+ Comunicador.getDiaRepartidor().getCargamento().getDescartables().getBidones5L());
     this.textViewPackBotellas2L.setText("Pack Botellas 2L: "+ Comunicador.getDiaRepartidor().getCargamento().getDescartables().getPackBotellas2L());
     this.textViewPackBotellas500mL.setText("Pack Botellas 500 mL: "+ Comunicador.getDiaRepartidor().getCargamento().getDescartables().getPackBotellas500mL());
-    int pesoTotal = Comunicador.getDiaRepartidor().getCargamento().getRetornables().getBidones20L()*20 + Comunicador.getDiaRepartidor().getCargamento().getRetornables().getBidones12L()*12 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getBidones10L()*10 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getBidones8L()*8 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getBidones5L()*5 +Comunicador.getDiaRepartidor().getCargamento().getDescartables().getPackBotellas2L() * 16 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getPackBotellas500mL()*9;
+    int pesoTotal = Comunicador.getDiaRepartidor().getCargamento().getDispensers().getCantidad()*10+Comunicador.getDiaRepartidor().getCargamento().getRetornables().getBidones20L()*20 + Comunicador.getDiaRepartidor().getCargamento().getRetornables().getBidones12L()*12 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getBidones10L()*10 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getBidones8L()*8 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getBidones5L()*5 +Comunicador.getDiaRepartidor().getCargamento().getDescartables().getPackBotellas2L() * 16 + Comunicador.getDiaRepartidor().getCargamento().getDescartables().getPackBotellas500mL()*9;
     this.textViewPesoTotal.setText("Peso Total: "+pesoTotal+ " kilos");
+    this.textViewVertedores.setText("Vertedores: "+ Comunicador.getDiaRepartidor().getCargamento().getVertedores().getCantidad());
+    this.textViewDispensers.setText("Dispensers: "+ Comunicador.getDiaRepartidor().getCargamento().getDispensers().getCantidad());
     }
 
     @Override

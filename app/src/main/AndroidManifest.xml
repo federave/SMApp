@@ -65,6 +65,14 @@
         <activity android:name=".actividades.diaRepartidor.reparto.AVacios" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.reparto.AVentaProductos" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.reparto.AVisita" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.vertedores.AVertedores" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.vertedores.ACambioVertedores" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.vertedores.AEntregaVertedores" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.vertedores.AVentaVertedores" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.dispensers.ADispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.dispensers.ACambioDispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.dispensers.AEntregaDispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.dispensers.AVentaDispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
 
 

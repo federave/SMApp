@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoReparto;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Dispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Vertedores;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Descartables;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
 
@@ -31,6 +33,17 @@ public class Descargas extends GenericoDiaRepartidorProductos {
 
     private Context context;
 
+
+    private Dispensers dispensers = new Dispensers();
+    private Vertedores vertedores = new Vertedores();
+
+    public Dispensers getDispensers() {
+        return dispensers;
+    }
+
+    public Vertedores getVertedores() {
+        return vertedores;
+    }
 
     public Retornables getRetornables()
     {
@@ -124,6 +137,8 @@ public class Descargas extends GenericoDiaRepartidorProductos {
     Descartables descartables = new Descartables();
     Retornables retornables = new Retornables();
     Retornables retornablesVacios = new Retornables();
+    Dispensers dispensers = new Dispensers();
+    Vertedores vertedores = new Vertedores();
 
     for(int i=0;i<descargas.size();i++)
         {
@@ -136,12 +151,23 @@ public class Descargas extends GenericoDiaRepartidorProductos {
         descartables.setBidones5L(descartables.getBidones5L()+descargas.get(i).getDescartables().getBidones5L());
         descartables.setPackBotellas2L(descartables.getPackBotellas2L()+descargas.get(i).getDescartables().getPackBotellas2L());
         descartables.setPackBotellas500mL(descartables.getPackBotellas500mL()+descargas.get(i).getDescartables().getPackBotellas500mL());
+
+            vertedores.setCantidad(vertedores.getCantidad() + descargas.get(i).getVertedores().getCantidad());
+            dispensers.setCantidad(dispensers.getCantidad() + descargas.get(i).getDispensers().getCantidad());
+
+
+
         }
 
     this.retornables = retornables;
     this.retornablesVacios = retornablesVacios;
     this.descartables = descartables;
-    return true;
+
+        this.vertedores = vertedores;
+        this.dispensers = dispensers;
+
+
+        return true;
     }
 
 
@@ -197,6 +223,20 @@ public class Descargas extends GenericoDiaRepartidorProductos {
         aux=false;
         this.incoherencia+="No hay "+this.getDescartables().getPackBotellas500mL()+" pack de botellas de 500mL en el vehículo para descargar \n";
         }
+
+        if(Comunicador.getDiaRepartidor().getCargamento().getVertedores().getCantidad() < this.getVertedores().getCantidad())
+        {
+            aux=false;
+            this.incoherencia+="No hay "+this.getVertedores().getCantidad()+" vertedores en el vehículo para descargar \n";
+        }
+
+        if(Comunicador.getDiaRepartidor().getCargamento().getDispensers().getCantidad() < this.getDispensers().getCantidad())
+        {
+            aux=false;
+            this.incoherencia+="No hay "+this.getDispensers().getCantidad()+" dispensers en el vehículo para descargar \n";
+        }
+
+
     return aux;
     }
 

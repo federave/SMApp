@@ -9,6 +9,8 @@ import com.federavesm.smapp.actividades.CodigosActividades;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorEvaluar;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorProductos;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Dispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Vertedores;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.RepartoProductos;
 import com.federavesm.smapp.modelo.servidor.datosXML.XML;
@@ -35,6 +37,8 @@ public class Descarga extends GenericoDiaRepartidorProductos {
 
     private Retornables retornablesVacios = new Retornables();
 
+    private Vertedores vertedores = new Vertedores();
+    private Dispensers dispensers = new Dispensers();
 
 
 
@@ -49,6 +53,8 @@ public class Descarga extends GenericoDiaRepartidorProductos {
 
             xml.addValue(retornables.getXMLToSend());
             xml.addValue(descartables.getXMLToSend());
+            xml.addValue(vertedores.getXMLToSend());
+            xml.addValue(dispensers.getXMLToSend());
 
             xml.startTag("Vacios");
                 xml.addValue(retornablesVacios.getXMLToSend());
@@ -98,7 +104,13 @@ public class Descarga extends GenericoDiaRepartidorProductos {
         descarga.put("bidones5L",this.descartables.getBidones5L());
         descarga.put("packBotellas2L",this.descartables.getPackBotellas2L());
         descarga.put("packBotellas500mL",this.descartables.getPackBotellas500mL());
-        this.hora = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)+ " : " + Calendar.getInstance().get(Calendar.MINUTE)+ " : " + Calendar.getInstance().get(Calendar.SECOND);
+            descarga.put("vertedores",this.vertedores.getCantidad());
+            descarga.put("dispensers",this.dispensers.getCantidad());
+
+
+
+
+            this.hora = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)+ " : " + Calendar.getInstance().get(Calendar.MINUTE)+ " : " + Calendar.getInstance().get(Calendar.SECOND);
         descarga.put("hora",this.hora);
 
         boolean aux=true;
@@ -208,7 +220,27 @@ public class Descarga extends GenericoDiaRepartidorProductos {
         aux=false;
         this.incoherencia+="No hay "+this.getDescartables().getPackBotellas500mL()+" pack de botellas de 500mL en el vehículo para descargar \n";
     }
-    return aux;
+
+    if(Comunicador.getDiaRepartidor().getCargamento().getDescartables().getPackBotellas500mL() < this.getDescartables().getPackBotellas500mL())
+    {
+        aux=false;
+        this.incoherencia+="No hay "+this.getDescartables().getPackBotellas500mL()+" pack de botellas de 500mL en el vehículo para descargar \n";
+    }
+
+    if(Comunicador.getDiaRepartidor().getCargamento().getVertedores().getCantidad() < this.getVertedores().getCantidad())
+    {
+        aux=false;
+        this.incoherencia+="No hay "+this.getVertedores().getCantidad()+" vertedores en el vehículo para descargar \n";
+    }
+
+    if(Comunicador.getDiaRepartidor().getCargamento().getDispensers().getCantidad() < this.getDispensers().getCantidad())
+    {
+        aux=false;
+        this.incoherencia+="No hay "+this.getDispensers().getCantidad()+" dispensers en el vehículo para descargar \n";
+    }
+
+
+        return aux;
 
 
     }
@@ -274,7 +306,9 @@ public class Descarga extends GenericoDiaRepartidorProductos {
             this.descartables.setBidones5L(cursor.getInt(8));
             this.descartables.setPackBotellas2L(cursor.getInt(9));
             this.descartables.setPackBotellas500mL(cursor.getInt(10));
-            this.hora = cursor.getString(11);
+            this.vertedores.setCantidad(cursor.getInt(11));
+            this.dispensers.setCantidad(cursor.getInt(12));
+            this.hora = cursor.getString(13);
             }
         db.close();
         return aux;
@@ -294,6 +328,21 @@ public class Descarga extends GenericoDiaRepartidorProductos {
         this.hora = hora;
     }
 
+    public Vertedores getVertedores() {
+        return vertedores;
+    }
+
+    public void setVertedores(Vertedores vertedores) {
+        this.vertedores = vertedores;
+    }
+
+    public Dispensers getDispensers() {
+        return dispensers;
+    }
+
+    public void setDispensers(Dispensers dispensers) {
+        this.dispensers = dispensers;
+    }
 
     @Override
     public Object getCopia() {

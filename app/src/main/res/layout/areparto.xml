@@ -67,6 +67,20 @@
             />
 
         <Button
+            android:id="@+id/aRepartoButtonVertedores"
+            android:text="Vertedores"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+
+        <Button
+            android:id="@+id/aRepartoButtonDispensers"
+            android:text="Dispensers"
+            style="@style/button"
+            android:layout_marginBottom="50dp"
+            />
+
+        <Button
             android:id="@+id/aRepartoButtonDatosCliente"
             android:text="Datos Cliente"
             style="@style/button"

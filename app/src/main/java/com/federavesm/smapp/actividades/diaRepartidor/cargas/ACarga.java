@@ -38,6 +38,9 @@ public class ACarga extends Activity
         this.editTextBidones5L = (EditText) findViewById(R.id.aCargaEditTextBidones5L);
         this.editTextPackBotellas2L = (EditText) findViewById(R.id.aCargaEditTextPackBotellas2L);
         this.editTextPackBotellas500mL = (EditText) findViewById(R.id.aCargaEditTextPackBotellas500mL);
+        this.editTextVertedores = (EditText) findViewById(R.id.aCargaEditTextVertedores);
+        this.editTextDispensers = (EditText) findViewById(R.id.aCargaEditDispensers);
+
 
         this.buttonIngresarCarga = (Button) findViewById(R.id.aCargaButtonIngresarCarga);
         this.buttonIngresarCarga.setOnClickListener(new ListenerClickButtonIngresarCarga());
@@ -89,6 +92,15 @@ public class ACarga extends Activity
                     {
                     this.editTextPackBotellas500mL.setText(String.valueOf(this.carga.getDescartables().getPackBotellas500mL()));
                     }
+                if(this.carga.getVertedores().getCantidad() > 0)
+                    {
+                    this.editTextVertedores.setText(String.valueOf(this.carga.getVertedores().getCantidad()));
+                    }
+                if(this.carga.getDispensers().getCantidad() > 0)
+                    {
+                    this.editTextDispensers.setText(String.valueOf(this.carga.getDispensers().getCantidad()));
+                    }
+
 
                 }
             catch (Exception e)
@@ -116,6 +128,8 @@ public class ACarga extends Activity
     private EditText editTextBidones5L;
     private EditText editTextPackBotellas2L;
     private EditText editTextPackBotellas500mL;
+    private EditText editTextVertedores;
+    private EditText editTextDispensers;
 
 
     private Button buttonIngresarCarga;
@@ -206,6 +220,16 @@ public class ACarga extends Activity
         {
         this.carga.getDescartables().setPackBotellas500mL(Integer.valueOf(this.editTextPackBotellas500mL.getText().toString()));
         }
+    if(this.editTextVertedores.getText().length() > 0)
+        {
+        this.carga.getVertedores().setCantidad(Integer.valueOf(this.editTextVertedores.getText().toString()));
+        }
+    if(this.editTextDispensers.getText().length() > 0)
+        {
+            this.carga.getDispensers().setCantidad(Integer.valueOf(this.editTextDispensers.getText().toString()));
+        }
+
+
     }
 
 

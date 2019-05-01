@@ -126,7 +126,23 @@
                     android:id="@+id/aCargasMenuTextViewPackBotellas500mL"
                     android:layout_marginBottom="20dp"
                     />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vertedores: "
+                    style="@style/textoDatosCargamento"
+                    android:id="@+id/aCargasMenuTextViewVertedores"
+                    android:layout_marginBottom="20dp"
+                    />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dispensers"
+                    style="@style/textoDatosCargamento"
+                    android:id="@+id/aCargasMenuTextViewDispensers"
+                    android:layout_marginBottom="20dp"
+                    />
 
             </LinearLayout>
 

@@ -27,26 +27,26 @@ public class VentaDispensers extends GenericoDiaRepartidorEvaluar {
 
 
 
+    private boolean especial=false;
+    private float precioespecial=0;
+    private int cantidad=0;
 
 
 
     @Override
-    public String getXMLToSend() {
-
-        XML xml = new XML();
-
-        return xml.getXML();
+    public String getXMLToSend()
+    {
+    XML xml = new XML();
+    if(this.cantidad>0)
+        {
+        xml.startTag("VentaDispensers");
+            xml.addTag("Cantidad",String.valueOf(this.cantidad));
+            xml.addTag("Especial",String.valueOf(this.especial));
+            xml.addTag("PrecioEspecial",String.valueOf(this.precioespecial));
+        xml.closeTag("VentaDispensers");
+        }
+    return xml.getXML();
     }
-
-
-
-    private boolean especial=false;
-    private float precioespecial=0;
-
-
-
-
-    private int cantidad=0;
 
 
     @Override
@@ -75,9 +75,6 @@ public class VentaDispensers extends GenericoDiaRepartidorEvaluar {
     }
 
 
-
-
-
     public void limpiar()
     {
     this.precioespecial=0;
@@ -94,7 +91,6 @@ public class VentaDispensers extends GenericoDiaRepartidorEvaluar {
     }
 
 
-
     @Override
     public boolean getEstado()
     {
@@ -109,7 +105,6 @@ public class VentaDispensers extends GenericoDiaRepartidorEvaluar {
         {
         aux=false;
         }
-
     return aux;
     }
 

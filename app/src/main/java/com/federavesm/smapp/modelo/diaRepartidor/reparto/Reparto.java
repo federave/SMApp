@@ -10,9 +10,17 @@ import com.federavesm.smapp.modelo.Convertidor;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoReparto;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.Cliente;
 import com.federavesm.smapp.modelo.diaRepartidor.clientes.tipoInactivo.TipoInactivo;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Dispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Vertedores;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Descartables;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.CambioDispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.EntregaDispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.RetiroDispensers;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.VentaDispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.vertedores.CambioVertedores;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.vertedores.EntregaVertedores;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.vertedores.VentaVertedores;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.fueraDeRecorrido.FueraDeRecorrido;
 import com.federavesm.smapp.modelo.diaRepartidor.precios.PrecioProductos;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.alquiler.Alquiler;
@@ -57,6 +65,12 @@ public  class Reparto extends GenericoReparto {
     this.fueraDeRecorrido = new FueraDeRecorrido(context);
     this.cliente = new Cliente(context);
     this.ventaDispensers = new VentaDispensers(context);
+    this.cambioDispensers = new CambioDispensers(context);
+    this.entregaDispensers = new EntregaDispensers(context);
+    this.retiroDispensers = new RetiroDispensers(context);
+    this.ventaVertedores = new VentaVertedores(context);
+    this.cambioVertedores = new CambioVertedores(context);
+    this.entregaVertedores = new EntregaVertedores(context);
 
     }
 
@@ -76,12 +90,30 @@ public  class Reparto extends GenericoReparto {
 
 
     private VentaDispensers ventaDispensers;
-
+    private CambioDispensers cambioDispensers;
+    private EntregaDispensers entregaDispensers;
+    private RetiroDispensers retiroDispensers;
+    private VentaVertedores ventaVertedores;
+    private CambioVertedores cambioVertedores;
+    private EntregaVertedores entregaVertedores;
 
 
 
     private Retornables retornablesRepartidos = new Retornables();
     private Descartables descartablesRepartidos = new Descartables();
+
+    private Vertedores vertedoresRepartidos = new Vertedores();
+    private Dispensers dispensersRepartidos = new Dispensers();
+
+
+    private Vertedores vertedoresCambiados = new Vertedores();
+    private Dispensers dispensersCambiados = new Dispensers();
+
+    private Dispensers dispensersRetirados = new Dispensers();
+
+
+
+
 
     private boolean enviado = false;
 
@@ -127,6 +159,13 @@ public  class Reparto extends GenericoReparto {
         xml.addValue(vacios.getXMLToSend());
         xml.addValue(tipoVisita.getXMLToSend());
         xml.addValue(observacion.getXMLToSend());
+        xml.addValue(ventaDispensers.getXMLToSend());
+        xml.addValue(cambioDispensers.getXMLToSend());
+        xml.addValue(entregaDispensers.getXMLToSend());
+        xml.addValue(retiroDispensers.getXMLToSend());
+        xml.addValue(ventaVertedores.getXMLToSend());
+        xml.addValue(cambioVertedores.getXMLToSend());
+        xml.addValue(entregaVertedores.getXMLToSend());
 
 
     xml.closeTag("Reparto");
@@ -155,6 +194,17 @@ public  class Reparto extends GenericoReparto {
         this.retornablesRepartidos.copiar(reparto.getRetornablesRepartidos());
         this.descartablesRepartidos.copiar(reparto.getDescartablesRepartidos());
         this.enviado = reparto.getEnviado();
+
+        this.ventaDispensers.copiar(reparto.getVentaDispensers());
+        this.cambioDispensers.copiar(reparto.getCambioDispensers());
+        this.entregaDispensers.copiar(reparto.getEntregaDispensers());
+        this.retiroDispensers.copiar(reparto.getRetiroDispensers());
+        this.ventaVertedores.copiar(reparto.getVentaVertedores());
+        this.entregaVertedores.copiar(reparto.getEntregaVertedores());
+        this.cambioVertedores.copiar(reparto.getCambioVertedores());
+
+
+
         }
     catch (Exception e)
         {
@@ -220,6 +270,17 @@ public  class Reparto extends GenericoReparto {
             this.enviado = Convertidor.toBoolean(cursor.getInt(10));
             this.observacion.setId(cursor.getInt(11));
 
+            this.ventaVertedores.setId(cursor.getInt(12));
+            this.entregaVertedores.setId(cursor.getInt(13));
+            this.cambioVertedores.setId(cursor.getInt(14));
+            this.ventaDispensers.setId(cursor.getInt(15));
+            this.entregaDispensers.setId(cursor.getInt(16));
+            this.cambioDispensers.setId(cursor.getInt(17));
+            this.retiroDispensers.setId(cursor.getInt(18));
+
+
+
+
             aux&=this.cliente.cargar();
             Comunicador.setReparto(this);
             aux&=this.ventaProductos.cargar();
@@ -229,6 +290,14 @@ public  class Reparto extends GenericoReparto {
             aux&=this.observacion.cargar();
             aux&=this.fueraDeRecorrido.cargar();
             aux&=this.tipoVisita.cargar();
+            aux&=this.ventaVertedores.cargar();
+            aux&=this.entregaVertedores.cargar();
+            aux&=this.cambioVertedores.cargar();
+            aux&=this.ventaDispensers.cargar();
+            aux&=this.entregaDispensers.cargar();
+            aux&=this.cambioDispensers.cargar();
+            aux&=this.retiroDispensers.cargar();
+
             this.auxVisita = (TipoVisita) this.tipoVisita.getCopia();
             actualizarInterno();
             setEstadosTipoVisita();
@@ -285,6 +354,15 @@ public  class Reparto extends GenericoReparto {
         reparto.put("enviado",0);
         reparto.put("idObservacion",this.observacion.getId());
 
+        reparto.put("idVentaVertedores",this.ventaVertedores.getId());
+        reparto.put("idEntregaVertedores",this.entregaVertedores.getId());
+        reparto.put("idCambioVertedores",this.cambioVertedores.getId());
+        reparto.put("idVentaDispensers",this.ventaDispensers.getId());
+        reparto.put("idEntregaDispensers",this.entregaDispensers.getId());
+        reparto.put("idCambioDispensers",this.cambioDispensers.getId());
+        reparto.put("idRetiroDispensers",this.retiroDispensers.getId());
+
+
         if(db.insert("Repartos",null,reparto) > 0)
             {
             this.id=getLastId("Repartos");
@@ -318,6 +396,13 @@ public  class Reparto extends GenericoReparto {
     aux&=this.vacios.eliminar();
     aux&=this.observacion.eliminar();
     aux&=this.fueraDeRecorrido.eliminar();
+    aux&=this.ventaVertedores.eliminar();
+    aux&=this.entregaVertedores.eliminar();
+    aux&=this.cambioVertedores.eliminar();
+    aux&=this.ventaDispensers.eliminar();
+    aux&=this.entregaDispensers.eliminar();
+    aux&=this.cambioDispensers.eliminar();
+    aux&=this.retiroDispensers.eliminar();
 
     try {
         SQLiteDatabase db = getWritableDatabase();
@@ -358,6 +443,26 @@ public  class Reparto extends GenericoReparto {
     this.descartablesRepartidos.setPackBotellas500mL(this.ventaProductos.getDescartables().getPackBotellas500mL()+this.ventaProductos.getDescartablesBonificados().getPackBotellas500mL()+this.deudaProductos.getDescartables().getPackBotellas500mL());
 
 
+
+
+    int vertedoresRep = this.ventaVertedores.getCantidad()+this.entregaVertedores.getCantidad();
+    int dispensersRep = this.ventaDispensers.getCantidad()+this.entregaDispensers.getCantidad();
+
+    this.vertedoresRepartidos.setCantidad(vertedoresRep);
+    this.dispensersRepartidos.setCantidad(dispensersRep);
+
+
+    int vertedoresCamb = this.cambioVertedores.getCantidad();
+    int dispensersCamb = this.cambioDispensers.getCantidad();
+
+    this.vertedoresCambiados.setCantidad(vertedoresCamb);
+    this.dispensersCambiados.setCantidad(dispensersCamb);
+
+    this.dispensersRetirados.setCantidad(this.retiroDispensers.getCantidad());
+
+
+
+
     }
 
     @Override
@@ -373,7 +478,7 @@ public  class Reparto extends GenericoReparto {
 
     public boolean getEstadoClienteAtendido()
     {
-    return this.ventaProductos.have() || this.deudaProductos.have() || this.vacios.have() || this.alquiler.have() || this.alquiler.getPagoAlquiler().have();
+    return this.ventaProductos.have() || this.deudaProductos.have() || this.vacios.have() || this.alquiler.have() || this.alquiler.getPagoAlquiler().have() || this.ventaVertedores.have() || this.entregaVertedores.have() || this.cambioVertedores.have() || this.ventaDispensers.have() || this.entregaDispensers.have() || this.cambioDispensers.have() || this.retiroDispensers.have();
     }
 
     public void setEstadosTipoVisita()
@@ -407,6 +512,28 @@ public  class Reparto extends GenericoReparto {
         {
         this.tipoVisita.setVacios(false);
         }
+
+
+    if(this.ventaVertedores.have() || this.entregaVertedores.have() || this.cambioVertedores.have())
+        {
+        this.tipoVisita.setVertedores(true);
+        }
+    else
+        {
+        this.tipoVisita.setVertedores(false);
+        }
+
+
+    if(this.ventaDispensers.have() || this.entregaDispensers.have() || this.cambioDispensers.have() || this.retiroDispensers.have())
+        {
+        this.tipoVisita.setDispensers(true);
+        }
+    else
+        {
+        this.tipoVisita.setDispensers(false);
+        }
+
+
 
     }
 
@@ -490,6 +617,16 @@ public  class Reparto extends GenericoReparto {
         reparto.put("enviado",0);//nuevo
         this.enviado = false;
         reparto.put("idObservacion",this.observacion.getId());
+        reparto.put("idVentaVertedores",this.ventaVertedores.getId());
+        reparto.put("idEntregaVertedores",this.entregaVertedores.getId());
+        reparto.put("idCambioVertedores",this.cambioVertedores.getId());
+        reparto.put("idVentaDispensers",this.ventaDispensers.getId());
+        reparto.put("idEntregaDispensers",this.entregaDispensers.getId());
+        reparto.put("idCambioDispensers",this.cambioDispensers.getId());
+        reparto.put("idRetiroDispensers",this.retiroDispensers.getId());
+
+
+
 
         String whereClause = "id=?";
         String whereArgs[] = {String.valueOf(this.id)};
@@ -514,7 +651,7 @@ public  class Reparto extends GenericoReparto {
     @Override
     public boolean getEstado()
     {
-    boolean aux = this.ventaProductos.getEstado() || this.deudaProductos.getEstado() || this.alquiler.getEstado();
+    boolean aux = this.ventaProductos.getEstado() || this.deudaProductos.getEstado() || this.alquiler.getEstado() || this.ventaVertedores.getEstado() || this.entregaVertedores.getEstado() || this.cambioVertedores.getEstado() || this.ventaDispensers.getEstado() || this.entregaDispensers.getEstado() || this.cambioDispensers.getEstado() || this.retiroDispensers.getEstado();
     return aux;
     }
 
@@ -940,5 +1077,96 @@ public  class Reparto extends GenericoReparto {
 
     public void setVentaDispensers(VentaDispensers ventaDispensers) {
         this.ventaDispensers = ventaDispensers;
+    }
+
+    public CambioDispensers getCambioDispensers() {
+        return cambioDispensers;
+    }
+
+    public void setCambioDispensers(CambioDispensers cambioDispensers) {
+        this.cambioDispensers = cambioDispensers;
+    }
+
+    public EntregaDispensers getEntregaDispensers() {
+        return entregaDispensers;
+    }
+
+    public void setEntregaDispensers(EntregaDispensers entregaDispensers) {
+        this.entregaDispensers = entregaDispensers;
+    }
+
+    public RetiroDispensers getRetiroDispensers() {
+        return retiroDispensers;
+    }
+
+    public void setRetiroDispensers(RetiroDispensers retiroDispensers) {
+        this.retiroDispensers = retiroDispensers;
+    }
+
+    public VentaVertedores getVentaVertedores() {
+        return ventaVertedores;
+    }
+
+    public void setVentaVertedores(VentaVertedores ventaVertedores) {
+        this.ventaVertedores = ventaVertedores;
+    }
+
+    public CambioVertedores getCambioVertedores() {
+        return cambioVertedores;
+    }
+
+    public void setCambioVertedores(CambioVertedores cambioVertedores) {
+        this.cambioVertedores = cambioVertedores;
+    }
+
+    public EntregaVertedores getEntregaVertedores() {
+        return entregaVertedores;
+    }
+
+    public void setEntregaVertedores(EntregaVertedores entregaVertedores) {
+        this.entregaVertedores = entregaVertedores;
+    }
+
+
+    public Vertedores getVertedoresRepartidos() {
+        return vertedoresRepartidos;
+    }
+
+    public void setVertedoresRepartidos(Vertedores vertedoresRepartidos) {
+        this.vertedoresRepartidos = vertedoresRepartidos;
+    }
+
+    public Dispensers getDispensersRepartidos() {
+        return dispensersRepartidos;
+    }
+
+    public void setDispensersRepartidos(Dispensers dispensersRepartidos) {
+        this.dispensersRepartidos = dispensersRepartidos;
+    }
+
+
+    public Vertedores getVertedoresCambiados() {
+        return vertedoresCambiados;
+    }
+
+    public void setVertedoresCambiados(Vertedores vertedoresCambiados) {
+        this.vertedoresCambiados = vertedoresCambiados;
+    }
+
+    public Dispensers getDispensersCambiados() {
+        return dispensersCambiados;
+    }
+
+    public void setDispensersCambiados(Dispensers dispensersCambiados) {
+        this.dispensersCambiados = dispensersCambiados;
+    }
+
+
+    public Dispensers getDispensersRetirados() {
+        return dispensersRetirados;
+    }
+
+    public void setDispensersRetirados(Dispensers dispensersRetirados) {
+        this.dispensersRetirados = dispensersRetirados;
     }
 }

@@ -1,9 +1,13 @@
 package com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.vertedores;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorEvaluar;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.EntregaDispensers;
 import com.federavesm.smapp.modelo.servidor.datosXML.XML;
 
 
@@ -20,29 +24,21 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
 
 
 
+    private int cantidad=0;
 
 
     @Override
-    public String getXMLToSend() {
-
+    public String getXMLToSend()
+    {
         XML xml = new XML();
-
+        if(this.cantidad>0)
+        {
+            xml.startTag("EntregaVertedores");
+            xml.addTag("Cantidad",String.valueOf(this.cantidad));
+            xml.closeTag("EntregaVertedores");
+        }
         return xml.getXML();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Override
@@ -50,11 +46,9 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
     {
         try
         {
-            /*
-            PagoAlquiler pagoAlquiler = (PagoAlquiler)object;
-            this.id = pagoAlquiler.getId();
-            this.alquileres.copiar(pagoAlquiler.getAlquileres());
-            */
+            EntregaVertedores entregaVertedores = (EntregaVertedores)object;
+            this.id = entregaVertedores.getId();
+            this.cantidad = entregaVertedores.getCantidad();
         }
         catch (Exception e)
         {
@@ -64,29 +58,40 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
 
     @Override
     public Object getCopia()
-    {/*
-        PagoAlquiler pagoAlquiler = new PagoAlquiler(context);
-        pagoAlquiler.copiar(this);
-        return pagoAlquiler;
-
-        */
-        return new Object();
+    {
+        EntregaVertedores entregaVertedores = new EntregaVertedores(this.context);
+        entregaVertedores.copiar(this);
+        return entregaVertedores;
     }
-
-
-
 
 
     public void limpiar()
     {
+        this.cantidad=0;
     }
 
     public boolean have()
     {
-        return true;
+        if(this.cantidad > 0)
+            return true;
+        else
+            return false;
     }
 
 
+    @Override
+    public boolean getEstado()
+    {
+        boolean aux = true;
+        if(this.cantidad>=0)
+        {
+        }
+        else
+        {
+            aux=false;
+        }
+        return aux;
+    }
 
 
 
@@ -104,14 +109,12 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
                 SQLiteDatabase db = getReadableDatabase();
                 boolean aux=false;
 
-                /*
-                Cursor cursor = db.rawQuery("SELECT * FROM PagoAlquiler WHERE id=" + "'" + this.id + "'", null);
+                Cursor cursor = db.rawQuery("SELECT * FROM EntregaVertedores WHERE id=" + "'" + this.id + "'", null);
                 if (cursor.moveToFirst())
                 {
                     aux=true;
-
+                    this.cantidad = cursor.getInt(1);
                 }
-                */
 
                 db.close();
                 return aux;
@@ -139,25 +142,17 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
             SQLiteDatabase db = getWritableDatabase();
             boolean aux = true;
 
-            /*
-            ContentValues pagoAlquiler = new ContentValues();
-            pagoAlquiler.put("alquileres6Bidones",this.alquileres.getAlquileres6Bidones());
-            pagoAlquiler.put("alquileres8Bidones",this.alquileres.getAlquileres8Bidones());
-            pagoAlquiler.put("alquileres10Bidones",this.alquileres.getAlquileres10Bidones());
-            pagoAlquiler.put("alquileres12Bidones",this.alquileres.getAlquileres12Bidones());
-            if(db.insert("PagoAlquiler",null,pagoAlquiler) > 0)
+            ContentValues dato = new ContentValues();
+            dato.put("cantidad",this.cantidad);
+            if(db.insert("EntregaVertedores",null,dato) > 0)
             {
-                this.id = getLastId("PagoAlquiler");
+                this.id = getLastId("EntregaVertedores");
             }
             else
             {
                 aux = false;
             }
             db.close();
-            aux &= Comunicador.getReparto().getAlquiler().modificar();
-
-            */
-
             return aux;
         }
         catch (Exception e)
@@ -176,24 +171,20 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
 
             if (this.id > 0)
             {
-                /*
+
 
                 SQLiteDatabase db = getWritableDatabase();
-                ContentValues pagoAlquiler = new ContentValues();
-                pagoAlquiler.put("alquileres6Bidones",this.alquileres.getAlquileres6Bidones());
-                pagoAlquiler.put("alquileres8Bidones",this.alquileres.getAlquileres8Bidones());
-                pagoAlquiler.put("alquileres10Bidones",this.alquileres.getAlquileres10Bidones());
-                pagoAlquiler.put("alquileres12Bidones",this.alquileres.getAlquileres12Bidones());
+                ContentValues dato = new ContentValues();
+                dato.put("cantidad",this.cantidad);
                 String whereClause = "id=?";
                 String whereArgs[] = {String.valueOf(this.id)};
-                if (!(db.update("PagoAlquiler", pagoAlquiler, whereClause, whereArgs) > 0))
+                if (!(db.update("EntregaVertedores", dato, whereClause, whereArgs) > 0))
                 {
                     aux = false;
                 }
                 db.close();
-                aux &= Comunicador.getReparto().getAlquiler().modificar();
+                aux &= Comunicador.getReparto().modificar();
 
-                */
             }
             else
             {
@@ -219,15 +210,13 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
         {
             SQLiteDatabase db = getWritableDatabase();
             boolean aux = false;
-            /*
-            if(db.delete("PagoAlquiler", "id=" + "'" + this.id + "'", null)>0)
+            if(db.delete("EntregaVertedores", "id=" + "'" + this.id + "'", null)>0)
             {
                 aux = true;
             }
             db.close();
             this.id = -1;
-            aux &= Comunicador.getReparto().getAlquiler().modificar();
-            */
+            aux &= Comunicador.getReparto().modificar();
             return aux;
         }
         catch (Exception e)
@@ -235,6 +224,7 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
             return false;
         }
     }
+
     @Override
     public boolean actualizar() {
         return false;
@@ -244,22 +234,36 @@ public class EntregaVertedores extends GenericoDiaRepartidorEvaluar {
 
 
     @Override
-    public boolean evaluar() {
-        return false;
+    public boolean evaluar()
+    {
+        incoherencia="";
+        boolean aux = true;
+        this.incoherencia="";
+        int vertedoresVehiculo = Comunicador.getDiaRepartidor().getCargamento().getVertedores().getCantidad();
+        if(vertedoresVehiculo < this.cantidad)
+        {
+            aux = false;
+            this.incoherencia += "No hay " + this.cantidad  + " Vertedores en el vehículo para entregar \n";
+        }
+        return aux;
     }
+
+
 
     @Override
     public String getEvaluar() {
-        return "";
+        return this.incoherencia;
     }
 
 
-    @Override
-    public boolean getEstado()
-    {
-        return true;
+
+    public int getCantidad() {
+        return cantidad;
     }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 
 
 }

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo"
+    >
+
+    <LinearLayout style="@style/linearLayoutCabecera">
+        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="50dp"
+            android:layout_marginTop="40dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambio Dispensers"
+                style="@style/texto"
+                android:textSize="30dp"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/aGeneralDispensadoresTextViewTitulo"
+
+                />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="0dp"
+                    android:layout_marginTop="40dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/texto"
+                        android:textSize="25dp"
+                        android:text="Cantidad: "/>
+
+                    <EditText
+                        android:id="@+id/aGeneralDispensadoresEditTextCantidad"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="25dp"
+                        android:inputType="numberDecimal"
+                        android:layout_marginLeft="30dp"
+                        />
+
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="120dp"
+                android:layout_marginTop="70dp"
+                >
+                <Button
+                    android:id="@+id/aGeneralDispensadoresButtonGuardar"
+                    style="@style/button"
+                    android:text="Guardar"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aGeneralDispensadoresButtonBorrar"
+                    style="@style/button"
+                    android:text="Borrar"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
+                    android:id="@+id/aGeneralDispensadoresButtonRetornar"
+                    style="@style/buttonRetornar"
+                    android:text="Retornar"
+                    android:layout_marginBottom="50dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

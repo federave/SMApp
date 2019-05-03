@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorEvaluar;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoReparto;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Dispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.otros.Vertedores;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Descartables;
 import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
 import com.federavesm.smapp.modelo.diaRepartidor.repartidores.Repartidor;
@@ -107,6 +109,53 @@ public class Repartos extends GenericoReparto {
     retornablesRepartidosRepartoSeleccionado.copiar(reparto.getRetornablesRepartidos());
     retornablesRecuperadosRepartoSeleccionado.copiar(reparto.getVacios().getRetornables());
     descartablesRepartidosRepartoSeleccionado.copiar(reparto.getDescartablesRepartidos());
+
+    vertedoresRepartidosRepartoSeleccionado.copiar(reparto.getVertedoresRepartidos());
+    vertedoresCambiadosRepartoSeleccionado.copiar(reparto.getVertedoresCambiados());
+    dispensersRepartidosRepartoSeleccionado.copiar(reparto.getDispensersRepartidos());
+    dispensersCambiadosRepartoSeleccionado.copiar(reparto.getDispensersCambiados());
+    dispensersRetiradosRepartoSeleccionado.copiar(reparto.getDispensersRetirados());
+
+
+    }
+
+
+    private Vertedores vertedoresRepartidos = new Vertedores();
+    private Vertedores vertedoresCambiados = new Vertedores();
+    private Dispensers dispensersRepartidos = new Dispensers();
+    private Dispensers dispensersCambiados = new Dispensers();
+    private Dispensers dispensersRetirados = new Dispensers();
+
+    private Vertedores vertedoresRepartidosRepartoSeleccionado = new Vertedores();
+    private Vertedores vertedoresCambiadosRepartoSeleccionado = new Vertedores();
+    private Dispensers dispensersRepartidosRepartoSeleccionado = new Dispensers();
+    private Dispensers dispensersCambiadosRepartoSeleccionado = new Dispensers();
+    private Dispensers dispensersRetiradosRepartoSeleccionado = new Dispensers();
+
+    public Dispensers getDispensersRetirados() {
+        return dispensersRetirados;
+    }
+
+
+    public Vertedores getVertedoresRepartidos() {
+        return vertedoresRepartidos;
+    }
+
+
+    public Vertedores getVertedoresCambiados() {
+        return vertedoresCambiados;
+    }
+
+
+
+    public Dispensers getDispensersRepartidos() {
+        return dispensersRepartidos;
+    }
+
+
+
+    public Dispensers getDispensersCambiados() {
+        return dispensersCambiados;
     }
 
 
@@ -127,6 +176,15 @@ public class Repartos extends GenericoReparto {
 
     this.retornablesRecuperados.setBidones20L(this.retornablesRecuperados.getBidones20L() - retornablesRecuperadosRepartoSeleccionado.getBidones20L() + reparto.getVacios().getRetornables().getBidones20L());
     this.retornablesRecuperados.setBidones12L(this.retornablesRecuperados.getBidones12L() - retornablesRecuperadosRepartoSeleccionado.getBidones12L() + reparto.getVacios().getRetornables().getBidones12L());
+
+
+    this.vertedoresCambiados.setCantidad(this.vertedoresCambiados.getCantidad() - this.vertedoresCambiadosRepartoSeleccionado.getCantidad() + reparto.getVertedoresCambiados().getCantidad());
+    this.vertedoresRepartidos.setCantidad(this.vertedoresRepartidos.getCantidad() - this.vertedoresRepartidosRepartoSeleccionado.getCantidad() + reparto.getVertedoresRepartidos().getCantidad());
+
+    this.dispensersCambiados.setCantidad(this.dispensersCambiados.getCantidad() - this.dispensersCambiadosRepartoSeleccionado.getCantidad() + reparto.getDispensersCambiados().getCantidad());
+    this.dispensersRepartidos.setCantidad(this.dispensersRepartidos.getCantidad() - this.dispensersRepartidosRepartoSeleccionado.getCantidad() + reparto.getDispensersRepartidos().getCantidad());
+    this.dispensersRetirados.setCantidad(this.dispensersRetirados.getCantidad() - this.dispensersRetiradosRepartoSeleccionado.getCantidad() + reparto.getDispensersRetirados().getCantidad());
+
 
     guardarEstadoRepartoSeleccionado();
 

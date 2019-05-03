@@ -57,26 +57,41 @@ public class TipoVisita extends GenericoVista {
     private boolean entrega=false;
     private boolean vacios=false;
 
+    private boolean vertedores=false;
+    private boolean dispensers=false;
+
+
+    public boolean getVertedores() {
+        return vertedores;
+    }
+
+    public void setVertedores(boolean vertedores) {
+        this.vertedores = vertedores;
+    }
+
+    public boolean getDispensers() {
+        return dispensers;
+    }
+
+    public void setDispensers(boolean dispensers) {
+        this.dispensers = dispensers;
+    }
+
     public boolean getPagoAlquiler() {
         return pagoAlquiler;
     }
-
     public void setPagoAlquiler(boolean pagoAlquiler) {
         this.pagoAlquiler = pagoAlquiler;
     }
-
     public boolean getEntrega() {
         return entrega;
     }
-
     public void setEntrega(boolean entrega) {
         this.entrega = entrega;
     }
-
     public boolean getVacios() {
         return vacios;
     }
-
     public void setVacios(boolean vacios) {
         this.vacios = vacios;
     }
@@ -92,6 +107,11 @@ public class TipoVisita extends GenericoVista {
         this.pagoAlquiler = tipoVisita.getPagoAlquiler();
         this.entrega = tipoVisita.getEntrega();
         this.vacios = tipoVisita.getVacios();
+        this.vertedores = tipoVisita.getVertedores();
+        this.dispensers = tipoVisita.getDispensers();
+
+
+
         }
     catch (Exception e)
         {
@@ -115,7 +135,7 @@ public class TipoVisita extends GenericoVista {
             {
             TipoVisita tipoVisita = (TipoVisita)objetc;
 
-            if(this.id == tipoVisita.getId() && this.pagoAlquiler==tipoVisita.getPagoAlquiler() && this.entrega==tipoVisita.getEntrega() && this.vacios==tipoVisita.getVacios())
+            if(this.id == tipoVisita.getId() && this.pagoAlquiler==tipoVisita.getPagoAlquiler() && this.entrega==tipoVisita.getEntrega() && this.vacios==tipoVisita.getVacios() && this.vertedores==tipoVisita.getVertedores() && this.dispensers==tipoVisita.getDispensers())
                 return true;
             else
                 return false;
@@ -232,6 +252,13 @@ public class TipoVisita extends GenericoVista {
     return R.drawable.convacios;
     }
 
+    public int getRecursoVertedores(){
+        return R.drawable.convacios;
+    }
+    public int getRecursoDispensers()
+    {
+        return R.drawable.convacios;
+    }
 
 
     @Override

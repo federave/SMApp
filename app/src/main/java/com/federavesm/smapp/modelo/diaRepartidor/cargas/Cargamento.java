@@ -36,24 +36,22 @@ public class Cargamento extends GenericoDiaRepartidorProductos {
     {
     Vertedores vertedoresCargados = this.cargas.getVertedores();
     Vertedores vertedoresDescargados = this.descargas.getVertedores();
-    Vertedores vertedoresVendidos = new Vertedores(); // Comunicador.getDiaRepartidor().getRepartos().getVertedoresVendidos();
-    Vertedores vertedoresEntregados = new Vertedores(); // Comunicador.getDiaRepartidor().getRepartos().getVertedoresEntregados();
+    Vertedores vertedoresRepartidos = Comunicador.getDiaRepartidor().getRepartos().getVertedoresRepartidos();
     Vertedores vertedores = new Vertedores();
-    vertedores.setCantidad(vertedoresCargados.getCantidad()-vertedoresDescargados.getCantidad()-vertedoresVendidos.getCantidad()-vertedoresEntregados.getCantidad());
+    vertedores.setCantidad(vertedoresCargados.getCantidad()-vertedoresDescargados.getCantidad()-vertedoresRepartidos.getCantidad());
     return vertedores;
     }
 
 
     public Dispensers getDispensers()
     {
-        Dispensers dispensersCargados = this.cargas.getDispensers();
-        Dispensers dispensersDescargados = this.descargas.getDispensers();
-        Dispensers dispensersVendidos = new Dispensers(); // Comunicador.getDiaRepartidor().getRepartos().getDispensersVendidos();
-        Dispensers dispensersEntregados = new Dispensers(); // Comunicador.getDiaRepartidor().getRepartos().getDispensersEntregados();
-        Dispensers dispensersRetirados = new Dispensers(); // Comunicador.getDiaRepartidor().getRepartos().getDispensersRetirados();
-        Dispensers dispensers = new Dispensers();
-        dispensers.setCantidad(dispensersCargados.getCantidad() + dispensersRetirados.getCantidad() -dispensersDescargados.getCantidad()-dispensersVendidos.getCantidad()-dispensersEntregados.getCantidad());
-        return dispensers;
+    Dispensers dispensersCargados = this.cargas.getDispensers();
+    Dispensers dispensersDescargados = this.descargas.getDispensers();
+    Dispensers dispensersRepartidos = Comunicador.getDiaRepartidor().getRepartos().getDispensersRepartidos();
+    Dispensers dispensersRetirados = Comunicador.getDiaRepartidor().getRepartos().getDispensersRetirados();
+    Dispensers dispensers = new Dispensers();
+    dispensers.setCantidad(dispensersCargados.getCantidad() + dispensersRetirados.getCantidad() - dispensersDescargados.getCantidad()- dispensersRepartidos.getCantidad());
+    return dispensers;
     }
 
 

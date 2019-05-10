@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.federavesm.smapp.modelo.Comunicador;
+import com.federavesm.smapp.modelo.Convertidor;
 import com.federavesm.smapp.modelo.diaRepartidor.GenericoDiaRepartidorEvaluar;
 import com.federavesm.smapp.modelo.servidor.datosXML.XML;
 
@@ -23,7 +24,23 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
 
 
 
+
+    private boolean especial=false;
+    private float precioespecial=0;
     private int cantidad=0;
+
+
+    public float getDinero()
+    {
+    if(especial)
+        {
+        return precioespecial*cantidad;
+        }
+    else
+        {
+        return Comunicador.getReparto().getCliente().getPrecioDispensadores().getVertedor() * cantidad;
+        }
+    }
 
 
     @Override
@@ -33,7 +50,9 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
         if(this.cantidad>0)
         {
             xml.startTag("VentaVertedores");
-            xml.addTag("Cantidad",String.valueOf(this.cantidad));
+                xml.addTag("Cantidad",String.valueOf(this.cantidad));
+                xml.addTag("Especial",String.valueOf(this.especial));
+                xml.addTag("PrecioEspecial",String.valueOf(this.precioespecial));
             xml.closeTag("VentaVertedores");
         }
         return xml.getXML();
@@ -48,6 +67,8 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
             VentaVertedores ventaVertedores = (VentaVertedores)object;
             this.id = ventaVertedores.getId();
             this.cantidad = ventaVertedores.getCantidad();
+            this.especial = ventaVertedores.getEspecial();
+            this.precioespecial = ventaVertedores.getPrecioespecial();
         }
         catch (Exception e)
         {
@@ -58,9 +79,9 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
     @Override
     public Object getCopia()
     {
-        VentaVertedores ventaVertedores = new VentaVertedores(this.context);
-        ventaVertedores.copiar(this);
-        return ventaVertedores;
+    VentaVertedores ventaVertedores = new VentaVertedores(this.context);
+    ventaVertedores.copiar(this);
+    return ventaVertedores;
     }
 
 
@@ -113,6 +134,8 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
                 {
                     aux=true;
                     this.cantidad = cursor.getInt(1);
+                    this.especial = Convertidor.toBoolean(cursor.getInt(2));
+                    this.precioespecial = cursor.getFloat(3);
                 }
 
                 db.close();
@@ -143,6 +166,8 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
 
             ContentValues dato = new ContentValues();
             dato.put("cantidad",this.cantidad);
+            dato.put("especial",this.especial);
+            dato.put("precioespecial",this.precioespecial);
             if(db.insert("VentaVertedores",null,dato) > 0)
             {
                 this.id = getLastId("VentaVertedores");
@@ -175,6 +200,8 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
                 SQLiteDatabase db = getWritableDatabase();
                 ContentValues dato = new ContentValues();
                 dato.put("cantidad",this.cantidad);
+                dato.put("especial",this.especial);
+                dato.put("precioespecial",this.precioespecial);
                 String whereClause = "id=?";
                 String whereArgs[] = {String.valueOf(this.id)};
                 if (!(db.update("VentaVertedores", dato, whereClause, whereArgs) > 0))
@@ -264,6 +291,21 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
         this.cantidad = cantidad;
     }
 
+    public boolean getEspecial() {
+        return especial;
+    }
+
+    public void setEspecial(boolean especial) {
+        this.especial = especial;
+    }
+
+    public float getPrecioespecial() {
+        return precioespecial;
+    }
+
+    public void setPrecioespecial(float precioespecial) {
+        this.precioespecial = precioespecial;
+    }
 
 }
 

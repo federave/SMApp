@@ -2,16 +2,22 @@ package com.federavesm.smapp.actividades.diaRepartidor.reparto.dispensers;
 
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
         import android.support.annotation.Nullable;
         import android.view.View;
         import android.widget.Button;
-        import android.widget.Toast;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
         import com.federavesm.smapp.R;
         import com.federavesm.smapp.actividades.ActivityGenerica;
         import com.federavesm.smapp.actividades.Dialogo;
         import com.federavesm.smapp.modelo.Comunicador;
-
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.CambioDispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.EntregaDispensers;
 
 
 public class ACambioDispensers extends ActivityGenerica
@@ -20,16 +26,32 @@ public class ACambioDispensers extends ActivityGenerica
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.avisita);
+        setContentView(R.layout.ageneraldispensadores);
 
 
-
-
-        this.buttonRetornar = (Button) findViewById(R.id.aVisitaButtonRetornar);
+        this.buttonRetornar = (Button) findViewById(R.id.aGeneralDispensadoresButtonRetornar);
         this.buttonRetornar.setOnClickListener(new ListenerClickButtonRetornar());
-
-        this.buttonGuardar = (Button) findViewById(R.id.aVisitaButtonGuardar);
+        this.buttonGuardar = (Button) findViewById(R.id.aGeneralDispensadoresButtonGuardar);
         this.buttonGuardar.setOnClickListener(new ListenerClickButtonGuardar());
+        this.buttonBorrar = (Button) findViewById(R.id.aGeneralDispensadoresButtonBorrar);
+        this.buttonBorrar.setOnClickListener(new ListenerClickButtonBorrar());
+        editTextCantidad = (EditText) findViewById(R.id.aGeneralDispensadoresEditTextCantidad);
+        textViewTitulo = (TextView) findViewById(R.id.aGeneralDispensadoresTextViewTitulo);
+
+        this.textViewTitulo.setText("Cambio Dispensers");
+
+        reparto = Comunicador.getReparto();
+
+        datoOld = reparto.getCambioDispensers(); // Varia
+
+        if(datoOld.getEstado())
+        {
+            this.editTextCantidad.setText(String.valueOf(datoOld.getCantidad()));
+        }
+
+        datoNew = (CambioDispensers) datoOld.getCopia();  // Varia
+
+
 
 
 
@@ -38,8 +60,31 @@ public class ACambioDispensers extends ActivityGenerica
     }
 
 
+    private Reparto reparto;
+    private EditText editTextCantidad;
+    private TextView textViewTitulo;
+    private CambioDispensers datoNew;
+    private CambioDispensers datoOld;
+
+
+
+
+
+
+    private void actualizarDatos() throws Exception
+    {
+
+        if(editTextCantidad.getText().toString().length()>0)
+        {this.datoNew.setCantidad(Integer.valueOf(editTextCantidad.getText().toString()));}
+        else
+        {this.datoNew.setCantidad(0);}
+
+    }
+
+
 
     ///////GUARDAR
+
 
     private Button buttonGuardar;
 
@@ -51,23 +96,129 @@ public class ACambioDispensers extends ActivityGenerica
         }
     }
 
-
     private void guardar()
     {
         try
         {
-            if(Comunicador.getReparto().getEstadoClienteAtendido() == false)
+            actualizarDatos();
+            if(this.datoNew.getEstado())
             {
-                Comunicador.getReparto().modificar();
-                Dialogo.setListenerEventoAceptarInterfaz(new ListenerEventoAceptar());
-                Dialogo.aceptar("Atención!","La visita se guardó correctamente",this);
+                if(datoNew.have())
+                {
+                    if(this.datoNew.evaluar())
+                    {
+                        guardarFinal();
+                    }
+                    else
+                    {
+                        incoherencia();
+                    }
+                }
+                else
+                {
+                    eliminar();
+                }
+            }
+            else
+            {
+                Dialogo.aceptarVacioError("Atención!","Los datos ingresados no son coherentes",this);
             }
         }
         catch (Exception e)
         {
-            Toast.makeText(this,"Los datos ingresados no son coherentes",Toast.LENGTH_LONG).show();
+            Dialogo.aceptarVacioError("Atención!","Los datos ingresados no son coherentes",this);
         }
     }
+
+
+
+    private void incoherencia()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Atención!").setMessage(this.datoNew.getEvaluar())
+                .setNegativeButton("No Guardar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {guardarNo();}
+                })
+                .setPositiveButton("Guardar",new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int id) {guardarSi();}});
+        builder.create().show();
+    }
+
+    private void guardarSi()
+    {
+        guardarFinal();
+    }
+
+    private void guardarNo(){}
+
+
+    private void guardarFinal()
+    {
+        this.datoOld.copiar(this.datoNew);
+        if(this.datoOld.modificar())
+        {
+            this.reparto.actualizar();
+            this.finish();
+        }
+        else
+        {
+            Dialogo.aceptarVacioError("Atención!","La venta no se guardó correctamente",this);
+        }
+    }
+
+    /////////////////////////////////////////
+
+    private void eliminar()
+    {
+        this.datoOld.copiar(this.datoNew);
+        if(this.datoOld.eliminar())
+        {
+            this.reparto.actualizar();
+            this.finish();
+        }
+        else
+        {
+            Dialogo.aceptarVacioError("Atención!","La entrega no se guardó correctamente",this);
+        }
+    }
+
+
+
+
+
+
+    ///// BORRAR DATOS
+
+    private Button buttonBorrar;
+
+    class ListenerClickButtonBorrar implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            borrar();
+        }
+    }
+
+
+    private void borrar()
+    {
+        this.datoNew.limpiar();
+        this.editTextCantidad.setText("");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

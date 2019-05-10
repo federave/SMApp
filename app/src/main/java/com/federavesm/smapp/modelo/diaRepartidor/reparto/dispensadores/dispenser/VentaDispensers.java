@@ -32,6 +32,19 @@ public class VentaDispensers extends GenericoDiaRepartidorEvaluar {
     private int cantidad=0;
 
 
+    public float getDinero()
+    {
+    if(especial)
+        {
+        return precioespecial*cantidad;
+        }
+    else
+        {
+        return Comunicador.getReparto().getCliente().getPrecioDispensadores().getDispenser() * cantidad;
+        }
+    }
+
+
 
     @Override
     public String getXMLToSend()

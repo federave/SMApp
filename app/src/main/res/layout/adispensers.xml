@@ -60,6 +60,12 @@
                     android:layout_marginBottom="50dp"
                     />
                 <Button
+                    android:id="@+id/aDispensersButtonRetiro"
+                    android:text="Retirar"
+                    style="@style/button"
+                    android:layout_marginBottom="50dp"
+                    />
+                <Button
                     android:id="@+id/aDispensersButtonRetornar"
                     style="@style/buttonRetornar"
                     android:text="Retornar"

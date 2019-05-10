@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.ActivityGenerica;
 import com.federavesm.smapp.actividades.Dialogo;
+import com.federavesm.smapp.actividades.ListenerEditText;
+import com.federavesm.smapp.actividades.diaRepartidor.reparto.AVentaProductos;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.VentaDispensers;
@@ -41,6 +44,8 @@ public class AVentaDispensers extends ActivityGenerica
 
         linearLayoutPrecioEspecial = (LinearLayout) findViewById(R.id.aVentaDispensersLinearLayoutPrecioEspecial);
         editTextCantidad = (EditText) findViewById(R.id.aVentaDispensersEditTextCantidad);
+        editTextCantidad.addTextChangedListener(new ListenerEditTexts());
+
         textViewDinero = (TextView) findViewById(R.id.aVentaDispensersTextViewDinero);
         editTextPrecioEspecial = (EditText) findViewById(R.id.aVentaDispensersEditTextPrecioEspecial);
         checkBoxEstadoPrecioEspecial = (CheckBox) findViewById(R.id.aVentaDispensersCheckBoxEstadoPrecioEspecial);
@@ -53,7 +58,6 @@ public class AVentaDispensers extends ActivityGenerica
         if(ventaDispensersOld.getEstado())
             {
             this.editTextCantidad.setText(String.valueOf(ventaDispensersOld.getCantidad()));
-            this.textViewDinero.setText("Dinero: "+String.valueOf(ventaDispensersOld.getCantidad() * reparto.getCliente().getPrecioDispensadores().getDispenser() + " $") );
             if(this.ventaDispensersOld.getEspecial())
                 {
                 this.linearLayoutPrecioEspecial.setVisibility(View.VISIBLE);
@@ -65,10 +69,12 @@ public class AVentaDispensers extends ActivityGenerica
                 this.linearLayoutPrecioEspecial.setVisibility(View.GONE);
                 this.checkBoxEstadoPrecioEspecial.setChecked(false);
                 }
+            this.textViewDinero.setText("Dinero: "+String.valueOf(ventaDispensersOld.getDinero()) + " $");
 
             }
 
         ventaDispensersNew = (VentaDispensers) ventaDispensersOld.getCopia();
+        this.estadoEventos=true;
 
     }
 
@@ -84,7 +90,41 @@ public class AVentaDispensers extends ActivityGenerica
     private LinearLayout linearLayoutPrecioEspecial;
 
 
+    class ListenerEditTexts extends ListenerEditText
+    {
 
+        public ListenerEditTexts()
+        {
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable)
+        {
+            actualizarDinero();
+        }
+
+    }
+
+    boolean estadoEventos = false;
+    private void actualizarDinero()
+    {
+
+    if(estadoEventos)
+        {
+        try
+            {
+            actualizarVentaDispensers();
+            if(this.ventaDispensersNew.getEstado())
+                {
+                this.textViewDinero.setText("Dinero: "+String.valueOf(ventaDispensersNew.getDinero()) + " $");
+                }
+            }
+        catch (Exception e)
+            {
+
+            }
+        }
+    }
 
 
     class ListenerCheckedBoxEstadoPrecioEspecial implements CompoundButton.OnCheckedChangeListener

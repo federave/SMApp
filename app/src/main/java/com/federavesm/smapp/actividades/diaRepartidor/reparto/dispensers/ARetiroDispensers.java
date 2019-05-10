@@ -1,4 +1,4 @@
-package com.federavesm.smapp.actividades.diaRepartidor.reparto.vertedores;
+package com.federavesm.smapp.actividades.diaRepartidor.reparto.dispensers;
 
 
 import android.app.AlertDialog;
@@ -9,18 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.ActivityGenerica;
 import com.federavesm.smapp.actividades.Dialogo;
-import com.federavesm.smapp.actividades.diaRepartidor.reparto.dispensers.AEntregaDispensers;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
-import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.EntregaDispensers;
-import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.vertedores.EntregaVertedores;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.CambioDispensers;
+import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.RetiroDispensers;
 
-public class AEntregaVertedores extends ActivityGenerica
+
+public class ARetiroDispensers extends ActivityGenerica
 {
 
     @Override
@@ -38,18 +37,18 @@ public class AEntregaVertedores extends ActivityGenerica
         editTextCantidad = (EditText) findViewById(R.id.aGeneralDispensadoresEditTextCantidad);
         textViewTitulo = (TextView) findViewById(R.id.aGeneralDispensadoresTextViewTitulo);
 
-        this.textViewTitulo.setText("Entrega Vertedores");
+        this.textViewTitulo.setText("Retiro Dispensers");
 
         reparto = Comunicador.getReparto();
 
-        datoOld = reparto.getEntregaVertedores(); // Varia
+        datoOld = reparto.getRetiroDispensers(); // Varia
 
         if(datoOld.getEstado())
         {
             this.editTextCantidad.setText(String.valueOf(datoOld.getCantidad()));
         }
 
-        datoNew = (EntregaVertedores) datoOld.getCopia();  // Varia
+        datoNew = (RetiroDispensers) datoOld.getCopia();  // Varia
 
 
 
@@ -63,8 +62,8 @@ public class AEntregaVertedores extends ActivityGenerica
     private Reparto reparto;
     private EditText editTextCantidad;
     private TextView textViewTitulo;
-    private EntregaVertedores datoNew;
-    private EntregaVertedores datoOld;
+    private RetiroDispensers datoNew;
+    private RetiroDispensers datoOld;
 
 
 

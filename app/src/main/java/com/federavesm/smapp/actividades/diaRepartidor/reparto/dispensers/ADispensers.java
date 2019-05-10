@@ -37,6 +37,9 @@ public class ADispensers extends ActivityGenerica
         this.buttonEntrega.setOnClickListener(new ListenerClickButtonEntrega());
 
 
+        this.buttonRetiro = (Button) findViewById(R.id.aDispensersButtonRetiro);
+        this.buttonRetiro.setOnClickListener(new ListenerClickButtonRetiro());
+
 
 
     }
@@ -47,8 +50,10 @@ public class ADispensers extends ActivityGenerica
     static class CodigosDispensers extends CodigosActividades
     {
     public static int Venta = 1;
-    public static int Cambio = 1;
-    public static int Entrega = 1;
+    public static int Cambio = 2;
+    public static int Entrega = 3;
+    public static int Retiro = 4;
+
     }
 
     ///////Venta
@@ -106,7 +111,23 @@ public class ADispensers extends ActivityGenerica
     }
 
 
+    ///////Retiro
 
+    private Button buttonRetiro;
+
+    class ListenerClickButtonRetiro implements View.OnClickListener
+    {
+        public void onClick(View e)
+        {
+            retiro();
+        }
+    }
+
+    private void retiro()
+    {
+        Intent intentRetiro = new Intent(this,ARetiroDispensers.class);
+        startActivityForResult(intentRetiro, CodigosDispensers.Retiro);
+    }
 
 }
 

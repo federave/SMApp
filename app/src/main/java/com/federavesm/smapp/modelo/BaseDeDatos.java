@@ -237,7 +237,9 @@ public class BaseDeDatos extends SQLiteOpenHelper
         db.execSQL("CREATE TABLE VentaVertedores" +
                 "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "cantidad INTEGER" +
+                "cantidad INTEGER," +
+                "especial INTEGER," +
+                "precioespecial REAL" +
                 ")");
 
         db.execSQL("CREATE TABLE EntregaVertedores" +
@@ -256,7 +258,9 @@ public class BaseDeDatos extends SQLiteOpenHelper
         db.execSQL("CREATE TABLE VentaDispensers" +
                 "(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "cantidad INTEGER" +
+                "cantidad INTEGER," +
+                "especial INTEGER," +
+                "precioespecial REAL" +
                 ")");
 
         db.execSQL("CREATE TABLE EntregaDispensers" +

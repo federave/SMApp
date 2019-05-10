@@ -73,6 +73,7 @@
         <activity android:name=".actividades.diaRepartidor.reparto.dispensers.ACambioDispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.reparto.dispensers.AEntregaDispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".actividades.diaRepartidor.reparto.dispensers.AVentaDispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".actividades.diaRepartidor.reparto.dispensers.ARetiroDispensers" android:configChanges="keyboardHidden|orientation|screenSize"/>
 
 
 

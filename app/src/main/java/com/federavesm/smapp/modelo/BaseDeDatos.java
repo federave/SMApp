@@ -223,10 +223,10 @@ public class BaseDeDatos extends SQLiteOpenHelper
                 "enviado INTEGER," +
                 "idObservacion INTEGER," +
                 "idVentaVertedores INTEGER," +
-                "idEntegaVertedores INTEGER," +
+                "idEntregaVertedores INTEGER," +
                 "idCambioVertedores INTEGER," +
                 "idVentaDispensers INTEGER," +
-                "idEntegaDispensers INTEGER," +
+                "idEntregaDispensers INTEGER," +
                 "idCambioDispensers INTEGER," +
                 "idRetiroDispensers INTEGER" +
 
@@ -770,6 +770,19 @@ public class BaseDeDatos extends SQLiteOpenHelper
             db.execSQL("DROP TABLE Vacios");
             db.execSQL("DROP TABLE FueraDeRecorrido");
 
+            db.execSQL("DROP TABLE VentaVertedores");
+            db.execSQL("DROP TABLE EntregaVertedores");
+            db.execSQL("DROP TABLE CambioVertedores");
+            db.execSQL("DROP TABLE VentaDispensers");
+            db.execSQL("DROP TABLE CambioDispensers");
+            db.execSQL("DROP TABLE EntregaDispensers");
+            db.execSQL("DROP TABLE RetiroDispensers");
+
+
+
+
+
+
         return true;
         }
     catch (Exception e)
@@ -787,6 +800,7 @@ public class BaseDeDatos extends SQLiteOpenHelper
         {
 
         SQLiteDatabase db = getWritableDatabase();
+
 
 
             db.execSQL("CREATE TABLE DiaRepartidor" +
@@ -831,6 +845,8 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "bidones5L INTEGER," +
                     "packBotellas2L INTEGER," +
                     "packBotellas500mL INTEGER," +
+                    "vertedores INTEGER," +
+                    "dispensers INTEGER," +
                     "hora TEXT" +
                     ")");
 
@@ -847,6 +863,8 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "bidones5L INTEGER," +
                     "packBotellas2L INTEGER," +
                     "packBotellas500mL INTEGER," +
+                    "vertedores INTEGER," +
+                    "dispensers INTEGER," +
                     "hora TEXT" +
                     ")");
 
@@ -867,7 +885,9 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "alquiler6Bidones REAL," +
                     "alquiler8Bidones REAL," +
                     "alquiler10Bidones REAL," +
-                    "alquiler12Bidones REAL" +
+                    "alquiler12Bidones REAL," +
+                    "vertedor REAL," +
+                    "dispenser REAL" +
                     ")");
 
 
@@ -885,11 +905,63 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "idVisita INTEGER," +
                     "idFueraDeRecorrido INTEGER," +
                     "enviado INTEGER," +
-                    "idObservacion INTEGER" +
+                    "idObservacion INTEGER," +
+                    "idVentaVertedores INTEGER," +
+                    "idEntregaVertedores INTEGER," +
+                    "idCambioVertedores INTEGER," +
+                    "idVentaDispensers INTEGER," +
+                    "idEntregaDispensers INTEGER," +
+                    "idCambioDispensers INTEGER," +
+                    "idRetiroDispensers INTEGER" +
                     ")");
 
 
 
+            db.execSQL("CREATE TABLE VentaVertedores" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "cantidad INTEGER," +
+                    "especial INTEGER," +
+                    "precioespecial REAL" +
+                    ")");
+
+            db.execSQL("CREATE TABLE EntregaVertedores" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "cantidad INTEGER" +
+                    ")");
+
+            db.execSQL("CREATE TABLE CambioVertedores" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "cantidad INTEGER" +
+                    ")");
+
+
+            db.execSQL("CREATE TABLE VentaDispensers" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "cantidad INTEGER," +
+                    "especial INTEGER," +
+                    "precioespecial REAL" +
+                    ")");
+
+            db.execSQL("CREATE TABLE EntregaDispensers" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "cantidad INTEGER" +
+                    ")");
+
+            db.execSQL("CREATE TABLE CambioDispensers" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "cantidad INTEGER" +
+                    ")");
+            db.execSQL("CREATE TABLE RetiroDispensers" +
+                    "(" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "cantidad INTEGER" +
+                    ")");
 
 
 
@@ -906,8 +978,6 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "idPrecioEspecial INTEGER," +
                     "idDatosAlquiler INTEGER" +
                     ")");
-
-
 
 
             db.execSQL("CREATE TABLE EstadoBidonesDispenserFC" +
@@ -930,8 +1000,6 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "ultimoConsumo TEXT," +
                     "fecha TEXT" +
                     ")");
-
-
 
 
 
@@ -961,7 +1029,6 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "packBotellas2L REAL," +
                     "packBotellas500mL REAL" +
                     ")");
-
 
 
 
@@ -1090,7 +1157,6 @@ public class BaseDeDatos extends SQLiteOpenHelper
                     "idTipoFueraDeRecorrido INTEGER," +
                     "mensaje TEXT" +
                     ")");
-
 
 
             return true;

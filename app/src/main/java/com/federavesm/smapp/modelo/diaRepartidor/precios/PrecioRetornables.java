@@ -12,6 +12,21 @@ public class PrecioRetornables {
     protected float bidon20L=0;
     protected float bidon12L=0;
 
+
+
+
+    public boolean esIgual(PrecioRetornables precio)
+    {
+        if(this.bidon20L == precio.getBidon20L() && this.bidon12L==precio.getBidon12L())
+            return true;
+        else
+            return false;
+    }
+
+
+
+
+
     public float getBidon20L() {
         return bidon20L;
     }

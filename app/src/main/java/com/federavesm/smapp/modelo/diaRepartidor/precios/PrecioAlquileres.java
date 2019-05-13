@@ -23,6 +23,18 @@ public abstract class PrecioAlquileres extends GenericoReparto {
     protected float alquiler10Bidones=0;
     protected float alquiler12Bidones=0;
 
+
+
+    public boolean esIgual(PrecioAlquileres precioAlquileres)
+    {
+    if(this.alquiler6Bidones!=precioAlquileres.getAlquiler6Bidones() || this.alquiler8Bidones!=precioAlquileres.getAlquiler8Bidones() || this.alquiler10Bidones!=precioAlquileres.getAlquiler10Bidones() || this.alquiler12Bidones!=precioAlquileres.getAlquiler12Bidones())
+        return false;
+    else
+        return true;
+    }
+
+
+
     public float getAlquiler6Bidones() {
         return alquiler6Bidones;
     }

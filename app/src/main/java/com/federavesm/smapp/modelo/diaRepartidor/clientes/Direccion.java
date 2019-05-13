@@ -162,7 +162,32 @@ public class Direccion extends GenericoDiaRepartidor {
 
     @Override
     public boolean actualizar() {
-        return false;
+
+        try
+        {
+            boolean aux=true;
+
+            SQLiteDatabase db = getWritableDatabase();
+            ContentValues direccion = new ContentValues();
+            direccion.put("idDireccion",this.idDireccion);
+            direccion.put("calle",this.calle);
+            direccion.put("entre1",this.entre1);
+            direccion.put("entre2",this.entre2);
+            direccion.put("numero",this.numero);
+            direccion.put("departamento",this.departamento);
+            direccion.put("piso",this.piso);
+            String whereClause = "id=?";
+            String whereArgs[] = {String.valueOf(this.id)};
+            if (!(db.update("DireccionCliente", direccion, whereClause, whereArgs) > 0)){aux = false;}
+            db.close();
+            return aux;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+
+
     }
 
 

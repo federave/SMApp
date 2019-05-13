@@ -1178,60 +1178,47 @@ public class ADiaRepartidor extends ActivityGenerica
                     reparto.getCliente().getDatosAlquiler().setPrecioAlquileres(Comunicador.getDiaRepartidor().getPrecios().getPrecioAlquileres());
 
 
+
+
+
+
+                    requerimientoGET.clear();
+                    requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getCliente.php");
+                    requerimientoGET.addParametro("fecha",diaRepartidor.getFecha().toString());
+                    requerimientoGET.addParametro("idCliente",String.valueOf(idCliente));
+                    requerimientoGET.addParametro("idDireccion",String.valueOf(idDireccion));
+                    respuestaXML = requerimientoGET.ejecutar();
+
                     if(baseDeDatos.clienteExiste(idCliente,idDireccion))
                         {
                         reparto.getCliente().cargar(datoBasicoRepartoXML.getIdCliente(),datoBasicoRepartoXML.getIdDireccion());
-
-                        requerimientoGET.clear();
-                        requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getActualidadCliente.php");
-                        requerimientoGET.addParametro("fecha",diaRepartidor.getFecha().toString());
-                        requerimientoGET.addParametro("idCliente",String.valueOf(idCliente));
-                        requerimientoGET.addParametro("idDireccion",String.valueOf(idDireccion));
-
-                        respuestaXML = requerimientoGET.ejecutar();
-
                         reparto.getCliente().actualizar(respuestaXML);
 
                         // atención con actualizar porque podria pasar que recibe un alquiler que no
                         // es el actual que tiene el cliente, o que el cliente tiene alquiler y ahora ya no
-
-
-
                         }
                     else
                         {
-
-
-
-                        requerimientoGET.clear();
-                        requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getCliente.php");
-                        requerimientoGET.addParametro("fecha",diaRepartidor.getFecha().toString());
-                        requerimientoGET.addParametro("idCliente",String.valueOf(idCliente));
-                        requerimientoGET.addParametro("idDireccion",String.valueOf(idDireccion));
-
-                        respuestaXML = requerimientoGET.ejecutar();
-
                         reparto.getCliente().guardar(respuestaXML);
-
                         }
 
 
 
 
-                        requerimientoGET.clear();
-                        requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getDatosReparto.php");
-                        requerimientoGET.addParametro("idRepartidor",String.valueOf(diaRepartidor.getIdRepartidor()));
-                        requerimientoGET.addParametro("fecha",diaRepartidor.getFecha().toString());
-                        requerimientoGET.addParametro("idCliente",String.valueOf(idCliente));
-                        requerimientoGET.addParametro("idDireccion",String.valueOf(idDireccion));
+                    requerimientoGET.clear();
+                    requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getDatosReparto.php");
+                    requerimientoGET.addParametro("idRepartidor",String.valueOf(diaRepartidor.getIdRepartidor()));
+                    requerimientoGET.addParametro("fecha",diaRepartidor.getFecha().toString());
+                    requerimientoGET.addParametro("idCliente",String.valueOf(idCliente));
+                    requerimientoGET.addParametro("idDireccion",String.valueOf(idDireccion));
 
-                        respuestaXML = requerimientoGET.ejecutar();
+                    respuestaXML = requerimientoGET.ejecutar();
 
-                        reparto.adicionar(respuestaXML);
+                    reparto.adicionar(respuestaXML);
 
 
 
-                        this.diaRepartidor.getRepartos().getRepartos().add(reparto);
+                    this.diaRepartidor.getRepartos().getRepartos().add(reparto);
 
 
 

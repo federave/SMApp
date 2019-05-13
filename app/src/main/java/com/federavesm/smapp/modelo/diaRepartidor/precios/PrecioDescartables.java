@@ -17,6 +17,18 @@ public class PrecioDescartables {
     protected float packBotellas500mL=0;
 
 
+
+    public boolean esIgual(PrecioDescartables precio)
+    {
+    if(this.bidon10L == precio.getBidon10L() && this.bidon8L==precio.getBidon8L() && this.bidon5L==precio.getBidon5L() && this.packBotellas2L==precio.getPackBotellas2L() && this.packBotellas500mL==precio.getPackBotellas500mL())
+        return true;
+    else
+        return false;
+    }
+
+
+
+
     public float getBidon10L() {
         return bidon10L;
     }

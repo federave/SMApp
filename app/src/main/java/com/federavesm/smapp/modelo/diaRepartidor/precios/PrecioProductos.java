@@ -22,6 +22,23 @@ public abstract class PrecioProductos extends GenericoReparto {
     protected PrecioDescartables precioDescartables = new PrecioDescartables();
 
 
+
+
+
+    public boolean esIgual(PrecioProductos precio)
+    {
+        if(this.precioRetornables.esIgual(precio.getPrecioRetornables()) && this.precioDescartables.esIgual(precio.getPrecioDescartables()))
+            return true;
+        else
+            return false;
+    }
+
+
+
+
+
+
+
     protected Fecha fecha;
 
     public void setFecha(Fecha fecha) {

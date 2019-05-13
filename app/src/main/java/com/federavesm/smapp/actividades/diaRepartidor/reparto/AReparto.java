@@ -13,6 +13,8 @@ import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.CodigosActividades;
 import com.federavesm.smapp.actividades.Dialogo;
 import com.federavesm.smapp.actividades.diaRepartidor.reparto.alquiler.AAlquiler;
+import com.federavesm.smapp.actividades.diaRepartidor.reparto.dispensers.ADispensers;
+import com.federavesm.smapp.actividades.diaRepartidor.reparto.vertedores.AVertedores;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.DiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
@@ -164,7 +166,7 @@ public class AReparto extends Activity
     private void vertedores()
     {
         Comunicador.setVentaProductosAux((VentaProductos)this.reparto.getVentaProductos().getCopia());
-        Intent intentVentaProductos = new Intent(this,AVentaProductos.class);
+        Intent intentVentaProductos = new Intent(this,AVertedores.class);
         startActivityForResult(intentVentaProductos, CodigosReparto.VentaProductos);
     }
 
@@ -190,7 +192,7 @@ public class AReparto extends Activity
     private void dispensers()
     {
         Comunicador.setVentaProductosAux((VentaProductos)this.reparto.getVentaProductos().getCopia());
-        Intent intentVentaProductos = new Intent(this,AVentaProductos.class);
+        Intent intentVentaProductos = new Intent(this,ADispensers.class);
         startActivityForResult(intentVentaProductos, CodigosReparto.VentaProductos);
     }
 

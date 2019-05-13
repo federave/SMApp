@@ -31,6 +31,7 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
     this.context = context;
     this.estadoAlquiler = new EstadoAlquiler(context);
     this.precioAlquileres = new PrecioNormalAlquileres(context);
+    this.precioAlquileresAux = new PrecioNormalAlquileres(context);
     }
 
 
@@ -39,6 +40,12 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
     protected int idDiaRepartidor;
     private Alquileres alquileres = new Alquileres();
     private PrecioAlquileres precioAlquileres;
+
+    private PrecioAlquileres precioAlquileresAux;//Usado para actualizar cliente
+
+    public void setPrecioAlquileresAux(PrecioAlquileres precioAlquileresAux) {
+        this.precioAlquileresAux = precioAlquileresAux;
+    }
 
     private EstadoAlquiler estadoAlquiler;
 
@@ -346,8 +353,98 @@ public class DatosAlquiler extends GenericoDiaRepartidor {
 
 
     @Override
-    public boolean actualizar() {
+    public boolean actualizar()
+    {
+    try
+        {
+        boolean aux = true;
+
+
+        if(this.id>0)
+            {
+            if(this.getEstado())
+                {
+
+                aux&=this.estadoAlquiler.actualizar();
+
+                if(this.precioAlquileres.getEspecial())
+                {
+                    if(this.precioAlquileresAux.getEspecial())
+                    {
+                        if(this.precioAlquileres.esIgual(this.precioAlquileresAux))
+                        {
+                            this.precioAlquileres.setId(this.precioAlquileresAux.getId());
+                        }
+                        else
+                        {
+                            aux&=this.precioAlquileres.guardar();
+                        }
+                    }
+                    else
+                    {
+                        aux&=this.precioAlquileres.guardar();
+                    }
+                }
+
+                SQLiteDatabase db = getWritableDatabase();
+                ContentValues datosAlquiler = new ContentValues();
+                datosAlquiler.put("idPrecioEspecial",this.precioAlquileres.getId());
+                datosAlquiler.put("alquileres6Bidones",this.alquileres.getAlquileres6Bidones());
+                datosAlquiler.put("alquileres8Bidones",this.alquileres.getAlquileres8Bidones());
+                datosAlquiler.put("alquileres10Bidones",this.alquileres.getAlquileres10Bidones());
+                datosAlquiler.put("alquileres12Bidones",this.alquileres.getAlquileres12Bidones());
+                String whereClause = "id=?";
+                String whereArgs[] = {String.valueOf(this.id)};
+                if (!(db.update("DatosAlquiler", datosAlquiler, whereClause, whereArgs) > 0)){aux = false;}
+
+                }
+            else
+                {
+                this.id=-1; // tenia alquiler pero ahora no tiene mas
+                }
+            }
+        else
+            {
+            if(this.getEstado()) // no tenia alquiler pero ahora si, se guarda todo nuevo
+                {
+                aux &= this.precioAlquileres.guardar();
+
+                SQLiteDatabase db = getWritableDatabase();
+
+                ContentValues datosAlquiler = new ContentValues();
+                datosAlquiler.put("idPrecioEspecial",this.precioAlquileres.getId());
+                datosAlquiler.put("alquileres6Bidones",this.alquileres.getAlquileres6Bidones());
+                datosAlquiler.put("alquileres8Bidones",this.alquileres.getAlquileres8Bidones());
+                datosAlquiler.put("alquileres10Bidones",this.alquileres.getAlquileres10Bidones());
+                datosAlquiler.put("alquileres12Bidones",this.alquileres.getAlquileres12Bidones());
+
+
+                if(db.insert("DatosAlquiler",null,datosAlquiler) > 0)
+                    {
+                    this.id = getLastId("DatosAlquiler");
+                    this.estadoAlquiler.setIdAlquiler(this.id);
+                    aux &= this.estadoAlquiler.guardar(); // La fecha se asigno previamente
+                    }
+                else
+                    {
+                    aux = false;
+                    }
+                }
+            }
+
+
+
+
+
+
+
+        return aux;
+        }
+    catch (Exception e)
+        {
         return false;
+        }
+
     }
 
 

@@ -46,6 +46,8 @@ public class Cliente extends GenericoDiaRepartidor {
     this.estadoInactividad = new EstadoInactividad(context);
     this.datosAlquiler = new DatosAlquiler(context);
     this.precioProductos = new PrecioNormalProductos(context);
+    this.precioProductosAux = new PrecioNormalProductos(context);
+
     this.precioDispensadores = new PrecioDispensadores(context);
     this.context = context;
     }
@@ -57,6 +59,12 @@ public class Cliente extends GenericoDiaRepartidor {
     private EstadoInactividad estadoInactividad;
     private EstadoBidonesDispenserFC estadoBidonesDispenserFC;
     private PrecioProductos precioProductos;
+    private PrecioProductos precioProductosAux;//Usado al actualizar clientes
+
+    public void setPrecioProductosAux(PrecioProductos precioProductosAux) {
+        this.precioProductosAux = precioProductosAux;
+    }
+
     private PrecioDispensadores precioDispensadores;
 
     protected int idDiaRepartidor;
@@ -476,7 +484,7 @@ public class Cliente extends GenericoDiaRepartidor {
     }
 
 
-////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////
     /////////////ACTUALIZAR
 
 
@@ -492,32 +500,52 @@ public class Cliente extends GenericoDiaRepartidor {
             this.reader.setContentHandler(new DatosActualidadXML());
             this.reader.parse(new InputSource(new StringReader(xml)));
 
-            // Falta hacer estos actualizar
 
-
-
+            aux&=this.direccion.actualizar();
             aux&=this.estadoInactividad.actualizar();
             aux&=this.estadoBidonesDispenserFC.actualizar();
-            aux&=this.datosAlquiler.getEstadoAlquiler().actualizar();
+            aux&=this.datosAlquiler.actualizar();
 
-            aux&=this.precioProductos.guardar();
 
-            if(this.precioProductos.getId()>0)
+
+            if(this.precioProductos.getEspecial())
                 {
-                SQLiteDatabase db = getWritableDatabase();
-
-                ContentValues cliente = new ContentValues();
-
-                cliente.put("idPrecioEspecial",this.precioProductos.getId());
-
-                String whereClause = "id=?";
-                String whereArgs[] = {String.valueOf(this.id)};
-
-                if (!(db.update("DatosClientes", cliente, whereClause, whereArgs) > 0))
+                if(this.precioProductosAux.getEspecial())
                     {
-                    aux = false;
+                    if(this.precioProductos.esIgual(this.precioProductosAux))
+                        {
+                        this.precioProductos.setId(this.precioProductosAux.getId());
+                        }
+                    else
+                        {
+                        aux&=this.precioProductos.guardar();
+                        }
+                    }
+                else
+                    {
+                    aux&=this.precioProductos.guardar();
                     }
                 }
+
+
+            SQLiteDatabase db = getWritableDatabase();
+            ContentValues cliente = new ContentValues();
+            cliente.put("nombre",this.datos.getNombre());
+            cliente.put("apellido",this.datos.getApellido());
+            cliente.put("telefono",this.datos.getTelefono());
+            cliente.put("idTipoCliente",this.datos.getTipoCliente().getId());
+            cliente.put("idPrecioEspecial",this.precioProductos.getId());
+            cliente.put("idDatosAlquiler",this.datosAlquiler.getId());
+
+            String whereClause = "id=?";
+            String whereArgs[] = {String.valueOf(this.id)};
+            if (!(db.update("DatosClientes", cliente, whereClause, whereArgs) > 0))
+            {
+                aux = false;
+            }
+            db.close();
+
+
 
 
 
@@ -553,6 +581,7 @@ public class Cliente extends GenericoDiaRepartidor {
 
 
         private PrecioProductos precioEspecialProductos;
+        private PrecioAlquileres precioEspecialAlquiler;
 
 
 
@@ -570,7 +599,7 @@ public class Cliente extends GenericoDiaRepartidor {
         {
             cadena.setLength(0);
             startPrecioEspecialProductos(localName);
-
+            startPrecioEspecialAlquileres(localName);
         }
 
 
@@ -587,6 +616,18 @@ public class Cliente extends GenericoDiaRepartidor {
             }
         }
 
+        private void startPrecioEspecialAlquileres(String localName)
+        {
+            switch (localName)
+            {
+                case "PrecioEspecialAlquiler":
+                {
+                    this.precioEspecialAlquiler = new PrecioEspecialAlquiler(context);
+                    break;
+                }
+                default:{break;}
+            }
+        }
 
         @Override
         public void characters(char ch[], int start, int length)throws SAXException
@@ -598,85 +639,13 @@ public class Cliente extends GenericoDiaRepartidor {
         public void endElement(String uri, String localName, String qName)throws SAXException
         {
 
+        endDatos(localName);
+        endDireccion(localName);
+        endBidonesDispenserFC(localName);
+        endAlquiler(localName);
+        endInactividad(localName);
+        endPrecioEspecialProductos(localName);
 
-            endPrecioEspecialProductos(localName);
-
-            switch (localName)
-            {
-
-
-                ////////////ESTADO ALQUILER///////////////////////////////
-
-                case "Alquileres6BidonesPagados":
-                {
-                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres6Bidones(getInt(cadena.toString()));
-                    break;
-                }
-                case "Alquileres8BidonesPagados":
-                {
-                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres8Bidones(getInt(cadena.toString()));
-                    break;
-                }
-                case "Alquileres10BidonesPagados":
-                {
-                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres10Bidones(getInt(cadena.toString()));
-                    break;
-                }
-                case "Alquileres12BidonesPagados":
-                {
-                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres12Bidones(getInt(cadena.toString()));
-                    break;
-                }
-
-                case "Bidones20LEntregados":
-                {
-                    datosAlquiler.getEstadoAlquiler().getRetornablesEntregados().setBidones20L(getInt(cadena.toString()));
-                    break;
-                }
-                case "Bidones12LEntregados":
-                {
-                    datosAlquiler.getEstadoAlquiler().getRetornablesEntregados().setBidones12L(getInt(cadena.toString()));
-                    break;
-                }
-
-
-                ////////////BIDONES DISPENSER FC///////////////////////////////
-
-                case "DispenserFC":
-                {
-                    estadoBidonesDispenserFC.setDispenserFC(getInt(cadena.toString()));
-                    break;
-                }
-                case "Bidones20L":
-                {
-                    estadoBidonesDispenserFC.setBidones20L(getInt(cadena.toString()));
-                    break;
-                }
-                case "Bidones12L":
-                {
-                    estadoBidonesDispenserFC.setBidones12L(getInt(cadena.toString()));
-                    break;
-                }
-
-                ///////////INACTIVIDAD///////////////////////////////
-
-                case "IdInactividad":
-                {
-                    int id = getInt(cadena.toString());
-                    TipoInactivo tipoInactivo = new TipoInactivo(context,id);
-                    estadoInactividad.setTipoInactivo(tipoInactivo);
-                    break;
-                }
-                case "UltimoConsumo":
-                {
-                    estadoInactividad.setUltimoConsumo(cadena.toString().replace("*","\n"));
-                    break;
-                }
-
-
-
-                default:{break;}
-            }
         }
 
 
@@ -687,7 +656,7 @@ public class Cliente extends GenericoDiaRepartidor {
             {
 
 
-                ////////////////////////VENTA PRODUCTOS///////////////////////////////
+                ////////////////////////PRECIO ESPECIAL PRODUCTOS///////////////////////////////
 
 
 
@@ -743,6 +712,292 @@ public class Cliente extends GenericoDiaRepartidor {
             }
 
         }
+
+
+
+        private void endAlquiler(String localName)
+        {
+
+            switch (localName)
+            {
+
+
+                ////////////DATOS ALQUILER///////////////////////////////
+
+
+                case "Alquileres6Bidones":
+                {
+                datosAlquiler.getAlquileres().setAlquileres6Bidones(getInt(cadena.toString()));
+                break;
+                }
+
+                case "Alquileres8Bidones":
+                {
+                datosAlquiler.getAlquileres().setAlquileres8Bidones(getInt(cadena.toString()));
+                break;
+                }
+
+                case "Alquileres10Bidones":
+                {
+                datosAlquiler.getAlquileres().setAlquileres10Bidones(getInt(cadena.toString()));
+                break;
+                }
+
+                case "Alquileres12Bidones":
+                {
+                datosAlquiler.getAlquileres().setAlquileres12Bidones(getInt(cadena.toString()));
+                break;
+                }
+
+
+                ////////////PRECIO ESPECIAL///////////////////////////////
+
+
+                case "Alquiler6Bidones_PrecioEspecial":
+                {
+                this.precioEspecialAlquiler.setAlquiler6Bidones(getFloat(cadena.toString()));
+                break;
+                }
+
+                case "Alquiler8Bidones_PrecioEspecial":
+                {
+                this.precioEspecialAlquiler.setAlquiler8Bidones(getFloat(cadena.toString()));
+                break;
+                }
+
+                case "Alquiler10Bidones_PrecioEspecial":
+                {
+                this.precioEspecialAlquiler.setAlquiler10Bidones(getFloat(cadena.toString()));
+                break;
+                }
+
+                case "Alquiler12Bidones_PrecioEspecial":
+                {
+                this.precioEspecialAlquiler.setAlquiler12Bidones(getFloat(cadena.toString()));
+                break;
+                }
+
+                case "PrecioEspecialAlquiler":
+                {
+                datosAlquiler.setPrecioAlquileresAux((PrecioAlquileres) datosAlquiler.getPrecioAlquileres().getCopia()); // Seteo EL AUX PARA COMPARAR EN ACTUALIZAR
+                datosAlquiler.setPrecioAlquileres(this.precioEspecialAlquiler);
+                break;
+                }
+
+
+                ////////////ESTADO ALQUILER///////////////////////////////
+
+                case "Alquileres6BidonesPagados":
+                {
+                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres6Bidones(getInt(cadena.toString()));
+                    break;
+                }
+                case "Alquileres8BidonesPagados":
+                {
+                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres8Bidones(getInt(cadena.toString()));
+                    break;
+                }
+                case "Alquileres10BidonesPagados":
+                {
+                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres10Bidones(getInt(cadena.toString()));
+                    break;
+                }
+                case "Alquileres12BidonesPagados":
+                {
+                    datosAlquiler.getEstadoAlquiler().getAlquileresPagados().setAlquileres12Bidones(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Bidones20LEntregados":
+                {
+                    datosAlquiler.getEstadoAlquiler().getRetornablesEntregados().setBidones20L(getInt(cadena.toString()));
+                    break;
+                }
+                case "Bidones12LEntregados":
+                {
+                    datosAlquiler.getEstadoAlquiler().getRetornablesEntregados().setBidones12L(getInt(cadena.toString()));
+                    break;
+                }
+
+
+
+                default:{break;}
+            }
+
+        }
+
+
+
+
+        private void endInactividad(String localName)
+        {
+
+            switch (localName)
+            {
+
+
+                case "IdInactividad":
+                {
+                    int id = getInt(cadena.toString());
+                    TipoInactivo tipoInactivo = new TipoInactivo(context,id);
+                    estadoInactividad.setTipoInactivo(tipoInactivo);
+                    break;
+                }
+                case "UltimoConsumo":
+                {
+                    estadoInactividad.setUltimoConsumo(cadena.toString().replace("*","\n"));
+                    break;
+                }
+
+
+
+
+                default:{break;}
+            }
+
+        }
+
+
+        private void endBidonesDispenserFC(String localName)
+        {
+
+            switch (localName)
+            {
+
+                case "DispenserFC":
+                {
+                    estadoBidonesDispenserFC.setDispenserFC(getInt(cadena.toString()));
+                    break;
+                }
+                case "Bidones20L":
+                {
+                    estadoBidonesDispenserFC.setBidones20L(getInt(cadena.toString()));
+                    break;
+                }
+                case "Bidones12L":
+                {
+                    estadoBidonesDispenserFC.setBidones12L(getInt(cadena.toString()));
+                    break;
+                }
+
+
+
+                default:{break;}
+            }
+
+        }
+
+
+        private void endDireccion(String localName)
+        {
+
+            switch (localName)
+            {
+
+                ////////////DIRECCION///////////////////////////////
+
+
+                case "IdDireccion":
+                {
+                    direccion.setIdDireccion(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Calle":
+                {
+                    direccion.setCalle(cadena.toString());
+                    break;
+                }
+                case "Entre1":
+                {
+                    direccion.setEntre1(cadena.toString());
+                    break;
+                }
+                case "Entre2":
+                {
+                    direccion.setEntre2(cadena.toString());
+                    break;
+                }
+                case "Numero":
+                {
+                    direccion.setNumero(cadena.toString());
+                    break;
+                }
+                case "Departamento":
+                {
+                    direccion.setDepartamento(cadena.toString());
+                    break;
+                }
+                case "Piso":
+                {
+                    direccion.setPiso(getInt(cadena.toString()));
+                    break;
+                }
+
+                default:{break;}
+            }
+
+        }
+
+
+        private void endDatos(String localName)
+        {
+
+            switch (localName)
+            {
+
+                ////////////DATOS///////////////////////////////
+
+                case "IdCliente":
+                {
+                    datos.setId(getInt(cadena.toString()));
+                    break;
+                }
+
+                case "Nombre":
+                {
+                    datos.setNombre(cadena.toString());
+                    break;
+                }
+
+                case "Apellido":
+                {
+                    datos.setApellido(cadena.toString());
+                    break;
+                }
+
+                case "Telefono":
+                {
+                    datos.setTelefono(cadena.toString());
+                    break;
+                }
+
+                case "IdTipoCliente":
+                {
+                    datos.getTipoCliente().setId(getInt(cadena.toString()));
+                    break;
+                }
+                case "Datos":
+                {
+                    break;
+                }
+                default:{break;}
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         private int getInt(String cadena)

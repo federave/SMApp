@@ -45,6 +45,8 @@ public class AVentaVertedores extends ActivityGenerica
 
         textViewDinero = (TextView) findViewById(R.id.aVentaVertedoresTextViewDinero);
         editTextPrecioEspecial = (EditText) findViewById(R.id.aVentaVertedoresEditTextPrecioEspecial);
+        editTextPrecioEspecial.addTextChangedListener(new ListenerEditTexts());
+
         checkBoxEstadoPrecioEspecial = (CheckBox) findViewById(R.id.aVentaVertedoresCheckBoxEstadoPrecioEspecial);
         checkBoxEstadoPrecioEspecial.setOnCheckedChangeListener(new ListenerCheckedBoxEstadoPrecioEspecial());
 
@@ -134,14 +136,28 @@ public class AVentaVertedores extends ActivityGenerica
 
     private void checkedChangedEstadoPrecioEspecial()
     {
-        if(checkBoxEstadoPrecioEspecial.isChecked())
+    if(checkBoxEstadoPrecioEspecial.isChecked())
         {
-            linearLayoutPrecioEspecial.setVisibility(View.VISIBLE);
+        linearLayoutPrecioEspecial.setVisibility(View.VISIBLE);
         }
         else
         {
-            linearLayoutPrecioEspecial.setVisibility(View.GONE);
+        linearLayoutPrecioEspecial.setVisibility(View.GONE);
         }
+
+    try
+        {
+        actualizarVentaDispensers();
+        if(this.ventaVertedoresNew.getEstado())
+            {
+            this.textViewDinero.setText("Dinero: "+String.valueOf(ventaVertedoresNew.getDinero()) + " $");
+            }
+        }
+    catch (Exception e)
+        {
+
+        }
+
     }
 
 
@@ -165,6 +181,7 @@ public class AVentaVertedores extends ActivityGenerica
 
         if(editTextCantidad.getText().toString().length()>0){this.ventaVertedoresNew.setCantidad(Integer.valueOf(editTextCantidad.getText().toString()));}
         else{this.ventaVertedoresNew.setCantidad(0);}
+
 
         if(checkBoxEstadoPrecioEspecial.isChecked())
         {

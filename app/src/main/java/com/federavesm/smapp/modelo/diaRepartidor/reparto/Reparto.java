@@ -112,6 +112,59 @@ public  class Reparto extends GenericoReparto {
     private Dispensers dispensersRetirados = new Dispensers();
 
 
+    public boolean getValePositivo()
+    {
+    if((this.retornablesRepartidos.getBidones20L() - this.vacios.getRetornables().getBidones20L() > 0) || (this.retornablesRepartidos.getBidones12L() - this.vacios.getRetornables().getBidones12L() > 0) )
+        return true;
+    else
+        return false;
+    }
+
+    public String getValePositivoBidon20L()
+    {
+    int n = this.retornablesRepartidos.getBidones20L() - this.vacios.getRetornables().getBidones20L();
+    if(n > 0)
+        return "Bidones 20L: "+n;
+    else
+        return "";
+    }
+
+    public String getValePositivoBidon12L()
+    {
+    int n = this.retornablesRepartidos.getBidones12L() - this.vacios.getRetornables().getBidones12L();
+    if(n > 0)
+        return "Bidones 12L: "+n;
+    else
+        return "";
+    }
+
+    public String getValeNegativoBidon20L()
+    {
+        int n = this.retornablesRepartidos.getBidones20L() - this.vacios.getRetornables().getBidones20L();
+        if(n < 0)
+            return "Bidones 20L: "+(-1*n);
+        else
+            return "";
+    }
+
+    public String getValeNegativoBidon12L()
+    {
+        int n = this.retornablesRepartidos.getBidones12L() - this.vacios.getRetornables().getBidones12L();
+        if(n < 0)
+            return "Bidones 12L: "+(-1*n);
+        else
+            return "";
+    }
+
+
+
+    public boolean getValeNegativo()
+    {
+    if((this.retornablesRepartidos.getBidones20L() - this.vacios.getRetornables().getBidones20L() < 0) || (this.retornablesRepartidos.getBidones12L() - this.vacios.getRetornables().getBidones12L() < 0) )
+        return true;
+    else
+        return false;
+    }
 
 
 

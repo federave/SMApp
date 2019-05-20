@@ -1176,6 +1176,7 @@ public class ADiaRepartidor extends ActivityGenerica
                     reparto.getCliente().setFecha(this.diaRepartidor.getFecha());
                     reparto.getCliente().setPrecioProductos(Comunicador.getDiaRepartidor().getPrecios().getPrecioProductos());
                     reparto.getCliente().getDatosAlquiler().setPrecioAlquileres(Comunicador.getDiaRepartidor().getPrecios().getPrecioAlquileres());
+                    reparto.getCliente().setPrecioDispensadores(Comunicador.getDiaRepartidor().getPrecios().getPrecioDispensadores());
 
 
 

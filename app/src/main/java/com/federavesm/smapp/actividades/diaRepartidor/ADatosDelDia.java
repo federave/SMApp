@@ -48,6 +48,8 @@ public class ADatosDelDia extends ActivityGenerica
         dineroPagoAlquileres = (TextView) findViewById(R.id.aDatosDiaDineroPagoAlquileres);
         dineroGastado = (TextView) findViewById(R.id.aDatosDiaDineroGastado);
         dineroAEntregar = (TextView) findViewById(R.id.aDatosDiaDineroAEntregar);
+        dineroVentaVertedores = (TextView) findViewById(R.id.aDatosDiaDineroVentaVertedores);
+        dineroVentaDispensers = (TextView) findViewById(R.id.aDatosDiaDineroVentaDispensers);
 
 
         masDetalleDineroDia.setChecked(true);
@@ -130,6 +132,18 @@ public class ADatosDelDia extends ActivityGenerica
         cargarDeudas();
 
 
+        ////////VALES
+
+        valesPositivos = (TextView) findViewById(R.id.aDatosDiaValesPositivos);
+        totalValesPositivos = (TextView) findViewById(R.id.aDatosDiaTotalValesPositivos);
+
+        valesNegativos = (TextView) findViewById(R.id.aDatosDiaValesNegativos);
+        totalValesNegativos = (TextView) findViewById(R.id.aDatosDiaTotalValesNegativos);
+
+        cargarVales();
+
+
+
 
         ////////BOLETAS GASTOS
 
@@ -149,6 +163,12 @@ public class ADatosDelDia extends ActivityGenerica
         cargaTotalPackBotellas2L = (TextView) findViewById(R.id.aDatosDiaCargaTotalPackBotellas2L);
         cargaTotalPackBotellas500mL = (TextView) findViewById(R.id.aDatosDiaCargaTotalPackBotellas500mL);
 
+        cargaTotalVertedores = (TextView) findViewById(R.id.aDatosDiaCargaTotalVertedores);
+        cargaTotalDispensers = (TextView) findViewById(R.id.aDatosDiaCargaTotalDispensers);
+
+
+
+
         cargarCarga();
 
         ////////DESCARGA
@@ -160,6 +180,11 @@ public class ADatosDelDia extends ActivityGenerica
         descargaTotalBidones5L = (TextView) findViewById(R.id.aDatosDiaDescargaTotalBidones5L);
         descargaTotalPackBotellas2L = (TextView) findViewById(R.id.aDatosDiaDescargaTotalPackBotellas2L);
         descargaTotalPackBotellas500mL = (TextView) findViewById(R.id.aDatosDiaDescargaTotalPackBotellas500mL);
+
+        descargaTotalVertedores = (TextView) findViewById(R.id.aDatosDiaDescargaTotalVertedores);
+        descargaTotalDispensers = (TextView) findViewById(R.id.aDatosDiaDescargaTotalDispensers);
+
+
 
         cargarDescarga();
 
@@ -177,6 +202,11 @@ public class ADatosDelDia extends ActivityGenerica
         balanceBidones5L = (TextView) findViewById(R.id.aDatosDiaBalanceBidones5L);
         balancePackBotellas2L = (TextView) findViewById(R.id.aDatosDiaBalancePackBotellas2L);
         balancePackBotellas500mL = (TextView) findViewById(R.id.aDatosDiaBalancePackBotellas500mL);
+
+        balanceVertedores = (TextView) findViewById(R.id.aDatosDiaBalanceVertedores);
+        balanceDispensers = (TextView) findViewById(R.id.aDatosDiaBalanceDispensers);
+
+
 
         balanceBidones20LVacios = (TextView) findViewById(R.id.aDatosDiaBalanceBidones20LVacios);
         balanceBidones12LVacios = (TextView) findViewById(R.id.aDatosDiaBalanceBidones12LVacios);
@@ -209,6 +239,11 @@ public class ADatosDelDia extends ActivityGenerica
     private TextView dineroPagoAlquileres;
     private TextView dineroGastado;
     private TextView dineroAEntregar;
+    private TextView dineroVentaVertedores;
+    private TextView dineroVentaDispensers;
+
+
+
 
 
     class ListenerCheckedBoxDinero implements CompoundButton.OnCheckedChangeListener
@@ -239,6 +274,11 @@ public class ADatosDelDia extends ActivityGenerica
     dineroAEntregar.setText("Dinero a entregar: "+(this.diaRepartidor.getDineroRecaudado() - this.diaRepartidor.getDineroGastos())+" $");
     dineroVentas.setText("Dinero ventas: "+this.diaRepartidor.getDineroVentas()+" $");
     dineroPagoAlquileres.setText("Dinero pago alquileres: "+this.diaRepartidor.getDineroPagoAlquileres() + " $");
+
+
+    dineroVentaVertedores.setText("Dinero venta vertedores: "+this.diaRepartidor.getDineroVentaVertedores() + " $");
+    dineroVentaDispensers.setText("Dinero venta vertedores: "+this.diaRepartidor.getDineroVentaDispensers() + " $");
+
     }
 
 
@@ -373,6 +413,28 @@ public class ADatosDelDia extends ActivityGenerica
     }
 
 
+    ////////VALES
+
+    private TextView totalValesPositivos;
+    private TextView valesPositivos;
+    private TextView totalValesNegativos;
+    private TextView valesNegativos;
+
+    private void cargarVales()
+    {
+
+    totalValesPositivos.setText("Total de vales positivos: " + this.diaRepartidor.getNumeroValesPositivos());
+    valesPositivos.setText("Vales positivos a presentar: \n"+this.diaRepartidor.getValesPositivos());
+    totalValesNegativos.setText("Total de vales negativos: " + this.diaRepartidor.getNumeroValesNegativos());
+    valesNegativos.setText("Vales negativos a presentar: \n"+this.diaRepartidor.getValesNegativos());
+
+
+
+
+    }
+
+
+
 
 
     ////////BOLETAS GASTOS
@@ -399,6 +461,8 @@ public class ADatosDelDia extends ActivityGenerica
     private TextView cargaTotalBidones5L;
     private TextView cargaTotalPackBotellas2L;
     private TextView cargaTotalPackBotellas500mL;
+    private TextView cargaTotalVertedores;
+    private TextView cargaTotalDispensers;
 
 
     private void cargarCarga()
@@ -410,6 +474,11 @@ public class ADatosDelDia extends ActivityGenerica
     cargaTotalBidones5L.setText("Bidones 5L: " + this.diaRepartidor.getCargamento().getCargas().getDescartables().getBidones5L());
     cargaTotalPackBotellas2L.setText("Pack Botellas 2L: " + this.diaRepartidor.getCargamento().getCargas().getDescartables().getPackBotellas2L());
     cargaTotalPackBotellas500mL.setText("Pack Botellas 500mL: " + this.diaRepartidor.getCargamento().getCargas().getDescartables().getPackBotellas500mL());
+
+
+    cargaTotalVertedores.setText("Vertedores: " + this.diaRepartidor.getCargamento().getCargas().getVertedores().getCantidad());
+    cargaTotalDispensers.setText("Dispensers: " + this.diaRepartidor.getCargamento().getCargas().getDispensers().getCantidad());
+
     }
 
 
@@ -423,6 +492,8 @@ public class ADatosDelDia extends ActivityGenerica
     private TextView descargaTotalBidones5L;
     private TextView descargaTotalPackBotellas2L;
     private TextView descargaTotalPackBotellas500mL;
+    private TextView descargaTotalVertedores;
+    private TextView descargaTotalDispensers;
 
 
     private void cargarDescarga()
@@ -434,6 +505,11 @@ public class ADatosDelDia extends ActivityGenerica
     descargaTotalBidones5L.setText("Bidones 5L: " + this.diaRepartidor.getCargamento().getDescargas().getDescartables().getBidones5L());
     descargaTotalPackBotellas2L.setText("Pack Botellas 2L: " + this.diaRepartidor.getCargamento().getDescargas().getDescartables().getPackBotellas2L());
     descargaTotalPackBotellas500mL.setText("Pack Botellas 500mL: " + this.diaRepartidor.getCargamento().getDescargas().getDescartables().getPackBotellas500mL());
+
+
+    descargaTotalVertedores.setText("Vertedores: " + this.diaRepartidor.getCargamento().getDescargas().getVertedores().getCantidad());
+    descargaTotalDispensers.setText("Dispensers: " + this.diaRepartidor.getCargamento().getDescargas().getDispensers().getCantidad());
+
     }
 
 
@@ -453,6 +529,11 @@ public class ADatosDelDia extends ActivityGenerica
     private TextView balanceBidones5L;
     private TextView balancePackBotellas2L;
     private TextView balancePackBotellas500mL;
+    private TextView balanceVertedores;
+    private TextView balanceDispensers;
+
+
+
 
     private TextView balanceBidones20LVacios;
     private TextView balanceBidones12LVacios;
@@ -473,6 +554,9 @@ public class ADatosDelDia extends ActivityGenerica
     balanceBidones20LVacios.setText("Bidones 20L Vacios = " + (this.diaRepartidor.getCargamento().getDescargas().getRetornablesVacios().getBidones20L() - this.diaRepartidor.getRepartos().getRetornablesRecuperados().getBidones20L()));
     balanceBidones12LVacios.setText("Bidones 12L Vacios = " + (this.diaRepartidor.getCargamento().getDescargas().getRetornablesVacios().getBidones12L() - this.diaRepartidor.getRepartos().getRetornablesRecuperados().getBidones12L()));
 
+    // falta balance dispensadores
+    balanceVertedores.setText("Vertedores = " + (this.diaRepartidor.getCargamento().getVertedores().getCantidad() - this.diaRepartidor.getRepartos().getVertedoresRepartidos().getCantidad() - this.diaRepartidor.getCargamento().getDescargas().getVertedores().getCantidad()));
+    balanceDispensers.setText("Dispensers = " + (this.diaRepartidor.getCargamento().getDispensers().getCantidad() + this.diaRepartidor.getRepartos().getDispensersRetirados().getCantidad() - this.diaRepartidor.getRepartos().getDispensersRepartidos().getCantidad() - this.diaRepartidor.getCargamento().getDescargas().getDispensers().getCantidad()));
 
 
 

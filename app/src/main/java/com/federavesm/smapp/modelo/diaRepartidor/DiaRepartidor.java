@@ -16,8 +16,6 @@ import com.federavesm.smapp.modelo.diaRepartidor.productos.Retornables;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Repartos;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Federico on 5/1/2018.
@@ -55,12 +53,29 @@ public class DiaRepartidor extends GenericoReparto
     private float dineroPagoAlquileres;
     private float dineroGastos;
 
+    private float dineroVentaDispensers=0;
+    private float dineroVentaVertedores=0;
+
+
+
+
+
     private int numeroPagosAlquileres;
     private String remitosPagosAlquileres;
 
 
     private int numeroDeudasProductos;
     private String remitosDeudas;
+
+
+    private int numeroValesPositivos;
+    private String valesPositivos;
+
+    private int numeroValesNegativos;
+    private String valesNegativos;
+
+
+
 
 
     private String boletasGastos;
@@ -153,6 +168,31 @@ public class DiaRepartidor extends GenericoReparto
         return dineroGastos;
     }
 
+
+    public float getDineroVentaDispensers() {
+        return dineroVentaDispensers;
+    }
+
+    public float getDineroVentaVertedores() {
+        return dineroVentaVertedores;
+    }
+
+    public int getNumeroValesPositivos() {
+        return numeroValesPositivos;
+    }
+
+    public String getValesPositivos() {
+        return valesPositivos;
+    }
+
+    public int getNumeroValesNegativos() {
+        return numeroValesNegativos;
+    }
+
+    public String getValesNegativos() {
+        return valesNegativos;
+    }
+
     public void cargarDatosInforme()
     {
 
@@ -174,6 +214,13 @@ public class DiaRepartidor extends GenericoReparto
     this.dineroPagoAlquileres=0;
     this.dineroGastos=0;
 
+    this.dineroVentaDispensers=0;
+    this.dineroVentaVertedores=0;
+
+    this.numeroValesPositivos=0;
+    this.valesPositivos="";
+    this.numeroValesNegativos=0;
+    this.valesNegativos="";
 
 
     this.numeroPagosAlquileres=0;
@@ -228,13 +275,30 @@ public class DiaRepartidor extends GenericoReparto
             }
 
 
+        /// Vales
+
+        if(reparto.getValePositivo())
+            {
+            this.numeroValesPositivos++;
+            this.valesPositivos += "\n\n" + reparto.getCliente().getDatos().toString() + "\n" + reparto.getValePositivoBidon20L() + "\n" + reparto.getValePositivoBidon12L();
+            }
+
+        if(reparto.getValeNegativo())
+            {
+            this.numeroValesNegativos++;
+            this.valesNegativos += "\n\n" + reparto.getCliente().getDatos().toString()+ "\n" + reparto.getValeNegativoBidon20L() + "\n" + reparto.getValeNegativoBidon12L();
+            }
 
 
-        /// Dinero
+
+
+
+            /// Dinero Ventas
 
         float dineroVentasAux=0;
         float dineroVentasProductos=0;
         float dineroVentasExcedenteAlquiler=0;
+        float dineroVentasDispensadores=0;
 
         if(reparto.getVentaProductos().have())
             {
@@ -246,13 +310,18 @@ public class DiaRepartidor extends GenericoReparto
             dineroVentasExcedenteAlquiler = reparto.getAlquiler().getExcedenteAlquiler().getDineroVenta();
             }
 
-        dineroVentasAux = dineroVentasProductos + dineroVentasExcedenteAlquiler;
+
+        this.dineroVentaDispensers += reparto.getVentaDispensers().getDinero();
+        this.dineroVentaVertedores += reparto.getVentaVertedores().getDinero();
+
+        dineroVentasDispensadores = reparto.getVentaDispensers().getDinero() + reparto.getVentaVertedores().getDinero();
+
+        dineroVentasAux = dineroVentasDispensadores + dineroVentasProductos + dineroVentasExcedenteAlquiler;
 
         this.dineroVentas +=  dineroVentasAux;
 
 
         /// Pagos
-
 
         float dineroPagoAlquilerAux=0;
 
@@ -283,12 +352,10 @@ public class DiaRepartidor extends GenericoReparto
             this.dineroDeudas += reparto.getAlquiler().getExcedenteAlquiler().getDineroDeuda();
             }
 
-
         this.retornablesRepartidosAlquiler.setBidones20L(this.retornablesRepartidosAlquiler.getBidones20L() + reparto.getAlquiler().getRetornablesRepartidos().getBidones20L());
         this.retornablesRepartidosAlquiler.setBidones12L(this.retornablesRepartidosAlquiler.getBidones12L() + reparto.getAlquiler().getRetornablesRepartidos().getBidones12L());
 
-        this.dineroRecaudado += dineroVentasAux +  dineroPagoAlquilerAux ;
-
+        this.dineroRecaudado += dineroVentasAux +  dineroPagoAlquilerAux;
         }
 
     for(int i=0;i<this.gastos.getGastos().size();i++)
@@ -297,6 +364,12 @@ public class DiaRepartidor extends GenericoReparto
         this.dineroGastos += gasto.getDinero();
         this.boletasGastos += "\n\n" + gasto.toString();
         }
+
+
+
+
+
+
 
     }
 

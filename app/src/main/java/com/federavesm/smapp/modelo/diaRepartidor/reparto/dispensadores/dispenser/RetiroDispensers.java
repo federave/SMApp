@@ -183,13 +183,16 @@ public class RetiroDispensers extends GenericoDiaRepartidorEvaluar {
                     aux = false;
                 }
                 db.close();
-                aux &= Comunicador.getReparto().modificar();
 
             }
             else
             {
                 aux &= guardar();
             }
+
+            aux &= Comunicador.getReparto().modificar();
+
+
             return aux;
         }
         catch (Exception e)

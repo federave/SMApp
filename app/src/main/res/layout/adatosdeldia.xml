@@ -106,6 +106,21 @@
                     android:id="@+id/aDatosDiaDineroPagoAlquileres"
                     />
 
+                <TextView
+                    android:text="Dinero de Ventas de Vertedores: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosDiaDineroVentaVertedores"
+                    />
+
+                <TextView
+                    android:text="Dinero de Ventas de Dispensers FC: "
+                    style="@style/textoDatosCliente"
+                    android:id="@+id/aDatosDiaDineroVentaDispensers"
+                    />
+
+
+
+
             </LinearLayout>
 
 
@@ -333,6 +348,11 @@
                 />
 
 
+
+
+
+
+
             <!-- REMITOS DEUDAS -->
 
             <TextView
@@ -381,6 +401,60 @@
                 android:text="Boletas"
                 style="@style/textoDatosCliente"
                 android:id="@+id/aDatosDiaBoletasGastos"
+                />
+
+
+
+            <!-- VALES POSITIVOS -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vales + a Presentar"
+                style="@style/texto"
+                android:textSize="28dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/colorAmarillo"
+                />
+
+            <TextView
+                android:text="Total de Vales +: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaTotalValesPositivos"
+                />
+
+            <TextView
+                android:text="Remitos"
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaValesPositivos"
+                />
+
+
+
+            <!-- VALES NEGATIVOS -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vales - a Presentar"
+                style="@style/texto"
+                android:textSize="28dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/colorAmarillo"
+                />
+
+            <TextView
+                android:text="Total de Vales +: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaTotalValesNegativos"
+                />
+
+            <TextView
+                android:text="Remitos"
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaValesNegativos"
                 />
 
 
@@ -443,6 +517,19 @@
                 android:id="@+id/aDatosDiaCargaTotalPackBotellas500mL"
                 />
 
+            <TextView
+                android:text="Vertedores: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaCargaTotalVertedores"
+                />
+
+            <TextView
+                android:text="Dispensers: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaCargaTotalDispensers"
+                />
+
+
 
             <!-- DESCARGA -->
 
@@ -499,6 +586,22 @@
                 style="@style/textoDatosCliente"
                 android:id="@+id/aDatosDiaDescargaTotalPackBotellas500mL"
                 />
+
+            <TextView
+                android:text="Vertedores: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaDescargaTotalVertedores"
+                />
+
+            <TextView
+                android:text="Dispensers: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaDescargaTotalDispensers"
+                />
+
+
+
+
 
 
             <!-- BALANCE  -->
@@ -590,6 +693,18 @@
                 android:text="Pack Botellas 500mL: "
                 style="@style/textoDatosCliente"
                 android:id="@+id/aDatosDiaBalancePackBotellas500mL"
+                />
+
+            <TextView
+                android:text="Vertedores: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaBalanceVertedores"
+                />
+
+            <TextView
+                android:text="Dispensers: "
+                style="@style/textoDatosCliente"
+                android:id="@+id/aDatosDiaBalanceDispensers"
                 />
 
 

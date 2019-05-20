@@ -54,7 +54,7 @@ public class VentaDispensers extends GenericoDiaRepartidorEvaluar {
         {
         xml.startTag("VentaDispensers");
             xml.addTag("Cantidad",String.valueOf(this.cantidad));
-            xml.addTag("Especial",String.valueOf(this.especial));
+            xml.addTag("Especial",String.valueOf(Convertidor.toInteger(this.especial)));
             xml.addTag("PrecioEspecial",String.valueOf(this.precioespecial));
         xml.closeTag("VentaDispensers");
         }

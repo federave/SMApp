@@ -51,7 +51,7 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
         {
             xml.startTag("VentaVertedores");
                 xml.addTag("Cantidad",String.valueOf(this.cantidad));
-                xml.addTag("Especial",String.valueOf(this.especial));
+                xml.addTag("Especial",String.valueOf(Convertidor.toInteger(this.especial)));
                 xml.addTag("PrecioEspecial",String.valueOf(this.precioespecial));
             xml.closeTag("VentaVertedores");
         }
@@ -209,13 +209,14 @@ public class VentaVertedores extends GenericoDiaRepartidorEvaluar {
                     aux = false;
                 }
                 db.close();
-                aux &= Comunicador.getReparto().modificar();
 
             }
             else
             {
                 aux &= guardar();
             }
+            aux &= Comunicador.getReparto().modificar();
+
             return aux;
         }
         catch (Exception e)

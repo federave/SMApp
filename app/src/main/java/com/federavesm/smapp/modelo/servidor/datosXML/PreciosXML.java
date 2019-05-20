@@ -152,6 +152,21 @@ public class PreciosXML
 
                 ////////////////////////PRECIOS DEL DIA ///////////////////////////////
 
+                ////////////////PRECIO DISPENSADORES
+
+                case "Vertedor_Precio":
+                {
+                this.precios.getPrecioDispensadores().setVertedor(getFloat(cadena.toString()));
+                break;
+                }
+                case "Dispenser_Precio":
+                {
+                this.precios.getPrecioDispensadores().setDispenser(getFloat(cadena.toString()));
+                break;
+                }
+
+
+
                 ////////////////PRECIO ALQUILER
 
                 case "Alquiler6Bidones_Precio":

@@ -251,6 +251,15 @@ public class Repartos extends GenericoReparto {
     this.descartablesRepartidos.setPackBotellas2L(this.descartablesRepartidos.getPackBotellas2L() + reparto.getDescartablesRepartidos().getPackBotellas2L());
     this.descartablesRepartidos.setPackBotellas500mL(this.descartablesRepartidos.getPackBotellas500mL() + reparto.getDescartablesRepartidos().getPackBotellas500mL());
 
+
+    this.vertedoresCambiados.setCantidad(this.vertedoresCambiados.getCantidad() + reparto.getVertedoresCambiados().getCantidad());
+    this.vertedoresRepartidos.setCantidad(this.vertedoresRepartidos.getCantidad() + reparto.getVertedoresRepartidos().getCantidad());
+
+    this.dispensersCambiados.setCantidad(this.dispensersCambiados.getCantidad() + reparto.getDispensersCambiados().getCantidad());
+    this.dispensersRepartidos.setCantidad(this.dispensersRepartidos.getCantidad() + reparto.getDispensersRepartidos().getCantidad());
+    this.dispensersRetirados.setCantidad(this.dispensersRetirados.getCantidad() + reparto.getDispensersRetirados().getCantidad());
+
+
     }
 
 

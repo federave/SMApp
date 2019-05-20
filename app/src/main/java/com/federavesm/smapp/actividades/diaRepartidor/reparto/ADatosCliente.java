@@ -506,11 +506,8 @@ public class ADatosCliente extends ActivityGenerica
                 requerimientoGET.setHost(this.urlServidor);
                 String respuestaXML = "";
 
-
-
-
                 requerimientoGET.clear();
-                requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getActualidadCliente.php");
+                requerimientoGET.setRutaScript("AplicacionSM/servidor/getReparto/getCliente.php");
                 requerimientoGET.addParametro("fecha",fecha.toString());
                 requerimientoGET.addParametro("idCliente",String.valueOf(cliente.getDatos().getId()));
                 requerimientoGET.addParametro("idDireccion",String.valueOf(cliente.getDireccion().getIdDireccion()));

@@ -967,7 +967,7 @@ public class BaseDeDatos extends SQLiteOpenHelper
 
 
             db.execSQL("CREATE TABLE DatosClientes" +
-                    "(" +
+                    "("+
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "idCliente INTEGER," +
                     "idDatosDireccion INTEGER," +

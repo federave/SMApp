@@ -3,7 +3,6 @@ package com.federavesm.smapp.actividades.diaRepartidor.reparto.dispensers;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
@@ -18,7 +17,6 @@ import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.ActivityGenerica;
 import com.federavesm.smapp.actividades.Dialogo;
 import com.federavesm.smapp.actividades.ListenerEditText;
-import com.federavesm.smapp.actividades.diaRepartidor.reparto.AVentaProductos;
 import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.dispensadores.dispenser.VentaDispensers;
@@ -48,6 +46,8 @@ public class AVentaDispensers extends ActivityGenerica
 
         textViewDinero = (TextView) findViewById(R.id.aVentaDispensersTextViewDinero);
         editTextPrecioEspecial = (EditText) findViewById(R.id.aVentaDispensersEditTextPrecioEspecial);
+        editTextPrecioEspecial.addTextChangedListener(new ListenerEditTexts());
+
         checkBoxEstadoPrecioEspecial = (CheckBox) findViewById(R.id.aVentaDispensersCheckBoxEstadoPrecioEspecial);
         checkBoxEstadoPrecioEspecial.setOnCheckedChangeListener(new ListenerCheckedBoxEstadoPrecioEspecial());
 
@@ -145,6 +145,20 @@ public class AVentaDispensers extends ActivityGenerica
         {
         linearLayoutPrecioEspecial.setVisibility(View.GONE);
         }
+
+    try
+        {
+        actualizarVentaDispensers();
+        if(this.ventaDispensersNew.getEstado())
+            {
+            this.textViewDinero.setText("Dinero: "+String.valueOf(ventaDispensersNew.getDinero()) + " $");
+            }
+        }
+    catch (Exception e)
+        {
+
+        }
+
     }
 
 

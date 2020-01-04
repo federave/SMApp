@@ -69,6 +69,26 @@ public class PagoAlquiler extends GenericoDiaRepartidorEvaluar {
 
 
 
+    public String getDatos()
+    {
+
+        String aux = "";
+
+
+        if(this.alquileres.have())
+        {
+            aux += "\n PagoAlquiler";
+            aux += alquileres.getDatos();
+
+
+        }
+
+
+
+        return aux;
+    }
+
+
 
 
 

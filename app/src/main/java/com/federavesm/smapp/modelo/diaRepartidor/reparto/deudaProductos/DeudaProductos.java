@@ -332,6 +332,29 @@ public class DeudaProductos extends RepartoProductos {
     }
 
 
+    public String getDatos()
+    {
+
+        String aux = "";
+
+        if(this.have())
+        {
+
+            aux += retornables.getDatos();
+            aux += descartables.getDatos();
+
+
+        }
+
+        return aux;
+    }
+
+
+
+
+
+
+
     @Override
     public boolean getEstado()
     {

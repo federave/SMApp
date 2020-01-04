@@ -374,6 +374,33 @@ public class VentaProductos extends RepartoProductos {
     }
 
 
+    public String getDatos()
+    {
+
+        String aux = "";
+
+        if(this.have())
+        {
+
+            aux += "\n" + retornables.getDatos();
+            aux += "\n" + descartables.getDatos();
+
+            if(retornablesBonificados.have() || descartablesBonificados.have())
+            {
+                aux += "\nBonificados \n";
+                aux += retornablesBonificados.getDatos();
+                aux += descartablesBonificados.getDatos();
+
+            }
+
+            aux += "\n" + "Dinero: " + String.valueOf(this.dinero);
+
+
+        }
+
+        return aux;
+    }
+
 
 
 

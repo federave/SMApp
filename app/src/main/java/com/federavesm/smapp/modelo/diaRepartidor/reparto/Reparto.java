@@ -126,6 +126,45 @@ public  class Reparto extends GenericoReparto {
     }
 
 
+
+    public String getDatosReparto()
+    {
+
+        String aux="";
+
+        if(ventaProductos.have())
+        {
+            aux+="\nVentas \n"+ventaProductos.getDatos();
+        }
+
+        if(deudaProductos.have())
+        {
+            aux+="\n\nDeudas \n"+deudaProductos.getDatos();
+        }
+
+        if(alquiler.getEstado())
+        {
+            aux+="\n\nAlquiler \n"+alquiler.getDatos();
+        }
+
+        if(vacios.have())
+        {
+            aux+="\n\nVacios \n"+vacios.getDatos();
+        }
+
+
+
+
+
+
+
+
+
+        return aux;
+    }
+
+
+
     @Override
     public void copiar(Object object)
     {

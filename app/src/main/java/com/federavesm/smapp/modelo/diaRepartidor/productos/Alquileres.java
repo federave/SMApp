@@ -34,7 +34,29 @@ public class Alquileres
     }
 
 
+    public String getDatos()
+    {
 
+
+        String aux = "";
+        if(this.alquileres6Bidones>0)
+            aux+= "\nAlquiler6Bidones: "+String.valueOf(this.alquileres6Bidones);
+        if(this.alquileres8Bidones>0)
+            aux+= "\nAlquiler8Bidones: "+String.valueOf(this.alquileres8Bidones);
+
+        if(this.alquileres10Bidones>0)
+            aux+= "\nAlquiler10Bidones: "+String.valueOf(this.alquileres10Bidones);
+
+        if(this.alquileres12Bidones>0)
+            aux+= "\nAlquiler12Bidones: "+String.valueOf(this.alquileres12Bidones);
+
+
+
+
+
+
+        return aux;
+    }
 
 
 

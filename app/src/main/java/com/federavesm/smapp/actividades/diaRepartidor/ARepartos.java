@@ -13,7 +13,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.federavesm.smapp.R;
 import com.federavesm.smapp.actividades.ActivityGenerica;
@@ -23,6 +25,9 @@ import com.federavesm.smapp.modelo.Comunicador;
 import com.federavesm.smapp.modelo.diaRepartidor.DiaRepartidor;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Reparto;
 import com.federavesm.smapp.modelo.diaRepartidor.reparto.Repartos;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Federico on 19/2/2018.
@@ -52,6 +57,8 @@ public class ARepartos extends ActivityGenerica
         editTextBuscador.addTextChangedListener(new ListenerEditText(this));
         this.repartos = Comunicador.getDiaRepartidor().getRepartos();
 
+
+
         /*
         imageViewLeftCabecera = (ImageView) findViewById(R.id.imageViewLeftCabecera);
 
@@ -76,8 +83,6 @@ public class ARepartos extends ActivityGenerica
     private EditText editTextBuscador;
 
     private Repartos repartos;
-
-
 
 
 
@@ -161,6 +166,92 @@ public class ARepartos extends ActivityGenerica
 
 
     public int n1=-1;
+    int ultimo=-1;
+
+
+    private void mostrarDatos(int position)
+    {
+
+
+        View v = listViewRepartos.getChildAt(position);
+
+        if(v == null)
+            return;
+
+
+        LinearLayout linearLayoutDatosReparto = (LinearLayout) v.findViewById(R.id.lRepartosFila2);
+        Reparto Rep = (Reparto)adaptadorRepartos.getItem(position);
+        TextView datosReparto = (TextView) v.findViewById(R.id.lRepartosDatosReparto);
+        datosReparto.setText(Rep.getDatosReparto());
+        linearLayoutDatosReparto.setVisibility(View.VISIBLE);
+
+/*
+        if(ultimo!=position && ultimo!=-1)
+        {
+        View v2 = listViewRepartos.getChildAt(ultimo);
+        LinearLayout linearLayoutDatosReparto2 = (LinearLayout) v2.findViewById(R.id.lRepartosFila2);
+        linearLayoutDatosReparto2.setVisibility(View.GONE);
+        }
+
+
+        ultimo=position;
+*/
+
+    }
+
+
+
+    /*
+ List<Integer> itemsSeleccionados = new ArrayList<Integer>();
+
+    private void mostrarDatos(int position)
+    {
+
+        View v = listViewRepartos.getChildAt(position);
+
+        if(v == null)
+            return;
+
+
+        LinearLayout linearLayoutDatosReparto = (LinearLayout) v.findViewById(R.id.lRepartosFila2);
+
+
+        Integer item = position;
+
+        if(itemsSeleccionados.contains(item))
+            {
+            linearLayoutDatosReparto.setVisibility(View.GONE);
+            itemsSeleccionados.remove(itemsSeleccionados.indexOf(item));
+            }
+        else
+            {
+            Reparto Rep = (Reparto)adaptadorRepartos.getItem(position);
+            TextView datosReparto = (TextView) v.findViewById(R.id.lRepartosDatosReparto);
+
+           datosReparto.setText(Rep.getDatosReparto());
+
+           //     datosReparto.setText("Hola \n gggg");
+
+
+
+                linearLayoutDatosReparto.setVisibility(View.VISIBLE);
+                itemsSeleccionados.add(item);
+
+            }
+
+
+
+
+    }
+
+*/
+
+
+
+
+
+
+
 
 
     class ListenerItemClickListView implements AdapterView.OnItemClickListener
@@ -176,10 +267,14 @@ public class ARepartos extends ActivityGenerica
         @Override
         public void onItemClick(AdapterView<?> adapter, View arg1, int position, long arg3)
         {
+        //mostrarDatos(position);
 
         if(n1!=position)
             {
             n1=position;
+
+
+
             }
         else
             {

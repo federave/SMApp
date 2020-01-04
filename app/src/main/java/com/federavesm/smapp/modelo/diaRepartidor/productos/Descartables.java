@@ -36,6 +36,32 @@ public class Descartables {
     }
 
 
+    public String getDatos()
+    {
+        String aux = "";
+        if(this.bidones10L>0)
+            aux+= "\nBidones10L: "+String.valueOf(this.bidones10L);
+
+        if(this.bidones8L>0)
+            aux+= "\nBidones8L: "+String.valueOf(this.bidones8L);
+
+        if(this.bidones5L>0)
+            aux+= "\nBidones5L: "+String.valueOf(this.bidones5L);
+
+
+        if(this.packBotellas2L>0)
+            aux+= "\nPackBotellas2L: "+String.valueOf(this.packBotellas2L);
+
+
+        if(this.packBotellas500mL>0)
+            aux+= "\nPackBotellas500mL: "+String.valueOf(this.packBotellas500mL);
+
+
+
+
+        return aux;
+
+    }
 
 
 

@@ -61,6 +61,42 @@ public class Alquiler extends GenericoDiaRepartidorEvaluar {
 
 
 
+    public String getDatos()
+    {
+
+        String aux = "";
+
+        if(this.retornables.have())
+        {
+
+            aux += retornables.getDatos();
+
+
+        }
+
+        if(this.pagoAlquiler.have()||this.excedenteAlquiler.have() || this.retornables.have())
+        {
+
+            aux += retornables.getDatos();
+            aux += excedenteAlquiler.getDatos();
+            aux += pagoAlquiler.getDatos();
+
+
+        }
+
+
+
+
+        return aux;
+    }
+
+
+
+
+
+
+
+
     private PagoAlquiler pagoAlquiler;
     private ExcedenteAlquiler excedenteAlquiler;
     private Retornables retornables = new Retornables();

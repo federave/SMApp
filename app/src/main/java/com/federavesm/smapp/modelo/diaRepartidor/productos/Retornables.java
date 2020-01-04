@@ -41,6 +41,18 @@ public class Retornables {
     return xml.getXML();
     }
 
+    public String getDatos()
+    {
+        String aux = "";
+        if(this.bidones20L>0)
+            aux+= "\nBidones20L: "+String.valueOf(this.bidones20L);
+
+        if(this.bidones12L>0)
+            aux+= "\nBidones12: "+String.valueOf(this.bidones12L);
+
+        return aux;
+
+    }
 
 
     public boolean getEstado()

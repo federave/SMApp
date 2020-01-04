@@ -65,6 +65,45 @@ public class ExcedenteAlquiler extends GenericoDiaRepartidorEvaluar {
 
 
 
+    public String getDatos()
+    {
+
+        String aux = "";
+
+
+
+        if(this.have())
+        {
+
+            if(retornables.have())
+            {
+
+                aux += "\n Excedente";
+                aux += "\n" + retornables.getDatos();
+                aux += "\n Dinero: " + String.valueOf(dinero);
+
+            }
+            if(retornablesDeudados.have())
+            {
+
+                aux += "\n Deuda";
+                aux += "\n" + retornablesDeudados.getDatos();
+
+
+            }
+        }
+
+
+
+
+        return aux;
+    }
+
+
+
+
+
+
 
 
 

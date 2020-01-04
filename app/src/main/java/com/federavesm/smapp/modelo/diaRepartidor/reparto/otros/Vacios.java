@@ -80,6 +80,26 @@ public class Vacios extends GenericoDiaRepartidorEvaluar {
     }
 
 
+    public String getDatos()
+    {
+
+        String aux = "";
+
+        if(this.retornables.have())
+        {
+
+            aux += retornables.getDatos();
+
+
+        }
+
+        return aux;
+    }
+
+
+
+
+
 
 
 

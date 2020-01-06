@@ -1,72 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
-            android:paddingHorizontal="50dp"
+            android:gravity="center"
+            >
 
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saint Michel"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
             >
 
 
-            <TextView
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Datos del Resumen"
-                style="@style/texto"
-                android:textSize="28dp"
-                android:layout_marginBottom="50dp"
-                android:textColor="@color/colorAmarillo"
-                />
 
-
-            <TextView
-                android:text="Datos"
-                style="@style/textoDatosCliente"
-                android:id="@+id/aDatosResumenTextViewDatos"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="50dp"
-                android:paddingHorizontal="90dp"
-                android:layout_marginBottom="50dp"
                 >
 
-                <Button
-                    android:id="@+id/aDatosResumenButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
 
-            </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Datos del Resumen"
+                        style="@style/texto"
+                        android:textSize="28dp"
+                        android:layout_marginBottom="50dp"
+                        android:textColor="@color/colorAmarillo"
+                        />
+
+
+                    <TextView
+                        android:text="Datos"
+                        style="@style/textoDatosCliente"
+                        android:id="@+id/aDatosResumenTextViewDatos"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="50dp"
+                        >
+
+                        <Button
+                            android:id="@+id/aDatosResumenButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </ScrollView>
 
 
         </LinearLayout>
 
 
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+
+
+

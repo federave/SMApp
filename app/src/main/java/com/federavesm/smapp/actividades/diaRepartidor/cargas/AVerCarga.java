@@ -50,12 +50,12 @@ public class AVerCarga extends Activity
 
         actualizarCargamento();
 
-        if(Comunicador.getDiaRepartidor().getRepartos().getEstado())
+        /*if(Comunicador.getDiaRepartidor().getRepartos().getEstado())
             {
             buttonEliminarCarga.setVisibility(View.GONE);
             buttonModificarCarga.setVisibility(View.GONE);
             }
-
+*/
         this.buttonRetornar = (Button) findViewById(R.id.aVerCargaButtonRetornar);
         this.buttonRetornar.setOnClickListener(new ListenerClickButtonRetornar());
 

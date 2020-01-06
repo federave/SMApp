@@ -1,163 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="10dp"
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
+
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
-            android:paddingHorizontal="100dp"
-
+            android:gravity="center"
             >
 
             <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Datos de la Carga"
-            style="@style/texto"
-            android:textSize="30dp"
-            android:layout_marginBottom="30dp"
-            android:textAlignment="center"
-            />
-
-            <TextView
-                android:layout_width="match_parent"
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hora: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewHora"
-                android:layout_marginBottom="20dp"
+                android:text="Saint Michel"
                 />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 20L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewBidones20L"
-                android:layout_marginBottom="20dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 12L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewBidones12L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 10L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewBidones10L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 8L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewBidones8L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 5L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewBidones5L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pack Botellas 2L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewPackBotellas2L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pack Botellas 500mL: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewPackBotellas500mL"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Vertedores: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewVertedores"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dispensers"
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aVerCargaTextViewDispensers"
-                android:layout_marginBottom="20dp"
-                />
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="50dp"
-                android:layout_marginTop="20dp"
-                >
-                <Button
-                    android:id="@+id/aVerCargaButtonModificarCarga"
-                    style="@style/button"
-                    android:text="Modificar"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aVerCargaButtonEliminarCarga"
-                    android:text="Eliminar"
-                    style="@style/button"
-                    android:layout_marginBottom="50dp"
-                    />
-
-                <Button
-                    android:id="@+id/aVerCargaButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    />
-
-            </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingHorizontal="5dp"
+
+                    >
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Datos de la Carga"
+                        style="@style/texto"
+                        android:textSize="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:textAlignment="center"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hora: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewHora"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 20L: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewBidones20L"
+                        android:layout_marginBottom="20dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 12L: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewBidones12L"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 10L: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewBidones10L"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 8L: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewBidones8L"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bidones 5L: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewBidones5L"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pack Botellas 2L: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewPackBotellas2L"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pack Botellas 500mL: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewPackBotellas500mL"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vertedores: "
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewVertedores"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dispensers"
+                        style="@style/textoDatosCargamento"
+                        android:id="@+id/aVerCargaTextViewDispensers"
+                        android:layout_marginBottom="20dp"
+                        />
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        >
+                        <Button
+                            android:id="@+id/aVerCargaButtonModificarCarga"
+                            style="@style/button"
+                            android:text="Modificar"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aVerCargaButtonEliminarCarga"
+                            android:text="Eliminar"
+                            style="@style/button"
+                            android:layout_marginBottom="50dp"
+                            />
+
+                        <Button
+                            android:id="@+id/aVerCargaButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            android:layout_marginBottom="50dp"
+
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
+
 
 </LinearLayout>
+
+

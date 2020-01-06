@@ -2,170 +2,249 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="80dp"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
         android:orientation="vertical"
-        android:id="@+id/aConfiguracionLinearLayoutMenu"
-        android:paddingHorizontal="40dp"
+        android:gravity="center"
         >
 
-        <Button
-            android:id="@+id/aConfiguracionButtonConexion"
-            android:text="Conexión"
-            android:layout_marginBottom="40dp"
-            style="@style/button"
-            />
 
-        <Button
-            android:layout_marginBottom="40dp"
-            android:id="@+id/aConfiguracionButtonBaseDeDatos"
-            android:text="Base de Datos"
-            style="@style/button"
-            />
-
-        <Button
-            android:layout_marginBottom="40dp"
-            android:id="@+id/aConfiguracionButtonRetornar"
-            android:text="Retornar"
-            style="@style/buttonRetornar"
-            />
-
-
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/aConfiguracionLinearLayoutConexion"
-        android:orientation="vertical"
-        android:visibility="gone"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ingrese Dirección IP"
-            style="@style/texto"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            />
-
-
-        <EditText
-            android:id="@+id/aConfiguracionEditTextConexion"
-            style="@style/Widget.AppCompat.EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ip"
-            android:text="192.168.1.100"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light"
-            android:textSize="20sp"
-            android:layout_marginBottom="20dp"
-
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ingrese Puerto"
-            style="@style/texto"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            />
-
-
-        <EditText
-            android:id="@+id/aConfiguracionEditTextPuerto"
-            style="@style/Widget.AppCompat.EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="puerto"
-            android:text="80"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_light"
-            android:textSize="20sp"
-            android:layout_marginBottom="40dp"
-
-            />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".7"
             android:orientation="vertical"
-            android:paddingHorizontal="80dp"
-            android:layout_marginTop="20dp"
-
+            android:gravity="center"
             >
 
-            <Button
-
-                android:id="@+id/aConfiguracionButtonVerificar"
-                android:text="Verificar"
-                android:layout_marginBottom="40dp"
-                style="@style/button"
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saint Michel"
                 />
 
-            <Button
-
-                android:id="@+id/aConfiguracionButtonGuardar"
-                android:text="Guardar"
-                android:layout_marginBottom="40dp"
-                style="@style/button"
-                />
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-            <Button
 
-                android:id="@+id/aConfiguracionConexionButtonRetornar"
-                android:text="Retornar"
-                style="@style/buttonRetornar"
-                />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
+                        android:layout_marginTop="80dp"
+                        android:orientation="vertical"
+                        android:id="@+id/aConfiguracionLinearLayoutMenu"
+                        >
+
+                        <Button
+                            android:id="@+id/aConfiguracionButtonConexion"
+                            android:text="Conexión"
+                            android:layout_marginBottom="40dp"
+                            style="@style/button"
+                            />
+
+                        <Button
+                            android:layout_marginBottom="40dp"
+                            android:id="@+id/aConfiguracionButtonBaseDeDatos"
+                            android:text="Base de Datos"
+                            style="@style/button"
+                            />
+
+                        <Button
+                            android:layout_marginBottom="40dp"
+                            android:id="@+id/aConfiguracionButtonRetornar"
+                            android:text="Retornar"
+                            style="@style/buttonRetornar"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/aConfiguracionLinearLayoutConexion"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ingrese Dirección IP"
+                            style="@style/texto"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:textAlignment="center"
+                            />
+
+
+                        <EditText
+                            android:id="@+id/aConfiguracionEditTextConexion"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="ip"
+                            android:text="192.168.1.100"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="20sp"
+                            android:layout_marginBottom="20dp"
+
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ingrese Puerto"
+                            style="@style/texto"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:textAlignment="center"
+                            />
+
+
+                        <EditText
+                            android:id="@+id/aConfiguracionEditTextPuerto"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="puerto"
+                            android:text="80"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="20sp"
+                            android:layout_marginBottom="40dp"
+
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="80dp"
+                            android:layout_marginTop="20dp"
+
+                            >
+
+                            <Button
+
+                                android:id="@+id/aConfiguracionButtonVerificar"
+                                android:text="Verificar"
+                                android:layout_marginBottom="40dp"
+                                style="@style/button"
+                                />
+
+                            <Button
+
+                                android:id="@+id/aConfiguracionButtonGuardar"
+                                android:text="Guardar"
+                                android:layout_marginBottom="40dp"
+                                style="@style/button"
+                                />
+
+
+
+                            <Button
+
+                                android:id="@+id/aConfiguracionConexionButtonRetornar"
+                                android:text="Retornar"
+                                style="@style/buttonRetornar"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
 
 
         </LinearLayout>
 
 
 
-
-
-
-
-
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
 
 
     </LinearLayout>
 
 
 
-
-
-
-
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+
 

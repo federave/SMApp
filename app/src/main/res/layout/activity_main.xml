@@ -1,86 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="80dp"
-    tools:context="com.federavesm.smapp.MainActivity"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
-    </LinearLayout>
-
-    <ScrollView
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="90dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
         android:orientation="vertical"
-        android:id="@+id/aConfiguracionLinearLayoutMenu"
-        android:paddingHorizontal="80dp"
+        android:gravity="center"
+        >
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
 
-        <Button
-            android:id="@+id/buttonSeleccionarDia"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            android:text="Seleccionar Dia"
-            />
-
-        <Button
-            android:id="@+id/buttonCambiarUsuario"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            android:text="Cambiar Usuario"
-            />
-
-        <Button
-            android:id="@+id/buttonClientes"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            android:text="Clientes"
-            />
-
-        <Button
-            android:id="@+id/buttonResumen"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            android:text="Resumen Repartidor"
-            android:visibility="gone"
-            />
 
 
-        <Button
-            android:id="@+id/buttonConfigurar"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            android:text="Configurar"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".7"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-        <Button
-            android:layout_marginBottom="200dp"
-            android:id="@+id/aButtonSalir"
-            android:text="Salir"
-            style="@style/buttonRetornar"
-            />
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saint Michel"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/aConfiguracionLinearLayoutMenu"
+                    android:layout_marginTop="25dp"
+                    android:paddingHorizontal="5dp"
+
+
+                    >
+
+
+                        <Button
+                            android:id="@+id/buttonSeleccionarDia"
+                            style="@style/button"
+                            android:layout_marginBottom="25dp"
+                            android:text="Seleccionar Dia"
+                            />
+
+                        <Button
+                            android:id="@+id/buttonCambiarUsuario"
+                            style="@style/button"
+                            android:layout_marginBottom="25dp"
+                            android:text="Cambiar Usuario"
+                            />
+
+                        <Button
+                            android:id="@+id/buttonClientes"
+                            style="@style/button"
+                            android:layout_marginBottom="25dp"
+                            android:text="Clientes"
+                            />
+
+                        <Button
+                            android:id="@+id/buttonResumen"
+                            style="@style/button"
+                            android:layout_marginBottom="25dp"
+                            android:text="Resumen Repartidor"
+                            android:visibility="gone"
+                            />
+
+
+                        <Button
+                            android:id="@+id/buttonConfigurar"
+                            style="@style/button"
+                            android:layout_marginBottom="25dp"
+                            android:text="Configurar"
+                            />
+
+                        <Button
+                            android:id="@+id/aButtonSalir"
+                            android:text="Salir"
+                            style="@style/buttonRetornar"
+                            android:layout_marginBottom="25dp"
+                            />
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
 
 
     </LinearLayout>
 
-    </ScrollView>
 
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+
+

@@ -61,7 +61,7 @@ public class ADiaRepartidor extends ActivityGenerica
         diaRepartidor = Comunicador.getDiaRepartidor();
 
         aDiaRepartoCargarDia = (LinearLayout)findViewById(R.id.aDiaRepartoCargarDia);
-        aDiaRepartoDiaCargado = (ScrollView)findViewById(R.id.aDiaRepartoDiaCargado);
+        aDiaRepartoDiaCargado = (LinearLayout)findViewById(R.id.aDiaRepartoDiaCargado);
 
 
 
@@ -118,7 +118,7 @@ public class ADiaRepartidor extends ActivityGenerica
 
 
     private LinearLayout aDiaRepartoCargarDia;
-    private ScrollView aDiaRepartoDiaCargado;
+    private LinearLayout aDiaRepartoDiaCargado;
 
     private DiaRepartidor diaRepartidor;
 

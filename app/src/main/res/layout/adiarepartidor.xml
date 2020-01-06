@@ -4,229 +4,294 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="40dp"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/aDiaRepartoCargarDia"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
         android:orientation="vertical"
-        android:paddingHorizontal="30dp"
-        android:layout_marginTop="50dp"
         android:gravity="center"
         >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="El dia no ha sido cargado"
-            style="@style/texto"
-            android:textSize="24dp"
-            android:gravity="center"
-            />
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="50dp"
+            android:gravity="center"
             >
-            <Button
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:id="@+id/aDiaRepartoButtonCargarDia"
-            android:text="Cargar Dia"
-            style="@style/buttonStyle"
-            android:background="@drawable/boton"
-            android:layout_marginBottom="40dp"
-            />
-            <Button
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:id="@+id/aDiaRepartoButtonRetornar"
-            android:text="Retornar"
-            style="@style/buttonStyle"
-            android:background="@drawable/botonsalir"
-            />
 
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saint Michel"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/aDiaRepartoCargarDia"
+                        android:orientation="vertical"
+                        android:layout_marginTop="50dp"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="El dia no ha sido cargado"
+                            style="@style/texto"
+                            android:textSize="24dp"
+                            android:gravity="center"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingVertical="50dp"
+                            >
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:id="@+id/aDiaRepartoButtonCargarDia"
+                                android:text="Cargar Dia"
+                                style="@style/buttonStyle"
+                                android:background="@drawable/boton"
+                                android:layout_marginBottom="40dp"
+                                />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="80dp"
+                                android:id="@+id/aDiaRepartoButtonRetornar"
+                                android:text="Retornar"
+                                style="@style/buttonStyle"
+                                android:background="@drawable/botonsalir"
+                                />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/aDiaRepartoDiaCargado"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+
+                        >
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonRepartos"
+                            android:text="Repartos"
+                            style="@style/button"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+
+                        >
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonCargamento"
+                            android:text="Cargamento"
+                            style="@style/button"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+
+                        >
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonGastos"
+                            android:text="Gastos"
+                            style="@style/button"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+                        >
+
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonDatosDelDia"
+                            android:text="Datos del dia"
+                            style="@style/button"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+                        >
+
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonRecibirClientesFueraDeRecorrido"
+                            android:text="Recibir Clientes Fuera de Recorrido"
+                            style="@style/button"
+                            />
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+                        >
+
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonEnviarDia"
+                            android:text="Enviar Dia"
+                            style="@style/buttonEnviarDia"
+                            />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+                        >
+
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonAgregarCliente"
+                            android:text="Agregar Cliente"
+                            style="@style/button"
+                            />
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="10dp"
+                        >
+
+                        <Button
+                            android:layout_marginBottom="30dp"
+                            android:id="@+id/aDiaRepartoButtonSalir"
+                            android:text="Salir"
+                            style="@style/buttonRetornar"
+                            />
+                    </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
         </LinearLayout>
 
 
     </LinearLayout>
 
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id ="@+id/aDiaRepartoDiaCargado"
-            >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="30dp"
-                android:layout_marginTop="50dp"
-                >
-
-                <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="50dp"
-                android:paddingVertical="10dp"
-
-                >
-                <Button
-                    android:layout_marginBottom="30dp"
-                    android:id="@+id/aDiaRepartoButtonRepartos"
-                    android:text="Repartos"
-                    style="@style/button"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="50dp"
-                android:paddingVertical="10dp"
-
-                >
-                <Button
-                    android:layout_marginBottom="30dp"
-                    android:id="@+id/aDiaRepartoButtonCargamento"
-                    android:text="Cargamento"
-                    style="@style/button"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="50dp"
-                android:paddingVertical="10dp"
-
-                >
-                <Button
-                    android:layout_marginBottom="30dp"
-                    android:id="@+id/aDiaRepartoButtonGastos"
-                    android:text="Gastos"
-                    style="@style/button"
-                    />
-            </LinearLayout>
-
-                <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="50dp"
-                android:paddingVertical="10dp"
-                    >
-
-                <Button
-                    android:layout_marginBottom="30dp"
-                    android:id="@+id/aDiaRepartoButtonDatosDelDia"
-                    android:text="Datos del dia"
-                    style="@style/button"
-                    />
-            </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="50dp"
-                    android:paddingVertical="10dp"
-                    >
-
-                    <Button
-                        android:layout_marginBottom="30dp"
-                        android:id="@+id/aDiaRepartoButtonRecibirClientesFueraDeRecorrido"
-                        android:text="Recibir Clientes Fuera de Recorrido"
-                        style="@style/button"
-                        />
-                </LinearLayout>
-
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="50dp"
-                    android:paddingVertical="10dp"
-                    >
-
-                    <Button
-                        android:layout_marginBottom="30dp"
-                        android:id="@+id/aDiaRepartoButtonEnviarDia"
-                        android:text="Enviar Dia"
-                        style="@style/buttonEnviarDia"
-                        />
-                </LinearLayout>
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="50dp"
-                    android:paddingVertical="10dp"
-                    >
-
-                    <Button
-                        android:layout_marginBottom="30dp"
-                        android:id="@+id/aDiaRepartoButtonAgregarCliente"
-                        android:text="Agregar Cliente"
-                        style="@style/button"
-                        />
-                </LinearLayout>
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="50dp"
-                android:paddingVertical="10dp"
-                >
-
-                <Button
-                    android:layout_marginBottom="30dp"
-                    android:id="@+id/aDiaRepartoButtonSalir"
-                    android:text="Salir"
-                    style="@style/buttonRetornar"
-                    />
-            </LinearLayout>
-
-
-
-
-            </LinearLayout>
-
-        </ScrollView>
-
-
-
-
-
-
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>

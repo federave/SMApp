@@ -1,102 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
-    android:orientation="vertical"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
-        <ScrollView
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
 
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".7"
+            android:orientation="vertical"
+            android:gravity="center"
             >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:paddingHorizontal="40dp"
-                android:layout_marginTop="20dp"
+                android:text="Saint Michel"
+                />
 
-                >
+        </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="40dp"
-                android:gravity="center"
-                >
-
-                <DatePicker
-                    android:id="@+id/aSeleccionarDiaRepartidorDatePicker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginBottom="20dp"
-                    android:datePickerMode="spinner"
-                    android:calendarViewShown="false"
-                    android:scaleX="1.2"
-                    android:scaleY="1.2"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
 
-                    >
-                </DatePicker>
-
-
-                <Spinner
-                    android:id="@+id/aSeleccionarDiaRepartidorSpinnerRepartidores"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
-                    android:layout_marginTop="50dp"
-                    android:textAlignment="center"
-                    />
-
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="100dp"
                 >
-                <Button
-                    android:layout_marginTop="25dp"
-                    android:text="Seleccionar"
-                    android:id="@+id/aSeleccionarDiaRepartidorBotonSeleccionar"
-                    style="@style/button"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aSeleccionarDiaRepartidorButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
 
-
-            </LinearLayout>
+                    >
 
 
 
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+
+                        <DatePicker
+                            android:id="@+id/aSeleccionarDiaRepartidorDatePicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:datePickerMode="spinner"
+                            android:calendarViewShown="false"
+                            android:scaleX="1.0"
+                            android:scaleY="1.0"
+                            >
+                        </DatePicker>
 
 
-            </LinearLayout>
+                        <Spinner
+                            android:id="@+id/aSeleccionarDiaRepartidorSpinnerRepartidores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="50dp"
+                            android:layout_marginTop="50dp"
+                            android:textAlignment="center"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <Button
+                                android:layout_marginTop="25dp"
+                                android:text="Seleccionar"
+                                android:id="@+id/aSeleccionarDiaRepartidorBotonSeleccionar"
+                                style="@style/button"
+                                android:layout_marginBottom="50dp"
+                                />
+                            <Button
+                                android:id="@+id/aSeleccionarDiaRepartidorButtonRetornar"
+                                style="@style/buttonRetornar"
+                                android:text="Retornar"
+                                android:layout_marginBottom="50dp"
+
+                                />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
 
 
 
 
-        </ScrollView>
+                </LinearLayout>
 
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>

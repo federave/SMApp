@@ -59,6 +59,7 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 >
 
                 <LinearLayout
@@ -66,65 +67,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingHorizontal="5dp"
-
+                    android:gravity="center"
                     >
-
-
-                    <Button
-                        android:id="@+id/aConfiguracionBaseDeDatosButtonActualizarBD"
-                        android:text="Actualizar Base De Datos"
-                        style="@style/button"
-                        android:layout_marginBottom="60dp"
-                        />
-                    <Button
-                        android:id="@+id/aConfiguracionBaseDeDatosButtonActualizarClientes"
-                        android:text="Actualizar Clientes"
-                        style="@style/button"
-                        android:layout_marginBottom="60dp"
-                        />
-                    <Button
-                        android:id="@+id/aConfiguracionBaseDeDatosButtonEliminarDiaRepartidor"
-                        android:text="Eliminar Día"
-                        style="@style/button"
-                        android:layout_marginBottom="60dp"
-                        />
-
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="25dp"
-                        android:gravity="center"
-                        >
-
-                        <TextView
-                            android:id="@+id/aConfiguracionBaseDeDatosTextViewInfoBD"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Número de Días en BD: "
-                            style="@style/texto"
-                            android:textSize="24dp"
-                            android:textAlignment="center"
-                            />
-
-                    </LinearLayout>
-
-
-                    <Button
-                        android:layout_marginBottom="50dp"
-                        android:id="@+id/aConfiguracionBaseDeDatosButtonVaciarBD"
-                        android:text="Vaciar Base De Datos"
-                        style="@style/button"
-
-                        />
-
-                    <Button
-                        android:layout_marginBottom="40dp"
-                        android:id="@+id/aConfiguracionBaseDeDatosButtonRetornar"
-                        android:text="Retornar"
-                        style="@style/buttonRetornar"
-                        />
 
 
                 </LinearLayout>
@@ -161,10 +105,4 @@
 
 
 </LinearLayout>
-
-
-
-
-
-
 

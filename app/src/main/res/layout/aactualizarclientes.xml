@@ -2,82 +2,228 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="80dp"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
         android:orientation="vertical"
-        >
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:paddingHorizontal="40dp"
         android:gravity="center"
         >
 
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seleccionar Repartidor"
-            style="@style/texto"
-            android:textSize="28dp"
-            android:layout_marginBottom="50dp"
-            android:textColor="@color/colorAmarillo"
+            android:layout_height="0dp"
+            android:layout_weight=".7"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-            />
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saint Michel"
+                />
+
+        </LinearLayout>
 
 
-        <Spinner
-            android:id="@+id/aActualizarClientesSpinnerRepartidores"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center"
-            />
-
-        <Button
-            android:layout_marginBottom="40dp"
-            android:id="@+id/aActualizarClientesButtonActualizar"
-            android:text="Actualizar"
-            style="@style/button"
-            />
-
-        <TextView
-            android:id="@+id/aActualizarClientesTextViewInfoClientesRepartidores"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Resultado: "
-            style="@style/texto"
-            android:textSize="28dp"
-            android:layout_marginBottom="50dp"
-            android:textColor="@color/colorAmarillo"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-            />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+
+                    >
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Seleccionar Repartidor"
+                            style="@style/texto"
+                            android:textSize="28dp"
+                            android:layout_marginBottom="50dp"
+                            android:textColor="@color/colorAmarillo"
+                            android:textAlignment="center"
+                            />
+
+
+                        <Spinner
+                            android:id="@+id/aActualizarClientesSpinnerRepartidores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:textAlignment="center"
+                            />
+
+                        <Button
+                            android:layout_marginBottom="40dp"
+                            android:id="@+id/aActualizarClientesButtonActualizar"
+                            android:text="Actualizar"
+                            style="@style/button"
+                            />
+
+                        <TextView
+                            android:id="@+id/aActualizarClientesTextViewInfoClientesRepartidores"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Resultado: "
+                            style="@style/texto"
+                            android:textSize="28dp"
+                            android:layout_marginBottom="50dp"
+                            android:textColor="@color/colorAmarillo"
+
+                            />
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Seleccionar Vendedor"
+                            style="@style/texto"
+                            android:textSize="28dp"
+                            android:layout_marginBottom="50dp"
+                            android:textColor="@color/colorAmarillo"
+                            android:textAlignment="center"
+
+                            />
+
+
+                        <Spinner
+                            android:id="@+id/aActualizarClientesSpinnerVendedores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:textAlignment="center"
+                            />
+
+                        <Button
+                            android:id="@+id/aActualizarClientesButtonActualizarVendedores"
+                            android:text="Actualizar"
+                            style="@style/button"
+                            android:layout_marginBottom="40dp"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/aActualizarClientesTextViewInfoClientesVendedores"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Resultado: "
+                            style="@style/texto"
+                            android:textSize="28dp"
+                            android:layout_marginBottom="50dp"
+                            android:textColor="@color/colorAmarillo"
+                            />
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:orientation="vertical"
+                        >
+                        <Button
+                            android:id="@+id/aActualizarClientesButtonRetornar"
+                            android:text="Retornar"
+                            style="@style/buttonRetornar"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+
+        </LinearLayout>
+
+
+
+
 
 
 
@@ -85,85 +231,16 @@
 
 
 
-
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
         android:orientation="vertical"
-        android:paddingHorizontal="40dp"
         android:gravity="center"
         >
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seleccionar Vendedor"
-            style="@style/texto"
-            android:textSize="28dp"
-            android:layout_marginBottom="50dp"
-            android:textColor="@color/colorAmarillo"
-
-            />
-
-
-        <Spinner
-            android:id="@+id/aActualizarClientesSpinnerVendedores"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center"
-            />
-
-        <Button
-            android:id="@+id/aActualizarClientesButtonActualizarVendedores"
-            android:text="Actualizar"
-            style="@style/button"
-            />
-
-
-        <TextView
-        android:id="@+id/aActualizarClientesTextViewInfoClientesVendedores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Resultado: "
-        style="@style/texto"
-        android:textSize="28dp"
-        android:layout_marginBottom="50dp"
-        android:textColor="@color/colorAmarillo"
-
-        />
-
-
-
-
-
     </LinearLayout>
 
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical"
-        android:paddingHorizontal="40dp"
-        >
-        <Button
-            android:id="@+id/aActualizarClientesButtonRetornar"
-            android:text="Retornar"
-            style="@style/buttonRetornar"
-            />
-    </LinearLayout>
-
-
-    </LinearLayout>
-
-    </ScrollView>
 
 
 

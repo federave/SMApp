@@ -61,6 +61,8 @@ public class ACarga extends Activity
         else if(Comunicador.getModificarCarga())
             {
             this.buttonIngresarCarga.setVisibility(View.GONE);
+            this.buttonModificarCarga.setVisibility(View.VISIBLE);
+
             this.carga = (Carga)Comunicador.getCargaSeleccionada().getCopia();
             try
                 {

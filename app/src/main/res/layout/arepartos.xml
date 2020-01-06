@@ -4,94 +4,152 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
-    <!--
-    <RelativeLayout style="@style/relativeLayoutCabecera">
-        <ImageView style="@style/imageViewLeftCabecera" android:id="@+id/imageViewLeftCabecera"/>
-        <TextView style="@style/textViewCabeceraRelativeLayout" android:text="Saint Michel"/>
-        <ImageView style="@style/imageViewRightCabecera" android:id="@+id/imageViewRightCabecera"/>
-    </RelativeLayout>
-    -->
 
 
-    <LinearLayout style="@style/linearLayoutCabecera"
-        android:layout_weight="1">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/aDiaRepartoCargarDia"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
         android:orientation="vertical"
-        android:paddingHorizontal="40dp"
-        android:paddingVertical="10dp"
         android:gravity="center"
-        android:layout_weight="10"
         >
 
 
-    <LinearLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".7"
             android:orientation="vertical"
-            android:paddingHorizontal="70dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="30dp"
-            >
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="25dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#00000F"
             android:gravity="center"
-            android:hint="Buscar Cliente"
-            android:id="@+id/aRepartoEditTextBuscar"
+            >
 
-            />
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saint Michel"
+                />
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"
             android:orientation="vertical"
-            android:layout_weight="18"
-            android:paddingVertical="20dp"
-
             >
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/aRepartosListViewRepartos"
-            />
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/aDiaRepartoCargarDia"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        >
+
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_marginBottom="30dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            >
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textSize="25dp"
+                                android:textColor="#FFFFFF"
+                                android:textColorHint="#00000F"
+                                android:gravity="center"
+                                android:hint="Buscar Cliente"
+                                android:id="@+id/aRepartoEditTextBuscar"
+
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3.5"
+                            >
+
+                            <ListView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/aRepartosListViewRepartos"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.3"
+                            android:layout_marginTop="10dp"
+                            >
+                            <Button
+                                android:id="@+id/aRepartosButtonRetornar"
+                                style="@style/buttonRetornar"
+                                android:text="Retornar"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
 
         </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".08"
             android:orientation="vertical"
-            android:layout_weight=".1"
-            android:layout_marginTop="20dp"
-            android:paddingHorizontal="50dp"
-            android:layout_marginBottom="20dp"
+            android:gravity="center"
             >
-        <Button
-            android:id="@+id/aRepartosButtonRetornar"
-            style="@style/buttonRetornar"
-            android:text="Retornar"
-            />
-
         </LinearLayout>
+
 
     </LinearLayout>
 
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>

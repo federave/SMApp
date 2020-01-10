@@ -4,208 +4,278 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingVertical="20dp"
-    android:paddingHorizontal="20dp"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="10dp"
-        >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
         android:orientation="vertical"
-        android:paddingHorizontal="30dp"
-        android:paddingVertical="30dp"
+        android:gravity="center"
+        >
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
         android:gravity="center"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descargas Ingresadas"
-            style="@style/texto"
-            android:textSize="28dp"
-            android:layout_marginBottom="40dp"
-            />
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/aDescargasMenuListViewDescargas"
-            />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
+            android:gravity="center"
             >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total descargado"
-            style="@style/texto"
-            android:textSize="28dp"
-            android:layout_marginBottom="30dp"
-            />
-
             <TextView
-                android:layout_width="match_parent"
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bidones 20L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewBidones20L"
-                android:layout_marginBottom="20dp"
+                android:text="Saint Michel"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 20L Vacios: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewBidones20LVacios"
-                android:layout_marginBottom="20dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 12L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewBidones12L"
-                android:layout_marginBottom="20dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 12L Vacios: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewBidones12LVacios"
-                android:layout_marginBottom="20dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 10L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewBidones10L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 8L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewBidones8L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bidones 5L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewBidones5L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pack Botellas 2L: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewPackBotellas2L"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pack Botellas 500mL: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewPackBotellas500mL"
-                android:layout_marginBottom="20dp"
-                />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Vertedores: "
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewVertedores"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dispensers"
-                style="@style/textoDatosCargamento"
-                android:id="@+id/aDescargasMenuTextViewDispensers"
-                android:layout_marginBottom="20dp"
-                />
-
-
-
-
-
-
-
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Incoherencia:"
-            style="@style/texto"
-            android:textSize="28dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:id="@+id/aDescargasTextViewIncoherencias"
-            android:visibility="gone"
-            />
 
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"
             android:orientation="vertical"
-            android:paddingHorizontal="90dp"
-            android:layout_marginTop="50dp"
+            android:gravity="center"
             >
 
-            <Button
-                android:id="@+id/aDescargasMenuButtonIngresarDescarga"
-                android:text="Ingresar Descarga"
-                style="@style/button"
-                android:layout_marginBottom="40dp"
-                />
 
-            <Button
-                android:id="@+id/aDescargasMenuButtonRetornar"
-                style="@style/buttonRetornar"
-                android:text="Retornar"
-                />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Descargas Ingresadas"
+                        style="@style/texto"
+                        android:textSize="28dp"
+                        android:layout_marginBottom="40dp"
+                        android:textAlignment="center"
+                        />
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:id="@+id/aDescargasMenuListViewDescargas"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total descargado"
+                            style="@style/texto"
+                            android:textSize="28dp"
+                            android:layout_marginBottom="30dp"
+                            android:textAlignment="center"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 20L: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewBidones20L"
+                            android:layout_marginBottom="20dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 20L Vacios: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewBidones20LVacios"
+                            android:layout_marginBottom="20dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 12L: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewBidones12L"
+                            android:layout_marginBottom="20dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 12L Vacios: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewBidones12LVacios"
+                            android:layout_marginBottom="20dp"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 10L: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewBidones10L"
+                            android:layout_marginBottom="20dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 8L: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewBidones8L"
+                            android:layout_marginBottom="20dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 5L: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewBidones5L"
+                            android:layout_marginBottom="20dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pack Botellas 2L: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewPackBotellas2L"
+                            android:layout_marginBottom="20dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pack Botellas 500mL: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewPackBotellas500mL"
+                            android:layout_marginBottom="20dp"
+                            />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vertedores: "
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewVertedores"
+                            android:layout_marginBottom="20dp"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dispensers"
+                            style="@style/textoDatosCargamento"
+                            android:id="@+id/aDescargasMenuTextViewDispensers"
+                            android:layout_marginBottom="20dp"
+                            />
+
+
+
+
+
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Incoherencia:"
+                            style="@style/texto"
+                            android:textSize="28dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="20dp"
+                            android:id="@+id/aDescargasTextViewIncoherencias"
+                            android:visibility="gone"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="50dp"
+                        >
+
+                        <Button
+                            android:id="@+id/aDescargasMenuButtonIngresarDescarga"
+                            android:text="Ingresar Descarga"
+                            style="@style/button"
+                            android:layout_marginBottom="40dp"
+                            />
+
+                        <Button
+                            android:id="@+id/aDescargasMenuButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
         </LinearLayout>
 
 
     </LinearLayout>
 
-</ScrollView>
 
 
-
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+

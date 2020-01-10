@@ -4,390 +4,462 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
+
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
+            android:gravity="center"
             >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="120dp"
-                android:layout_marginBottom="40dp"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Datos de la Descarga"
-                    style="@style/texto"
-                    android:textSize="30dp"
-                    />
-            </LinearLayout>
+                android:text="Saint Michel"
+                />
+
+        </LinearLayout>
 
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
+
                 >
-                <TextView
-                    android:layout_width="220dp"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bidones 20L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextBidones20L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 20L Vacios: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextBidones20LVacios"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Datos de la Descarga"
+                            style="@style/texto"
+                            android:textSize="30dp"
+                            android:textAlignment="center"
+                            />
+                    </LinearLayout>
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 20L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextBidones20L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 12L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
 
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextBidones12L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 12L Vacios: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextBidones12LVacios"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 20L Vacios"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextBidones20LVacios"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
 
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 10L: "
-                    style="@style/textoDatosCargamento"
-                    android:textSize="24dp"
-                    android:textAlignment="center"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 12L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
 
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextBidones10L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextBidones12L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 8L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextBidones8L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 5L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextBidones5L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Pack Botellas 2L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextPackBotellas2L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Pack Botellas 500mL: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextPackBotellas500mL"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 12L Vacios"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextBidones12LVacios"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
 
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Vertedores: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditTextVertedores"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 10L"
+                            style="@style/textoDatosCargamento"
+                            android:textSize="24dp"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextBidones10L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 8L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextBidones8L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 5L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextBidones5L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Pack Botellas 2L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextPackBotellas2L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Pack Botellas 500mL"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextPackBotellas500mL"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Dispenser Frio Calor: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
 
-                    />
-                <EditText
-                    android:id="@+id/aDescargaEditDispensers"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Vertedores"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditTextVertedores"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Dispenser Frio Calor"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
 
-
-
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="120dp"
-                android:layout_marginTop="50dp"
-                >
-                <Button
-                    android:id="@+id/aDescargaButtonIngresarDescarga"
-                    style="@style/button"
-                    android:text="Ingresar Descarga"
-                    android:layout_marginBottom="50dp"
-                    />
-
-                <Button
-                    android:id="@+id/aDescargaButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    android:layout_marginBottom="50dp"
-                    />
-
-            </LinearLayout>
+                            />
+                        <EditText
+                            android:id="@+id/aDescargaEditDispensers"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
 
 
 
 
 
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="50dp"
+                        >
+                        <Button
+                            android:id="@+id/aDescargaButtonIngresarDescarga"
+                            style="@style/button"
+                            android:text="Ingresar Descarga"
+                            android:layout_marginBottom="50dp"
+                            />
+
+                        <Button
+                            android:id="@+id/aDescargaButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            android:layout_marginBottom="50dp"
+                            />
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </ScrollView>
 
 
         </LinearLayout>
 
-    </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+
+

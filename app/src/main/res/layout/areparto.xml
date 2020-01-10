@@ -1,129 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
         android:orientation="vertical"
-        android:paddingHorizontal="140dp"
-
+        android:gravity="center"
         >
 
 
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre del Cliente"
-            style="@style/texto"
-            android:textSize="28dp"
-            android:layout_marginBottom="50dp"
-            android:id="@+id/aRepartoTextViewNombreCliente"
-            />
+            android:layout_height="0dp"
+            android:layout_weight=".9"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saint Michel"
+                />
+
+        </LinearLayout>
 
 
-        <Button
-            android:id="@+id/aRepartoButtonVentaProductos"
-            android:text="Venta Productos"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-        <Button
-            android:id="@+id/aRepartoButtonDeudaProductos"
-            android:text="Deuda Productos"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
 
-        <Button
-            android:id="@+id/aRepartoButtonAlquiler"
-            android:text="Alquiler"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-        <Button
-            android:id="@+id/aRepartoButtonVacios"
-            android:text="Vacios"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
+                >
 
-        <Button
-            android:id="@+id/aRepartoButtonVertedores"
-            android:text="Vertedores"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
 
-        <Button
-            android:id="@+id/aRepartoButtonDispensers"
-            android:text="Dispensers"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
 
-        <Button
-            android:id="@+id/aRepartoButtonDatosCliente"
-            android:text="Datos Cliente"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
-        <Button
-            android:id="@+id/aRepartoButtonObservacion"
-            android:text="Observación"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
-        <Button
-            android:id="@+id/aRepartoButtonVisita"
-            android:text="Visita"
-            style="@style/button"
-            android:layout_marginBottom="50dp"
-            />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre del Cliente"
+                        style="@style/texto"
+                        android:textSize="22dp"
+                        android:layout_marginBottom="50dp"
+                        android:id="@+id/aRepartoTextViewNombreCliente"
+                        android:textAlignment="center"
+                        />
 
-        <Button
-            android:id="@+id/aRepartoButtonRetornar"
-            style="@style/buttonRetornar"
-            android:text="Retornar"
-            android:layout_marginBottom="50dp"
-            />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonVentaProductos"
+                        android:text="Venta Productos"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonDeudaProductos"
+                        android:text="Deuda Productos"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonAlquiler"
+                        android:text="Alquiler"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonVacios"
+                        android:text="Vacios"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonVertedores"
+                        android:text="Vertedores"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonDispensers"
+                        android:text="Dispensers"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonDatosCliente"
+                        android:text="Datos Cliente"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+                    <Button
+                        android:id="@+id/aRepartoButtonObservacion"
+                        android:text="Observación"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+                    <Button
+                        android:id="@+id/aRepartoButtonVisita"
+                        android:text="Visita"
+                        style="@style/button"
+                        android:layout_marginBottom="50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/aRepartoButtonRetornar"
+                        style="@style/buttonRetornar"
+                        android:text="Retornar"
+                        android:layout_marginBottom="50dp"
+                        />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
 
     </LinearLayout>
 
 
 
-    </ScrollView>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+

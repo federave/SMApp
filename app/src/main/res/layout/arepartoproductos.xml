@@ -4,503 +4,567 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
-    android:id="@+id/aRepartoProductosLinearLayoutContenedor"
-
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
 
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
+            android:gravity="center"
             >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="40dp"
-                android:layout_marginBottom="40dp"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Venta Productos / Deuda Productos"
-                    style="@style/texto"
-                    android:textSize="30dp"
-                    android:id="@+id/aRepartoProductosTextViewTitulo"
-                    />
-            </LinearLayout>
+                android:text="Saint Michel"
+                />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Dinero: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    android:id="@+id/aRepartoProductosTextViewDinero"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                android:id="@+id/aRepartoProductosLinearLayoutBidones20L"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 20L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    />
-                <EditText
-                    android:id="@+id/aRepartoProductosEditTextBidones20L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                android:id="@+id/aRepartoProductosLinearLayoutBidones12L"
-
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 12L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aRepartoProductosEditTextBidones12L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 10L: "
-                    style="@style/textoDatosCargamento"
-                    android:textSize="24dp"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aRepartoProductosEditTextBidones10L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 8L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aRepartoProductosEditTextBidones8L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 5L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aRepartoProductosEditTextBidones5L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Pack Botellas 2L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aRepartoProductosEditTextPackBotellas2L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Pack Botellas 500mL: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-
-                    />
-                <EditText
-                    android:id="@+id/aRepartoProductosEditTextPackBotellas500mL"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-
-
-
-
-
-            </LinearLayout>
-
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="3"
             android:orientation="vertical"
-            android:id="@+id/aRepartoProductosLinearLayoutBonificados"
-            android:visibility="gone"
+            android:gravity="center"
             >
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:paddingHorizontal="50dp"
-                    android:id="@+id/aRepartoProductosLinearLayoutBidones20LBonificados"
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-                    >
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:text="Bidones 20L Bonificados: "
-                        style="@style/textoDatosCargamento"
-                        android:textAlignment="center"
-                        />
-                    <EditText
-                        android:id="@+id/aRepartoProductosEditTextBidones20LBonificados"
-                        style="@style/Widget.AppCompat.EditText"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="24dp"
-                        android:inputType="number"
-                        />
-                </LinearLayout>
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:paddingHorizontal="50dp"
-                    android:id="@+id/aRepartoProductosLinearLayoutBidones12LBonificados"
-
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
                     >
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:text="Bidones 12L Bonificados: "
-                        style="@style/textoDatosCargamento"
-                        android:textAlignment="center"
 
-                        />
-                    <EditText
-                        android:id="@+id/aRepartoProductosEditTextBidones12LBonificados"
-                        style="@style/Widget.AppCompat.EditText"
-                        android:layout_width="150dp"
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="24dp"
-                        android:inputType="number"
-                        />
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Venta Productos / Deuda Productos"
+                            style="@style/texto"
+                            android:textSize="30dp"
+                            android:id="@+id/aRepartoProductosTextViewTitulo"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="50dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dinero: "
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            android:id="@+id/aRepartoProductosTextViewDinero"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:id="@+id/aRepartoProductosLinearLayoutBidones20L"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 20L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aRepartoProductosEditTextBidones20L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:id="@+id/aRepartoProductosLinearLayoutBidones12L"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 12L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aRepartoProductosEditTextBidones12L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 10L"
+                            style="@style/textoDatosCargamento"
+                            android:textSize="24dp"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aRepartoProductosEditTextBidones10L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 8L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aRepartoProductosEditTextBidones8L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 5L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aRepartoProductosEditTextBidones5L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pack Botellas 2L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aRepartoProductosEditTextPackBotellas2L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pack Botellas 500mL"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+
+                            />
+                        <EditText
+                            android:id="@+id/aRepartoProductosEditTextPackBotellas500mL"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+
+
+
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/aRepartoProductosLinearLayoutBonificados"
+                        android:visibility="gone"
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="40dp"
+                            android:id="@+id/aRepartoProductosLinearLayoutBidones20LBonificados"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Bidones 20L Bonificados"
+                                style="@style/textoDatosCargamento"
+                                android:textAlignment="center"
+                                />
+                            <EditText
+                                android:id="@+id/aRepartoProductosEditTextBidones20LBonificados"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="40dp"
+                            android:gravity="center"
+                            android:id="@+id/aRepartoProductosLinearLayoutBidones12LBonificados"
+
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Bidones 12L Bonificados"
+                                style="@style/textoDatosCargamento"
+                                android:textAlignment="center"
+                                />
+                            <EditText
+                                android:id="@+id/aRepartoProductosEditTextBidones12LBonificados"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="40dp"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Bidones 10L Bonificados"
+                                style="@style/textoDatosCargamento"
+                                android:textSize="24dp"
+                                android:textAlignment="center"
+
+                                />
+                            <EditText
+                                android:id="@+id/aRepartoProductosEditTextBidones10LBonificados"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="40dp"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Bidones 8L Bonificados"
+                                style="@style/textoDatosCargamento"
+                                android:textAlignment="center"
+                                />
+                            <EditText
+                                android:id="@+id/aRepartoProductosEditTextBidones8LBonificados"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="40dp"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Bidones 5L Bonificados"
+                                style="@style/textoDatosCargamento"
+                                android:textAlignment="center"
+
+                                />
+                            <EditText
+                                android:id="@+id/aRepartoProductosEditTextBidones5LBonificados"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="40dp"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pack Botellas 2L Bonificados: "
+                                style="@style/textoDatosCargamento"
+                                android:textAlignment="center"
+
+                                />
+                            <EditText
+                                android:id="@+id/aRepartoProductosEditTextPackBotellas2LBonificados"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="40dp"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pack Botellas 500mL Bonificados"
+                                style="@style/textoDatosCargamento"
+                                android:textAlignment="center"
+
+                                />
+                            <EditText
+                                android:id="@+id/aRepartoProductosEditTextPackBotellas500mLBonificados"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="24dp"
+                                android:inputType="number"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="50dp"
+                        >
+                        <Button
+                            android:id="@+id/aRepartoProductosButtonGuardar"
+                            style="@style/button"
+                            android:text="Guardar Venta/Deuda"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aRepartoProductosButtonBorrarDatos"
+                            style="@style/button"
+                            android:text="Borrar Datos"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aRepartoProductosButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            android:layout_marginBottom="50dp"
+                            />
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:paddingHorizontal="50dp"
-                    >
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:text="Bidones 10L Bonificados: "
-                        style="@style/textoDatosCargamento"
-                        android:textSize="24dp"
-                        android:textAlignment="center"
+            </ScrollView>
 
-                        />
-                    <EditText
-                        android:id="@+id/aRepartoProductosEditTextBidones10LBonificados"
-                        style="@style/Widget.AppCompat.EditText"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="24dp"
-                        android:inputType="number"
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:paddingHorizontal="50dp"
-                    >
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:text="Bidones 8L Bonificados: "
-                        style="@style/textoDatosCargamento"
-                        android:textAlignment="center"
-
-                        />
-                    <EditText
-                        android:id="@+id/aRepartoProductosEditTextBidones8LBonificados"
-                        style="@style/Widget.AppCompat.EditText"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="24dp"
-                        android:inputType="number"
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:paddingHorizontal="50dp"
-                    >
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:text="Bidones 5L Bonificados: "
-                        style="@style/textoDatosCargamento"
-                        android:textAlignment="center"
-
-                        />
-                    <EditText
-                        android:id="@+id/aRepartoProductosEditTextBidones5LBonificados"
-                        style="@style/Widget.AppCompat.EditText"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="24dp"
-                        android:inputType="number"
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:paddingHorizontal="50dp"
-                    >
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:text="Pack Botellas 2L Bonificados: "
-                        style="@style/textoDatosCargamento"
-                        android:textAlignment="center"
-
-                        />
-                    <EditText
-                        android:id="@+id/aRepartoProductosEditTextPackBotellas2LBonificados"
-                        style="@style/Widget.AppCompat.EditText"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="24dp"
-                        android:inputType="number"
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="30dp"
-                    android:paddingHorizontal="50dp"
-                    >
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:text="Pack Botellas 500mL Bonificados: "
-                        style="@style/textoDatosCargamento"
-                        android:textAlignment="center"
-
-                        />
-                    <EditText
-                        android:id="@+id/aRepartoProductosEditTextPackBotellas500mLBonificados"
-                        style="@style/Widget.AppCompat.EditText"
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="24dp"
-                        android:inputType="number"
-                        />
-
-                </LinearLayout>
 
         </LinearLayout>
 
 
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="120dp"
-                android:layout_marginTop="50dp"
-                >
-                <Button
-                    android:id="@+id/aRepartoProductosButtonGuardar"
-                    style="@style/button"
-                    android:text="Guardar Venta/Deuda"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aRepartoProductosButtonBorrarDatos"
-                    style="@style/button"
-                    android:text="Borrar Datos"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aRepartoProductosButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    android:layout_marginBottom="50dp"
-                    />
-
-            </LinearLayout>
-
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
         </LinearLayout>
 
-    </ScrollView>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>

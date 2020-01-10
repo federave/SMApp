@@ -4,86 +4,158 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
+
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
-            android:paddingHorizontal="50dp"
+            android:gravity="center"
             >
 
             <TextView
+                style="@style/textViewCabecera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Observación"
-                style="@style/texto"
-                android:textSize="30dp"
-                android:layout_marginBottom="40dp"
+                android:text="Saint Michel"
                 />
 
-
-            <EditText
-                android:id="@+id/aObservacionObservacion"
-                style="@style/Widget.AppCompat.EditText"
-                android:layout_width="500dp"
-                android:layout_height="200dp"
-                android:singleLine="false"
-                android:lines="5"
-                android:textColor="@android:color/background_light"
-                android:textSize="24dp"
-                android:inputType="textMultiLine"
-                android:scrollHorizontally="false"
-                android:gravity="top|left"
-                />
+        </LinearLayout>
 
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="120dp"
-                android:layout_marginTop="50dp"
+
                 >
-                <Button
-                    android:id="@+id/aObservacionButtonGuardar"
-                    style="@style/button"
-                    android:text="Guardar"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aObservacionButtonBorrar"
-                    style="@style/button"
-                    android:text="Borrar"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aObservacionButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    android:layout_marginBottom="50dp"
-                    />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
 
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Observación"
+                        style="@style/texto"
+                        android:textSize="30dp"
+                        android:layout_marginBottom="40dp"
+                        />
+
+
+                    <EditText
+                        android:id="@+id/aObservacionObservacion"
+                        style="@style/Widget.AppCompat.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:singleLine="false"
+                        android:lines="5"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="24dp"
+                        android:inputType="textMultiLine"
+                        android:scrollHorizontally="false"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="50dp"
+                        >
+                        <Button
+                            android:id="@+id/aObservacionButtonGuardar"
+                            style="@style/button"
+                            android:text="Guardar"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aObservacionButtonBorrar"
+                            style="@style/button"
+                            android:text="Borrar"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aObservacionButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            android:layout_marginBottom="50dp"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </ScrollView>
 
 
         </LinearLayout>
 
-    </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+

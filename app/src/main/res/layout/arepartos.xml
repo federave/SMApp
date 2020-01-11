@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@drawable/fondo"
+    >
+<!--
+<RelativeLayout style="@style/relativeLayoutCabecera">
+    <ImageView style="@style/imageViewLeftCabecera" android:id="@+id/imageViewLeftCabecera"/>
+    <TextView style="@style/textViewCabeceraRelativeLayout" android:text="Saint Michel"/>
+    <ImageView style="@style/imageViewRightCabecera" android:id="@+id/imageViewRightCabecera"/>
+</RelativeLayout>
+-->
+
+
+<LinearLayout style="@style/linearLayoutCabecera"
+    android:layout_weight="1">
+    <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+</LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/aDiaRepartoCargarDia"
+    android:orientation="vertical"
+    android:paddingVertical="10dp"
+    android:gravity="center"
+    android:layout_weight="10"
+    android:paddingHorizontal="5dp"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight=".4"
+        android:layout_marginBottom="10dp"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="24dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#00000F"
+            android:gravity="center"
+            android:hint="Buscar Cliente"
+            android:id="@+id/aRepartoEditTextBuscar"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="18"
+        android:paddingVertical="5dp"
+
+        >
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aRepartosListViewRepartos"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight=".3"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        >
+        <Button
+            android:id="@+id/aRepartosButtonRetornar"
+            style="@style/buttonRetornar"
+            android:text="Retornar"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+</LinearLayout>
+<!--
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -52,9 +151,23 @@
             android:layout_height="0dp"
             android:layout_weight="3"
             android:orientation="vertical"
+            android:gravity="center"
             >
 
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
 
 
                     <LinearLayout
@@ -66,13 +179,7 @@
                         >
 
 
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_marginBottom="30dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            >
+
                             <EditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -80,48 +187,32 @@
                                 android:textSize="25dp"
                                 android:textColor="#FFFFFF"
                                 android:textColorHint="#00000F"
-                                android:gravity="center"
                                 android:hint="Buscar Cliente"
                                 android:id="@+id/aRepartoEditTextBuscar"
-
+                                android:layout_marginBottom="15dp"
+                                android:textAlignment="center"
                                 />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="3.5"
-                            >
 
                             <ListView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/aRepartosListViewRepartos"
+                                android:layout_marginBottom="15dp"
                                 />
 
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1.3"
-                            android:layout_marginTop="10dp"
-                            >
                             <Button
                                 android:id="@+id/aRepartosButtonRetornar"
                                 style="@style/buttonRetornar"
                                 android:text="Retornar"
                                 />
 
-                        </LinearLayout>
-
                     </LinearLayout>
 
 
+
+                </LinearLayout>
+
+            </ScrollView>
 
 
         </LinearLayout>
@@ -131,7 +222,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight=".08"
+            android:layout_weight=".1"
             android:orientation="vertical"
             android:gravity="center"
             >
@@ -153,3 +244,11 @@
 
 
 </LinearLayout>
+
+
+
+
+
+-->
+
+

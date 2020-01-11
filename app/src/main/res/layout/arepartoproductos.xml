@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="@drawable/fondo"
+    android:id="@+id/aRepartoProductosLinearLayoutContenedor"
+
     >
 
 

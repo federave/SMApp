@@ -1,78 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
     >
 
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
+
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
-            android:paddingHorizontal="10dp"
+            android:gravity="center"
             >
 
             <TextView
-                android:layout_width="match_parent"
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vertedores"
-                style="@style/texto"
-                android:textSize="28dp"
-                android:layout_marginBottom="50dp"
+                android:text="Saint Michel"
                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="100dp"
-                >
-                <Button
-                    android:id="@+id/aVertedoresButtonVenta"
-                    android:text="Vender"
-                    style="@style/button"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aVertedoresButtonEntrega"
-                    android:text="Entregar"
-                    style="@style/button"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aVertedoresButtonCambio"
-                    android:text="Cambiar"
-                    style="@style/button"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aVertedoresButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    android:layout_marginBottom="50dp"
-                    />
-
-            </LinearLayout>
 
         </LinearLayout>
 
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vertedores"
+                        style="@style/texto"
+                        android:textSize="28dp"
+                        android:layout_marginBottom="50dp"
+                        android:textAlignment="center"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <Button
+                            android:id="@+id/aVertedoresButtonVenta"
+                            android:text="Vender"
+                            style="@style/button"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aVertedoresButtonEntrega"
+                            android:text="Entregar"
+                            style="@style/button"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aVertedoresButtonCambio"
+                            android:text="Cambiar"
+                            style="@style/button"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aVertedoresButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            android:layout_marginBottom="50dp"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+
+
+

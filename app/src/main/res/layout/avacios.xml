@@ -4,132 +4,206 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:background="@drawable/fondo"
-    android:id="@+id/aRepartoProductosLinearLayoutContenedor"
-
     >
 
-    <LinearLayout style="@style/linearLayoutCabecera">
-        <TextView style="@style/textViewCabecera" android:text="Saint Michel"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
     </LinearLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:gravity="center"
         >
+
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight=".9"
             android:orientation="vertical"
+            android:gravity="center"
             >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
+            <TextView
+                style="@style/textViewCabecera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="40dp"
-                android:layout_marginBottom="40dp"
-                android:gravity="center"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vacios"
-                    style="@style/texto"
-                    android:textSize="30dp"
-                    />
-            </LinearLayout>
+                android:text="Saint Michel"
+                />
+
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-            <LinearLayout
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
-                >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 20L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    />
-                <EditText
-                    android:id="@+id/aVaciosEditTextBidones20L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp"
-                android:paddingHorizontal="50dp"
                 >
-                <TextView
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:text="Bidones 12L: "
-                    style="@style/textoDatosCargamento"
-                    android:textAlignment="center"
-                    />
-                <EditText
-                    android:id="@+id/aVaciosEditTextBidones12L"
-                    style="@style/Widget.AppCompat.EditText"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="24dp"
-                    android:inputType="number"
-                    />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="150dp"
-                android:layout_marginTop="50dp"
-                >
-                <Button
-                    android:id="@+id/aVaciosButtonGuardar"
-                    style="@style/button"
-                    android:text="Guardar"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aVaciosButtonBorrarDatos"
-                    style="@style/button"
-                    android:text="Borrar Datos"
-                    android:layout_marginBottom="50dp"
-                    />
-                <Button
-                    android:id="@+id/aVaciosButtonRetornar"
-                    style="@style/buttonRetornar"
-                    android:text="Retornar"
-                    android:layout_marginBottom="50dp"
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp"
+                    android:gravity="center"
+                    >
 
-            </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="40dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vacios"
+                            style="@style/texto"
+                            android:textSize="30dp"
+                            />
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 20L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aVaciosEditTextBidones20L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="30dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Bidones 12L"
+                            style="@style/textoDatosCargamento"
+                            android:textAlignment="center"
+                            />
+                        <EditText
+                            android:id="@+id/aVaciosEditTextBidones12L"
+                            style="@style/Widget.AppCompat.EditText"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="24dp"
+                            android:inputType="number"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="50dp"
+                        >
+                        <Button
+                            android:id="@+id/aVaciosButtonGuardar"
+                            style="@style/button"
+                            android:text="Guardar"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aVaciosButtonBorrarDatos"
+                            style="@style/button"
+                            android:text="Borrar Datos"
+                            android:layout_marginBottom="50dp"
+                            />
+                        <Button
+                            android:id="@+id/aVaciosButtonRetornar"
+                            style="@style/buttonRetornar"
+                            android:text="Retornar"
+                            android:layout_marginBottom="50dp"
+                            />
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </ScrollView>
 
 
         </LinearLayout>
 
-    </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".2"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight=".5"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+    </LinearLayout>
 
 
 </LinearLayout>
+
+
